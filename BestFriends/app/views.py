@@ -27,7 +27,7 @@ def contact(request):
         'app/contact.html',
         {
             'title':'Contact',
-            'message':'Your contact page.',
+            'message':'Please do not hesitate to contact us with the information below.',
             'year':datetime.now().year,
         }
     )
@@ -40,7 +40,8 @@ def about(request):
         'app/about.html',
         {
             'title':'About',
-            'message':'Your application description page.',
+            'message':'This project is being developed by Kexin Huang & Dewei Liu who are the best friends in the world, since 14 Aug 2018!',
+            'content':'',
             'year':datetime.now().year,
         }
     )
