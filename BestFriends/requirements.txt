@@ -1,1 +1,4 @@
-django >=1.9, <2
+Django==1.11.15
+pip==10.0.1
+pytz==2018.5
+setuptools==39.0.1
