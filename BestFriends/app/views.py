@@ -10,14 +10,9 @@ from datetime import datetime
 def home(request):
     """Renders the home page."""
     assert isinstance(request, HttpRequest)
-
-    finish_time = datetime.strptime("31 08 2018 23:59:59","%d %m %Y %H:%M:%S")
-    duration = finish_time - datetime.now()
-    duration_str = "%d days, %d hours, %d minutes and %d seconds" % (duration.days,duration.seconds // 3600,(duration.seconds // 60) % 60,(duration.seconds) % 60)
     return render(request,
         'app/index.html',
         {
-            'time_to_finish':duration_str,
             'title':'Home Page',
             'year':datetime.now().year,
         })
