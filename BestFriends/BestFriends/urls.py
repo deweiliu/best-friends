@@ -43,4 +43,7 @@ urlpatterns = [
 
     # Uncomment the next line to enable the admin:
     url(r'^admin/', include(admin.site.urls)),
+
+    # 404 error
+    url(r'',app.views.error404,name='404error')
 ]

@@ -39,3 +39,7 @@ def about(request):
             'content':'',
             'year':datetime.now().year,
         })
+def error404(request):
+    assert isinstance(request, HttpRequest)
+    return render(request,'app/404error.html',{
+        })
