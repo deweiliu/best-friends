@@ -124,3 +124,39 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATIC_ROOT = posixpath.join(*(BASE_DIR.split(os.path.sep) + ['static']))
+
+#####################
+#delete this block
+prime_number=[2]
+compute_gap=1 # 1 second
+#############
+
+#####################
+#delete this block
+from threading import Thread
+import time
+def is_prime(num):
+    for i in range(2,num):
+        if (num % i) == 0:
+            return False
+    return True
+
+def next_prime_number(prime):
+    prime+=1
+    while (not is_prime(prime)):
+        prime+=1
+    
+    return prime
+
+def biggest_prime_number():
+    from BestFriends.settings import compute_gap
+    from BestFriends.settings import prime_number
+    while True:
+        prime=prime_number[0]
+        prime_number[0]=next_prime_number(prime)
+        time.sleep(compute_gap)
+            
+
+thread=Thread(target=biggest_prime_number)
+#thread.start()
+#############

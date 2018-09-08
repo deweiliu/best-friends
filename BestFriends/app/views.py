@@ -6,7 +6,8 @@ from django.shortcuts import render
 from django.http import HttpRequest
 from django.template import RequestContext
 from datetime import datetime
-
+from BestFriends.settings import prime_number
+from BestFriends.settings import compute_gap
 def home(request):
     """Renders the home page."""
     assert isinstance(request, HttpRequest)
@@ -15,6 +16,9 @@ def home(request):
         {
             'title':'Home Page',
             'year':datetime.now().year,
+            'biggest_prime_number':prime_number[0],
+            'time_to_next_prime':compute_gap
+
         })
 
 def contact(request):
