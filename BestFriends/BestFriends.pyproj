@@ -58,6 +58,7 @@
   <ItemGroup>
     <Content Include="app\static\app\scripts\common_functions.js" />
     <Content Include="app\static\web.config" />
+    <Content Include="app\templates\app\404error.html" />
     <None Include="BestFriendsInTheWorld - Web Deploy.pubxml" />
     <Content Include="requirements.txt" />
     <Content Include="db.sqlite3" />
@@ -89,6 +90,8 @@
     <Content Include="app\templates\app\layout.html" />
     <Content Include="app\templates\app\login.html" />
     <Content Include="app\templates\app\loginpartial.html" />
+    <None Include="TestingKexinDewei - FTP.pubxml" />
+    <None Include="TestingKexinDewei - Web Deploy.pubxml" />
     <Content Include="web.config" />
   </ItemGroup>
   <ItemGroup>
