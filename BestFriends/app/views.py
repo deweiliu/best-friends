@@ -29,7 +29,7 @@ def contact(request):
         'app/contact.html',
         {
             'title':'Contact',
-            'message':'Please do not hesitate to contact us with the information below.',
+            'message':'Please do not hesitate to contact us with the information below. (changed something in python scripts)',
             'year':datetime.now().year,
         })
 

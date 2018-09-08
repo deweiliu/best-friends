@@ -13,7 +13,7 @@ function TimeToFinish() {
     let days = Math.floor(hours / 24);
     hours %= 24;
 
-    str = days + " days, " + hours + " hours, " + minutes + " minutes and " + seconds + " seconds.";
+    str = days + " days, " + hours + " hours, " + minutes + " minutes and " + seconds + " seconds."+"Test deployment";
     document.getElementById("time_to_finish").innerHTML = str;
     setTimeout("TimeToFinish()", 1000);
 }
