@@ -158,5 +158,5 @@ def biggest_prime_number():
             
 
 thread=Thread(target=biggest_prime_number)
-#thread.start()
+thread.start()
 #############
