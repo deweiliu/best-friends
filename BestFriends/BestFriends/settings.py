@@ -27,7 +27,7 @@ SECRET_KEY = 'd6b2ea80-3160-42e4-80ac-71c508ca6c25'
 DEBUG = True
 
 # Change the URL to your specific site
-ALLOWED_HOSTS = ['bestfriendsintheworld.azurewebsites.net','localhost','127.0.0.1']
+ALLOWED_HOSTS = ['bestfriendsintheworld.azurewebsites.net','www.seconteen.com','localhost','127.0.0.1']
 
 # Application definition
 
