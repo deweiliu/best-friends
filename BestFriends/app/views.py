@@ -17,7 +17,6 @@ def home(request):
             'title':'Home Page',
             'year':datetime.now().year,
             'biggest_prime_number':prime_number[0],
-            'time_to_next_prime':compute_gap
 
         })
 
