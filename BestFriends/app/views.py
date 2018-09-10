@@ -1,3 +1,4 @@
+
 """
 Definition of views.
 """
@@ -29,7 +30,7 @@ def contact(request):
         'app/contact.html',
         {
             'title':'Contact',
-            'message':'Please do not hesitate to contact us with the information below. (changed something in python scripts)',
+            'message':'Please do not hesitate to contact us with the information below.',
             'year':datetime.now().year,
         })
 

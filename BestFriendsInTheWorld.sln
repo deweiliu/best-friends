@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27703.2047
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "BestFriends", "BestFriends\BestFriends.pyproj", "{596A0ACD-1766-478C-A1E7-7F5663A79C26}"
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "BestFriends", "BestFriends\BestFriends.pyproj", "{EDEC265C-A552-477B-A0D9-60708E09EE08}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +11,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{596A0ACD-1766-478C-A1E7-7F5663A79C26}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{596A0ACD-1766-478C-A1E7-7F5663A79C26}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{596A0ACD-1766-478C-A1E7-7F5663A79C26}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{596A0ACD-1766-478C-A1E7-7F5663A79C26}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EDEC265C-A552-477B-A0D9-60708E09EE08}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EDEC265C-A552-477B-A0D9-60708E09EE08}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EDEC265C-A552-477B-A0D9-60708E09EE08}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EDEC265C-A552-477B-A0D9-60708E09EE08}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
