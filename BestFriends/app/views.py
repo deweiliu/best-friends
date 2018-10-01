@@ -47,5 +47,9 @@ def about(request):
         })
 def error404(request):
     assert isinstance(request, HttpRequest)
-    return render(request,'app/404error.html',{
+    return render(request,
+        'app/404error.html',
+        { 
+        'title':'404',
+
         })
