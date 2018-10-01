@@ -15,18 +15,19 @@
             For example, we are computing a bigger prime number every second. The biggest prime number we have got now is :
         </p>
         <h1><strong>{{ biggest_prime_number }}</strong></h1>
-        <p><a class="btn btn-default" href="http://www.seconteen.com/">Learn more &raquo;</a></p>
+        <p><a class="btn btn-default" href="{%url 'app:about' %}">Learn more &raquo;</a></p>
     </div>
     <div class="col-md-4">
         <h2>How it works</h2>
         <p>The app works with advanced AI model.</p>
-        <p><a class="btn btn-default" href="http://www.seconteen.com/">Learn more &raquo;</a></p>
+        <p><a class="btn btn-default" href="{%url 'app:ai' %}">Get started &raquo;</a></p>
     </div>
     <div class="col-md-4">
 
         <h2>Need helps?</h2>
-        <p>No way! The app is still under construction. Please wait, and it will be available in <span id="time_to_finish"></span></p>
-        <p><a class="btn btn-default" href="http://www.seconteen.com/">Learn more &raquo;</a></p>
+        <p>The app is still under construction. Please wait, and it will be fully available in <span id="time_to_finish"></span></p>
+        <p>Or you can try our <strong>BROKEN</strong> version</p>
+        <p><a class="btn btn-default" href="{%url 'app:ai' %}">Broken Version &raquo;</a></p>
     </div>
 </div>
 

@@ -22,6 +22,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="app\admin.py" />
+    <Compile Include="app\ai.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="app\apps.py" />
     <Compile Include="app\migrations\__init__.py" />
     <Compile Include="app\models.py" />
@@ -80,6 +83,7 @@
     <Content Include="app\static\web.config" />
     <Content Include="app\templates\app\404error.html" />
     <Content Include="app\templates\app\about.html" />
+    <Content Include="app\templates\app\ai.html" />
     <Content Include="app\templates\app\contact.html" />
     <Content Include="app\templates\app\index.html" />
     <Content Include="app\templates\app\layout.html" />

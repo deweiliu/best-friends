@@ -9,6 +9,7 @@ from django.template import RequestContext
 from datetime import datetime
 from BestFriends.settings import prime_number
 from BestFriends.settings import compute_gap
+from app.ai import AI
 def home(request):
     """Renders the home page."""
     assert isinstance(request, HttpRequest)
@@ -21,7 +22,26 @@ def home(request):
 
         })
 
+def ai(request):
+    assert isinstance(request, HttpRequest)
+    try:
+        question=request.POST['question']
+        answer=AI.get_answer(question)
+    except:
+        question='null'
+        answer='null'
 
+
+    return render(request,
+        'app/ai.html',
+        {
+            'title':'AI',
+            #'default_question':'Type your question here',
+            'previous_question':'Your question was: %s'%question,
+            'previous_answer':'Answer from server: %s'%answer,
+            'year':datetime.now().year,
+
+        })    
 
 def contact(request):
     """Renders the contact page."""
@@ -51,5 +71,6 @@ def error404(request):
         'app/404error.html',
         { 
         'title':'404',
+        'year':datetime.now().year,
 
         })
