@@ -3,77 +3,78 @@
 {% block content %}
 <h1>Conversational Robert</h1>
 <style type="text/css">
-        .talk_con{
-            width:700px;
-            height:600px;
-            border:1px solid #666;
-            margin:50px auto 0;
-            background:#f9f9f9;
-        }
-        .talk_show{
-            width:680px;
-            height:520px;
-            border:1px solid #666;
-            top:20px;
-            background:#fff;
-            margin:10px auto 0;
-            overflow:auto;
-        }
-        .talk_input{
-            width:580px;
-            margin:10px auto 0;
-        }
-        .atalk{
-           margin:10px; 
-        }
-        .atalk span{
-            display:inline-block;
-            background:#0181cc;
-            border-radius:10px;
-            color:#fff;
-            padding:5px 10px;
-        }
-        .btalk{
-            margin:10px;
-            text-align:right;
-        }
-        .btalk span{
-            display:inline-block;
-            background:#ef8201;
-            border-radius:10px;
-            color:#fff;
-            padding:5px 10px;
-        }
-        .talk_word{
-            width:420px;
-            height:26px;
-            padding:0px;
-            float:left;
-            margin-left:10px;
-            outline:none;
-            text-indent:10px;
-        }        
-        .talk_sub{
-            width:56px;
-            height:30px;
-            float:left;
-            margin-right:10px;
-        }
-        
-    </style>
+	.talk_con{
+		width:700px;
+		height:600px;
+		border:1px solid #666;
+		margin:50px auto 0;
+		background:#f9f9f9;
+	}
+	.talk_show{
+		width:680px;
+		height:520px;
+		border:1px solid #666;
+		top:20px;
+		background:#fff;
+		margin:10px auto 0;
+		overflow:auto;
+	}
+	.talk_input{
+		width:580px;
+		margin:10px auto 0;
+	}
+	.atalk{
+	   margin:10px;
+	}
+	.atalk span{
+		display:inline-block;
+		background:#0181cc;
+		border-radius:10px;
+		color:#fff;
+		padding:5px 10px;
+	}
+	.btalk{
+		margin:10px;
+		text-align:right;
+	}
+	.btalk span{
+		display:inline-block;
+		background:#ef8201;
+		border-radius:10px;
+		color:#fff;
+		padding:5px 10px;
+	}
+	.talk_word{
+		width:420px;
+		height:26px;
+		padding:0px;
+		float:left;
+		margin-left:10px;
+		outline:none;
+		text-indent:10px;
+	}
+	.talk_sub{
+		width:56px;
+		height:30px;
+		float:left;
+		margin-right:10px;
+	}
+
+</style>
 
 <div class="talk_con">
-    <div class="talk_show" id="words">
+	<div class="talk_show" id="words">
 
-    </div>
-    <div class="talk_input">
-        <input type="text" class="talk_word" id="talkwords">
-        <input type="button" value="send" class="talk_sub" id="talksub">
-            
-    </div>
+	</div>
+	<div class="talk_input">
+		<input type="text" class="talk_word" id="talkwords">
+		<input type="button" value="send" class="talk_sub" id="talksub">
+
+	</div>
 </div>
 
-<script>   
+<script>
+
     window.onload = function(){
     var TalkSub = document.getElementById("talksub");
     var TalkWords = document.getElementById("talkwords");
@@ -94,5 +95,21 @@
 }
 
 </script>
+<form action="{%url 'app:ai' %}" method="post">
+	{% csrf_token %}
+	<label for="your_name">Ask me a question: </label>
+	<br />
+	<input id="your_question" type="text" name="question" placeholder="Enter your question here">
+	<br />
+	<br />
 
-{% endblock %}
+	<input type="submit" value="OK">
+</form>
+
+{{previous_question}}
+<br/>
+{{previous_answer}}
+        <br/>
+        <br/>
+<iframe src='https://webchat.botframework.com/embed/thewaybot?s=aq9Rwy7Yd34.cwA.5tk.EFWM7JrOSTrLsNFU5Ivs2c3-gFz_XvXibfr0ihi2PZU'  style='min-width: 400px; width: 100%; min-height: 500px;'></iframe>
+	{% endblock %}
