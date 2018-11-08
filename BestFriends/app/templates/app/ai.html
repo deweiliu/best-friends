@@ -109,23 +109,8 @@
 {{previous_question}}
 <br/>
 {{previous_answer}}
-        <br/>
-        <br/>
-<iframe id="chat"  style='min-width: 400px; width: 100%; min-height: 500px;' src=''></iframe>
-<script>
+<br/>
+<br/>
+<iframe id="chat"  style='min-width: 400px; width: 100%; min-height: 500px;' src={{temporary_secret}}></iframe>
 
-    var xhr = new XMLHttpRequest();
-    xhr.open('GET', "https://webchat.botframework.com/api/tokens", true);
-    xhr.setRequestHeader('Authorization', 'BotConnector ' + 'aq9Rwy7Yd34.cwA.5tk.EFWM7JrOSTrLsNFU5Ivs2c3-gFz_XvXibfr0ihi2PZU');
-    xhr.send();
-    xhr.onreadystatechange = processRequest;
-
-    function processRequest(e) {
-      if (xhr.readyState == 4  && xhr.status == 200) {
-        var response = JSON.parse(xhr.responseText);
-        document.getElementById("chat").src="https://webchat.botframework.com/embed/thewaybot?t="+response
-      }
-    }
-
-  </script>
 {% endblock %}
