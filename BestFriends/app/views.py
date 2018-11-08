@@ -9,7 +9,7 @@ from django.template import RequestContext
 from datetime import datetime
 from BestFriends.settings import prime_number
 from BestFriends.settings import compute_gap
-from app.ai import AI
+from app.bot_service.ai import AI
 def home(request):
     """Renders the home page."""
     assert isinstance(request, HttpRequest)
@@ -23,10 +23,12 @@ def home(request):
         })
 
 def ai(request):
-    assert isinstance(request, HttpRequest)
-    try:
+    assert isinstance(request, HttpRequest)    
+    try:        
         question=request.POST['question']
         answer=AI.get_answer(question)
+        print("answer from views.py : %s"%answer)
+
     except:
         question='null'
         answer='null'

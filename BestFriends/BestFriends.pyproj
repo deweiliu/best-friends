@@ -22,14 +22,32 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="app\admin.py" />
-    <Compile Include="app\ai.py">
+    <Compile Include="app\bot_service\ai.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="app\apps.py" />
+    <Compile Include="app\bot_service\direct_line_api.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="app\bot_service\__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="app\migrations\__init__.py" />
     <Compile Include="app\models.py" />
     <Compile Include="app\tests.py" />
+    <Compile Include="app\tests\bot_service_tests\DirectLineAPITest.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="app\tests\bot_service_tests\__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="app\tests\__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="app\urls.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="app\variables.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="app\views.py" />
@@ -42,6 +60,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="app" />
+    <Folder Include="app\bot_service\" />
     <Folder Include="app\migrations" />
     <Folder Include="app\static\" />
     <Folder Include="app\static\app\" />
@@ -50,6 +69,8 @@
     <Folder Include="app\static\app\scripts\" />
     <Folder Include="app\templates\" />
     <Folder Include="app\templates\app\" />
+    <Folder Include="app\tests\" />
+    <Folder Include="app\tests\bot_service_tests\" />
     <Folder Include="BestFriends" />
   </ItemGroup>
   <ItemGroup>
