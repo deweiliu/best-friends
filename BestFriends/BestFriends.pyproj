@@ -96,7 +96,6 @@
     <None Include="app\static\app\scripts\_references.js" />
     <None Include="BestFriendsInTheWorld - Web Deploy.pubxml" />
     <Content Include="requirements.txt" />
-    <None Include="TestingKexinDewei - Web Deploy.pubxml" />
     <Content Include="web.config" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.Django.targets" />
