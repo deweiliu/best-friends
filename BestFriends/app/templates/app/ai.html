@@ -2,6 +2,7 @@
 
 {% block content %}
 <h1>Conversational Robert</h1>
+<!--
 <form action="{%url 'app:ai' %}" method="post">
     {% csrf_token %}
 
@@ -13,8 +14,80 @@
 
     <input type="submit" value="OK">
 </form>
-
 {{previous_question}}
 <br/>
 {{previous_answer}}
+-->
+
+<style type="text/css">
+        .talk_con{
+            width:600px;
+            height:500px;
+            border:1px solid #666;
+            margin:50px auto 0;
+            background:#f9f9f9;
+        }
+        .talk_show{
+            width:580px;
+            height:420px;
+            border:1px solid #666;
+            background:#fff;
+            margin:10px auto 0;
+            overflow:auto;
+        }
+        .talk_input{
+            width:580px;
+            margin:10px auto 0;
+        }
+        .talk_word{
+            width:420px;
+            height:26px;
+            padding:0px;
+            float:left;
+            margin-left:10px;
+            outline:none;
+            text-indent:10px;
+        }        
+        .atalk{
+           margin:10px; 
+        }
+        .atalk span{
+            display:inline-block;
+            background:#0181cc;
+            border-radius:10px;
+            color:#fff;
+            padding:5px 10px;
+        }
+        .btalk{
+            margin:10px;
+            text-align:right;
+        }
+        .btalk span{
+            display:inline-block;
+            background:#ef8201;
+            border-radius:10px;
+            color:#fff;
+            padding:5px 10px;
+        }
+    </style>
+
+
+<div class="talk_con">
+        <div class="talk_show" id="words">
+            
+            <div class="atalk"><span id="asay">{{previous_question}}</span></div>
+            <div class="btalk"><span id="bsay">{{previous_answer}}</span></div>
+            
+        </div>
+        <div class="talk_input">
+            <form action="{%url 'app:ai' %}" method="post">
+            {% csrf_token %}
+            <label for="your_name">Ask me a question: </label> &nbsp;
+            <input id="your_question" type="text" name="question" placeholder="Enter your question here">
+            &nbsp; &nbsp;
+            <input type="submit" value="OK">
+            </form>
+        </div>
+    </div>
+
 {% endblock %}
