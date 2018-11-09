@@ -64,10 +64,10 @@
 
 <div class="talk_con">
 	<div class="talk_show" id="words">
-
+        <p>result: <span id='result'></span></p>
 	</div>
 	<div class="talk_input">
-		<input type="text" class="talk_word" id="talkwords">
+		<input type="text" class="talk_word" id="talkwords" name="Twords">
 		<input type="button" value="send" class="talk_sub" id="talksub">
 
 	</div>
@@ -85,12 +85,20 @@
                 alert("error!");
                 return;
             }
+            
             else
             {
-                str = '<div class="btalk"><span>' + TalkWords.value +'</span></div>' ;
+                //str = '<div class="btalk"><span>' + TalkWords.value + '</span></div>';
+                //$.get("/js_ai",{'Twords':TalkWords.value}, function(ret){
+                //    str = '<div class="btalk"><span>' + ret + '</span></div>';
+                //})
+                $.get("/js_ai", { 'Twords': TalkWords.value }, function (ret) {
+                    $('#result').text(ret);
+                })
             }
         Words.innerHTML = Words.innerHTML + str;
         TalkWords.value = "";
+        
     }
 }
 

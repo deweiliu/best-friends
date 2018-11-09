@@ -9,6 +9,14 @@ class AI(object):
         api=DirectLineAPI("new user",temporary_key)
         api.start_conversation()
         api.send(question)
-        answer= api.receive()
+        answer = api.receive()
         print('answer = %s'%(answer))
+        return answer
+
+    def post_answer_to_js(question):
+        temporary_key=DirectLineAPI.get_temporary_token(V.bot_secret)
+        api=DirectLineAPI("new user",temporary_key)
+        api.start_conversation()
+        api.send(question)
+        answer = api.receive()
         return answer
