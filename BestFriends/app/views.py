@@ -28,36 +28,24 @@ def home(request):
         })
 
 def js_ai(request):
-    assert isinstance(request, HttpRequest)    
-    try:        
-        question=request.GET.get('Twords',0)
-        print("question is : %s"%question)
-        answer=AI.post_answer_to_js(question)
-        print("answer from views.py : %s"%answer)
-
+    assert isinstance(request, HttpRequest)
+    try:
+        question = request.GET.get('Twords',0)
+        print("question is : %s" % question)
+        answer = AI.get_answer(question)
     except:
-        question='null'
-        answer='null'
-
-
-    # Get a temporary URL for bot service, Following the web page below
-    # https://docs.microsoft.com/en-us/azure/bot-service/bot-service-channel-connect-webchat?view=azure-bot-service-3.0#step-1
-    
-    # URL for the bot service without password filled
-    url_prefix='https://webchat.botframework.com/embed/thewaybot?t='
-    permanent_secret='aq9Rwy7Yd34.cwA.5tk.EFWM7JrOSTrLsNFU5Ivs2c3-gFz_XvXibfr0ihi2PZU'
-
-    # Get the temporary password
-    r = requests.get(url = "https://webchat.botframework.com/api/tokens", headers = {'Authorization':'BotConnector %s'%(permanent_secret)} ) 
-    temporary_token = r.json()
-    
-    # fill the temporary password into the url
-    temporary_secret=url_prefix+temporary_token
+        answer = 'Got an exception from views.js_ai'
 
     return HttpResponse(answer)
 
 @csrf_exempt
 def conversation(request):
+    """
+
+    HI Kexin
+    Check out this founction
+    if return a json response instead of an HttpResponse that you should get a dictionary from the response
+    """
     try:
         # Get the body request
         body = (request.body)
