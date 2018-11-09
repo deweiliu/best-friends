@@ -10,5 +10,4 @@ class AI(object):
         api.start_conversation()
         api.send(question)
         answer= api.receive()
-        print('answer = %s'%(answer))
         return answer

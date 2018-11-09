@@ -1,4 +1,4 @@
-# https://docs.microsoft.com/en-us/bot-framework/rest-api/bot-framework-rest-direct-line-3-0-concept
+# https://docs.microsoft.com/en-us/azure/bot-service/rest-api/bot-framework-rest-direct-line-3-0-concepts?view=azure-bot-service-4.0
 # Intergrate with Bot Framework via Direct Line API 3.0
 import requests
 class DirectLineAPI(object):
@@ -54,8 +54,6 @@ class DirectLineAPI(object):
 
 
     def receive(self):
-      print("receive a message")
-
       URL='https://directline.botframework.com/v3/directline/conversations/%s/activities'%(self.conversationId)
       HEADERS={"Authorization":"Bearer %s"%self.token}
 

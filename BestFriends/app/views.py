@@ -1,7 +1,9 @@
+from django.views.decorators.csrf import csrf_exempt
 
 """
 Definition of views.
 """
+import json
 import requests
 from django.shortcuts import render
 from django.http import HttpRequest
@@ -10,6 +12,8 @@ from datetime import datetime
 from BestFriends.settings import prime_number
 from BestFriends.settings import compute_gap
 from app.bot_service.ai import AI
+from django.http import JsonResponse
+
 def home(request):
     """Renders the home page."""
     assert isinstance(request, HttpRequest)
@@ -22,39 +26,55 @@ def home(request):
 
         })
 
+@csrf_exempt
+def conversation(request):
+    try:
+        # Get the body request
+        body = (request.body)
+        
+        # Decode the request into a str object then parse it to a dictionary
+        data = json.loads(body.decode("ascii"))
+
+        question = data['question']
+        print("Got question : %s" % question)
+        answer = AI.get_answer(question)
+    except:
+        answer = "Invaild request! The body of the request must be a dictionary containing a key 'question'. but the requestion body we got from you was: %s" % (str(data))
+    return JsonResponse({'answer':answer})
+
+@csrf_exempt
 def ai(request):
     assert isinstance(request, HttpRequest)    
     try:        
-        question=request.POST['question']
-        answer=AI.get_answer(question)
-        print("answer from views.py : %s"%answer)
+        question = request.POST['question']
+        answer = AI.get_answer(question)
 
     except:
-        question='null'
-        answer='null'
+        question = 'null'
+        answer = 'null'
 
 
     # Get a temporary URL for bot service, Following the web page below
     # https://docs.microsoft.com/en-us/azure/bot-service/bot-service-channel-connect-webchat?view=azure-bot-service-3.0#step-1
     
     # URL for the bot service without password filled
-    url_prefix='https://webchat.botframework.com/embed/thewaybot?t='
-    permanent_secret='aq9Rwy7Yd34.cwA.5tk.EFWM7JrOSTrLsNFU5Ivs2c3-gFz_XvXibfr0ihi2PZU'
+    url_prefix = 'https://webchat.botframework.com/embed/thewaybot?t='
+    permanent_secret = 'aq9Rwy7Yd34.cwA.5tk.EFWM7JrOSTrLsNFU5Ivs2c3-gFz_XvXibfr0ihi2PZU'
 
     # Get the temporary password
-    r = requests.get(url = "https://webchat.botframework.com/api/tokens", headers = {'Authorization':'BotConnector %s'%(permanent_secret)} ) 
+    r = requests.get(url = "https://webchat.botframework.com/api/tokens", headers = {'Authorization':'BotConnector %s' % (permanent_secret)}) 
     temporary_token = r.json()
     
     # fill the temporary password into the url
-    temporary_secret=url_prefix+temporary_token
+    temporary_secret = url_prefix + temporary_token
 
     return render(request,
         'app/ai.html',
         {
             'title':'AI',
             #'default_question':'Type your question here',
-            'previous_question':'Your question was: %s'%question,
-            'previous_answer':'Answer from server: %s'%answer,
+            'previous_question':'Your question was: %s' % question,
+            'previous_answer':'Answer from server: %s' % answer,
             'year':datetime.now().year,
             'temporary_secret':temporary_secret
 
