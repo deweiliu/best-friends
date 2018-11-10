@@ -31,3 +31,11 @@
 </div>
 
 {% endblock %}
+    {% block header %}
+    {% load staticfiles %}
+
+{% endblock %}
+{% block scripts %}
+            <script src="{% static 'app/scripts/common_functions.js' %}"></script>
+
+{% endblock %}
