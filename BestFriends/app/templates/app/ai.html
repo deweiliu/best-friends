@@ -104,24 +104,5 @@
 }
 
 </script>
-<form action="{%url 'app:ai' %}" method="post">
-	{% csrf_token %}
-	<label for="your_name">Ask me a question: </label>
-	<br />
-	<input id="your_question" type="text" name="question" placeholder="Enter your question here">
-	<br />
-	<br />
-
-	<input type="submit" value="OK">
-</form>
-
-{{previous_question}}
-<br/>
-{{previous_answer}}
-<br/>
-<br/>
-
-<!--The src value below is a temporary URL for accessing the Azure bot service and it is only vaild once-->
-<iframe style='min-width: 400px; width: 100%; min-height: 500px;' src={{temporary_secret}}></iframe>
 
 {% endblock %}
