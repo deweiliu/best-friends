@@ -66,6 +66,7 @@ def ai(request):
     assert isinstance(request, HttpRequest)    
     try:        
         question = request.POST['question']
+        print("question is : %s" % question)
         answer = AI.get_answer(question)
 
     except:

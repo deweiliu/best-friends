@@ -88,18 +88,14 @@
             
             else
             {
-                //str = '<div class="btalk"><span>' + TalkWords.value + '</span></div>';
-                //$.get("/js_ai",{'Twords':TalkWords.value}, function(ret){
-                //    str = '<div class="btalk"><span>' + ret + '</span></div>';
-                //})
+                str = '<div class="btalk"><span>'+ TalkWords.value + '</span></div>';
                 //$.get("/js_ai", { 'Twords': TalkWords.value }, function (ret) {
                 //    $('#result').html(ret);
                 //})
                 $.getJSON("/js_ai", { 'Twords': TalkWords.value }, function (ret) {
                     //alert(ret["answer_dict_name"]);
-                    $('.atalk').html('<div class="atalk"><span>'+ ret["answer_dict_name"] + '</span></div>');
+                    $('#words').html(Words.innerHTML+'<div class="atalk"><span>'+ ret["answer_dict_name"] + '</span></div>');
                 })
-                str = '<div class="btalk"><span>'+ TalkWords.value + '</span></div>';
             }
         Words.innerHTML = Words.innerHTML + str;
         TalkWords.value = "";
