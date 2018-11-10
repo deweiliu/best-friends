@@ -33,11 +33,12 @@ def js_ai(request):
         question = request.GET.get('Twords',0)
         print("question is : %s" % question)
         answer = AI.get_answer(question)
+        print("anwser is : %s" % answer)
     except:
         answer = 'Got an exception from views.js_ai'
-
-    return HttpResponse(answer)
-
+    answer_dict = {"answer_dict_name":answer}
+    return JsonResponse(answer_dict)
+   
 @csrf_exempt
 def conversation(request):
     """
