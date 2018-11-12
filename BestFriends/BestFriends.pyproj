@@ -116,8 +116,8 @@
     <Content Include="app\static\app\scripts\jquery.validate.unobtrusive.js" />
     <Content Include="app\static\app\scripts\jquery.validate.unobtrusive.min.js" />
     <None Include="app\static\app\scripts\_references.js" />
-    <None Include="BestFriendsInTheWorld - Web Deploy.pubxml" />
     <Content Include="app\templates\app\login.html" />
+    <None Include="BestFriendsInTheWorld - Web Deploy.pubxml" />
     <Content Include="requirements.txt" />
     <Content Include="web.config" />
   </ItemGroup>

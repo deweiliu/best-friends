@@ -26,6 +26,7 @@
 	}
 	.atalk{
 	   margin:10px;
+       text-align:left;
 	}
 	.atalk span{
 		display:inline-block;
@@ -84,5 +85,8 @@
 {% endblock %}
 {% block scripts %}
             <script src="{% static 'app/scripts/ai_dialog.js' %}"></script>
+<script>
+    var username =  "{{username}}"
+</script>
 
 {% endblock %}

@@ -39,7 +39,7 @@ def js_ai(request):
 def login(request):
     assert isinstance(request, HttpRequest)
     try:
-        username=request.POST['username']
+        username = request.POST['username']
         print(username)
         return HttpResponseRedirect(reverse('app:ai',args=(username,)))
     except:
