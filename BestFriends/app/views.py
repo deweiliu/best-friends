@@ -1,3 +1,4 @@
+from django.urls import reverse
 from django.views.decorators.csrf import csrf_exempt
 
 """
@@ -7,7 +8,7 @@ import json
 import requests
 from django.http import HttpResponse
 from django.shortcuts import render
-from django.http import HttpRequest
+from django.http import HttpRequest,HttpResponseRedirect
 from datetime import datetime
 
 from app.bot_service.ai import AI
@@ -35,7 +36,14 @@ def js_ai(request):
         answer = 'Got an exception from views.js_ai'
     answer_dict = {"answer_dict_name":answer}
     return JsonResponse(answer_dict)
-   
+def login(request):
+    assert isinstance(request, HttpRequest)
+    try:
+        username=request.POST['username']
+        print(username)
+        return HttpResponseRedirect(reverse('app:ai',args=(username,)))
+    except:
+        return render(request,'app/login.html')
 @csrf_exempt
 def conversation(request):
     try:
@@ -53,14 +61,15 @@ def conversation(request):
     return JsonResponse({'answer':answer})
 
 @csrf_exempt
-def ai(request):
+def ai(request,username):
+    print("username = %s",username)
     assert isinstance(request, HttpRequest)    
     return render(request,
         'app/ai.html',
         {
             'title':'AI',
             'year':datetime.now().year,
-
+            'username':username,
         })    
 
 def contact(request):

@@ -1,0 +1,14 @@
+﻿
+{% extends "app/layout.html" %}
+{% block content %}
+
+<form action="{%url 'app:login' %}" method="post">
+	{% csrf_token %}
+	<label for="user_name">Enter your username below </label>
+	<br />
+	<input id="username" type="text" name="username" placeholder="i.e. John Smith">
+	<br />
+	<br />
+ 	<input type="submit" value="Enter">
+</form>
+{% endblock %}
