@@ -87,7 +87,9 @@
   <ItemGroup>
     <Content Include="app\static\app\content\bootstrap.css" />
     <Content Include="app\static\app\content\bootstrap.min.css" />
+    <Content Include="app\static\app\content\magnific-popup.css" />
     <Content Include="app\static\app\content\site.css" />
+    <Content Include="app\static\app\content\style.css" />
     <Content Include="app\static\app\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="app\static\app\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="app\static\app\fonts\glyphicons-halflings-regular.ttf" />
@@ -96,6 +98,7 @@
     <Content Include="app\static\app\scripts\bootstrap.js" />
     <Content Include="app\static\app\scripts\bootstrap.min.js" />
     <Content Include="app\static\app\scripts\common_functions.js" />
+    <Content Include="app\static\app\scripts\easing.js" />
     <Content Include="app\static\app\scripts\jquery-1.10.2.js" />
     <Content Include="app\static\app\scripts\jquery-1.10.2.min.js" />
     <Content Include="app\static\app\scripts\jquery-1.10.2.min.map" />
