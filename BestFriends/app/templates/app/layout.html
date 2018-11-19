@@ -6,25 +6,26 @@
     <title>{{ title }} - Best Friends' App</title>
     {% load staticfiles %}
     <link rel='stylesheet' type='text/css' href="{% static 'app/content/bootstrap.css' %}"/>
-    <link rel="stylesheet" type="text/css" href="{% static 'app/content/bootstrap.min.css' %}" />
+    <!--<link rel="stylesheet" type="text/css" href="{% static 'app/content/bootstrap.min.css' %}" />-->
     <link rel="stylesheet" type="text/css" href="{% static 'app/content/site.css' %}" />
     <link rel='stylesheet' type='text/css' href="{% static 'app/content/style.css' %}"/>
     <link rel="stylesheet" type="text/css" href="{% static 'app/content/magnific-popup.css' %}">
     <script src="{% static 'app/scripts/modernizr-2.6.2.js' %}"></script>
     <script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
     <script type="text/javascript" src="{% static 'app/scripts/easing.js' %}"></script>
+    <style>
+    .navbar {
+       background: #000000;
+       opacity:0.6;
+    }
+
+    </style>
 
     {% block header %}{% endblock %}
-    <style>
-        .actived {
-            background: blue;
-        }
- 
-        .noactive {
-            background:white;
-        }
-    </style>
+    
 </head>
+
+
 
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -38,15 +39,16 @@
                 <a href="/" class="navbar-brand">Best Friends' App</a>
             </div>
             <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li><a href="{% url 'app:home' %}" class="scroll">Home </a></li>
-                    <li><a href="{% url 'app:login' %}" class="scroll">AI App</a></li>
-                    <li><a href="{% url 'app:about' %}" class="scroll">About</a></li>
-                    <li><a href="{% url 'app:contact' %}" class="scroll">Contact</a></li>
+                <ul class="nav navbar-nav" >
+                    <li><a href="{% url 'app:home' %}" >Home </a></li>
+                    <li><a href="{% url 'app:login' %}" >AI App</a></li>
+                    <li><a href="{% url 'app:about' %}" >About</a></li>
+                    <li><a href="{% url 'app:contact' %}" >Contact</a></li>
                 </ul>
             </div>
         </div>
     </div>
+
 
     <div class="container body-content">
 {% block content %}{% endblock %}
