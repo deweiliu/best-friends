@@ -2,13 +2,52 @@
 {% extends "app/layout.html" %}
 {% block content %}
 
-<form action="{%url 'app:login' %}" method="post">
-	{% csrf_token %}
-	<label for="user_name">Enter your username below </label>
-	<br />
-	<input id="username" type="text" name="username" placeholder="i.e. John Smith">
-	<br />
-	<br />
- 	<input type="submit" value="Enter">
-</form>
+<style type="text/css">
+    .login_center {
+        width: 400px;
+        height: 300px;
+        border: 3px solid #0094ff;
+        margin: 0px auto;
+        border-radius: 20px;
+        text-align: center;
+        background: #ffffff;
+        opacity: 0.7;
+    }
+    .form-control {
+        margin:0px auto;
+    }
+    .btn_input {
+        width:80px;
+		height:50px;
+        margin:0px auto;
+        border-radius:10px ;
+        border:1px solid #ffffff;
+        color:white;
+        background:#66b0f1;
+    }
+    body {
+        background-color:#fce3f6;
+    }
+</style>
+
+<div class="login_center">
+    <form action="{%url 'app:login' %}" method="post">
+	    {% csrf_token %}
+        <br />
+	    <label for="user_name">Enter your username below </label>
+	    <br />
+        <br />
+	    <input id="username" type="text" class="form-control" name="username" margin=auto placeholder="i.e. John Smith">
+	    <br />
+	    <br />
+ 	    <input type="submit" class="btn_input" value="Enter" id="sub_username">
+    </form>
+</div>
+
+
+{% endblock %}
+
+{% load static %}
+{% block scripts %}
+            <script src="{% static 'app\scripts\login_page.js' %}"></script>
 {% endblock %}
