@@ -102,6 +102,7 @@
     <Content Include="app\static\app\scripts\jquery-1.10.2.js" />
     <Content Include="app\static\app\scripts\jquery-1.10.2.min.js" />
     <Content Include="app\static\app\scripts\jquery-1.10.2.min.map" />
+    <Content Include="app\static\app\scripts\login_page.js" />
     <Content Include="app\static\app\scripts\modernizr-2.6.2.js" />
     <Content Include="app\static\app\scripts\respond.js" />
     <Content Include="app\static\app\scripts\respond.min.js" />
