@@ -1,4 +1,5 @@
 import unittest
+from app.variables import Bot
 from app.bot_service.direct_line_api import DirectLineAPI
 class Test_DirectLineAPITest(unittest.TestCase):
     def test_A(self):
@@ -12,9 +13,8 @@ class Test_DirectLineAPITest(unittest.TestCase):
         self.assertEqual(2,id)
 
     def test_B(self):
-        secret='aq9Rwy7Yd34.cwA.5tk.EFWM7JrOSTrLsNFU5Ivs2c3-gFz_XvXibfr0ihi2PZU'
-
-        answer=DirectLineAPI.get_temporary_token(secret)
+       
+        answer=DirectLineAPI.get_temporary_token(Bot.bot_secret)
         self.assertEqual(str,type(answer))
 
         secret='wrong_secret'

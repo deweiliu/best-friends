@@ -32,9 +32,21 @@
     <Compile Include="app\bot_service\__init__.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="app\database\azure_database.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="app\database\__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="app\migrations\__init__.py" />
     <Compile Include="app\models.py" />
     <Compile Include="app\tests.py" />
+    <Compile Include="app\tests\AzureDatabaseTests\AzureDatabaseTests.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="app\tests\AzureDatabaseTests\__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="app\tests\bot_service_tests\DirectLineAPITest.py">
       <SubType>Code</SubType>
     </Compile>
@@ -61,6 +73,7 @@
   <ItemGroup>
     <Folder Include="app" />
     <Folder Include="app\bot_service\" />
+    <Folder Include="app\database\" />
     <Folder Include="app\migrations" />
     <Folder Include="app\static\" />
     <Folder Include="app\static\app\" />
@@ -70,6 +83,7 @@
     <Folder Include="app\templates\" />
     <Folder Include="app\templates\app\" />
     <Folder Include="app\tests\" />
+    <Folder Include="app\tests\AzureDatabaseTests\" />
     <Folder Include="app\tests\bot_service_tests\" />
     <Folder Include="BestFriends" />
   </ItemGroup>
