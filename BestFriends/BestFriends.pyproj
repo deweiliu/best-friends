@@ -40,6 +40,9 @@
     </Compile>
     <Compile Include="app\migrations\__init__.py" />
     <Compile Include="app\models.py" />
+    <Compile Include="app\setups.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="app\tests.py" />
     <Compile Include="app\tests\AzureDatabaseTests\AzureDatabaseTests.py">
       <SubType>Code</SubType>
