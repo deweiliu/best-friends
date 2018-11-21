@@ -2,6 +2,8 @@
 Definition of models.
 """
 import datetime
+import pytz
+
 from django.db import models
 from app.database.azure_database import AzureDatabase
 

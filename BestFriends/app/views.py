@@ -86,12 +86,15 @@ def birthday(request):
     """Renders the about page."""
     assert isinstance(request, HttpRequest)
 
-    comments=models.birthday(request)
-    output=''
+    comments = models.birthday(request)
+    if(comments == list()):
+        return HttpResponseRedirect(reverse('app:birthday'))
+
+    output = ''
     print(comments)
     for comment in comments:
-        output+=("<h3>At "+comment['datetime']+", "+comment['username']+" said:</h3>")
-        output+=("<br /><p>"+comment['comment']+"</p><br /><br />")
+        output+=("<h3>At " + comment['datetime'] + ", " + comment['username'] + " said:</h3>")
+        output+=("<br /><p>" + comment['comment'] + "</p><br /><br />")
 
     return render(request,
         'app/birthday.html',
