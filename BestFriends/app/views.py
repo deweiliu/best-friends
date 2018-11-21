@@ -10,7 +10,7 @@ from django.http import HttpResponse
 from django.shortcuts import render
 from django.http import HttpRequest,HttpResponseRedirect
 from datetime import datetime
-
+from app import models
 from app.bot_service.ai import AI
 from django.http import JsonResponse
 
@@ -40,7 +40,6 @@ def login(request):
     assert isinstance(request, HttpRequest)
     try:
         username = request.POST['username']
-        print(username)
         return HttpResponseRedirect(reverse('app:ai',args=(username,)))
     except:
         return render(request,'app/login.html')
@@ -83,16 +82,25 @@ def contact(request):
             'year':datetime.now().year,
         })
 
-def about(request):
+def birthday(request):
     """Renders the about page."""
     assert isinstance(request, HttpRequest)
+
+    comments=models.birthday(request)
+    output=''
+    print(comments)
+    for comment in comments:
+        output+=("<h3>At "+comment['datetime']+", "+comment['username']+" said:</h3>")
+        output+=("<br /><p>"+comment['comment']+"</p><br /><br />")
+
     return render(request,
-        'app/about.html',
+        'app/birthday.html',
         {
             'title':'About',
             'message':'This project is being developed by Kexin Huang & Dewei Liu who are the best friends in the world, since 14 Aug 2018!',
             'content':'',
             'year':datetime.now().year,
+            'comments':comments
         })
 def error404(request):
     assert isinstance(request, HttpRequest)

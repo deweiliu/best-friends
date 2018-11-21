@@ -1,0 +1,121 @@
+{% extends "app/layout.html" %}
+
+{% block content %}
+
+<style>
+    #deiwei_birthday {
+	background: #73b5f5;
+}
+    .kexin_birthday {
+        color:#000000;
+
+    }
+    .download-head {
+	    text-align: center;
+        color:#ffffff;
+	    padding: 4em 0;
+        font-style:italic;
+    }
+    .wishes {
+        width: 1000px;
+        height: 400px;
+        color: rgba(255,255,255,0.8);
+        font-size: 40px;
+        text-align: start center;
+        font-family: "Times New Roman";
+        background-image: url("../../static/app/images/bestwishes.jpg");
+        background-repeat: no-repeat;
+        background-size: 100%;
+        background-position: left top;
+    }
+</style>
+
+<h2>{{ title }}.</h2>
+<h3>{{ message }}</h3>
+
+<p>{{ content }}</p>
+
+<div id="deiwei_birthday" class="Birthday_show">
+	<div class="container">
+		<div class="download-head">
+			<h3>To dewei:happy birthday!</h3>
+            <br />
+			<h4><span>2018-11-21</span></h4>
+		</div>
+	</div>
+</div>
+
+<br />
+<div class="wishes">
+    <p>Bless you back to China safely!!</p>
+</div>
+
+<span style ="font-style:unset" id ="dateField">hi</span>
+
+
+
+<style type="text/css">
+    .login_center {
+        width: 400px;
+        height: 500px;
+        border: 3px solid #0094ff;
+        margin: 0px auto;
+        border-radius: 20px;
+        text-align: center;
+        background: #ffffff;
+        opacity: 0.7;
+    }
+    .form-control {
+        margin:0px auto;
+    }
+    .btn_input {
+        width:80px;
+		height:50px;
+        margin:0px auto;
+        border-radius:10px ;
+        border:1px solid #ffffff;
+        color:white;
+        background:#66b0f1;
+    }
+    body {
+        background-color:#fce3f6;
+    }
+</style>
+
+<br/>
+
+<br/>
+
+{% for comment in comments %}
+<p>At {{comment.datetime}}, user <strong>{{comment.username}}</strong> said:</p>
+<h3>{{comment.comment}}</h3>
+<br/>
+
+{% endfor %}
+
+<div class="login_center">
+    <h3>Hi, before you leave, just leave a comment below pleeeeEEEeeease</h3>
+    <p>In the moment, we can only support alphabet letters. Entering other characters will cause display issues</p>
+    <form action="{%url 'app:birthday' %}" method="post">
+	    {% csrf_token %}
+        <br />
+	    <label for="user_name">Enter name below </label>
+	    <input id="user_name" type="text" class="form-control" name="username" margin=auto placeholder="i.e. John Smith">
+	    <br />
+	    <br />
+	    <label for="comment">Enter your comment below </label>
+	    <br />
+	    <input id="comment" type="text" class="form-control" name="comment" margin=auto placeholder="i.e. Hi! Birthday">
+	    <br />
+	    <br />
+ 	    <input type="submit" class="btn_input" value="submit" id="sub_username">
+    </form>
+</div>
+
+{% endblock %}
+
+{% load staticfiles %}
+{% block scripts %}
+            <script src="{% static 'app/scripts/BirthdayTimeLeft.js' %}"></script>
+
+{% endblock %}
