@@ -66,6 +66,7 @@
     <Folder Include="app\static\app\" />
     <Folder Include="app\static\app\content\" />
     <Folder Include="app\static\app\fonts\" />
+    <Folder Include="app\static\app\images\" />
     <Folder Include="app\static\app\scripts\" />
     <Folder Include="app\templates\" />
     <Folder Include="app\templates\app\" />
@@ -94,7 +95,9 @@
     <Content Include="app\static\app\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="app\static\app\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="app\static\app\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="app\static\app\images\bestwishes.jpg" />
     <Content Include="app\static\app\scripts\ai_dialog.js" />
+    <Content Include="app\static\app\scripts\BirthdayTimeLeft.js" />
     <Content Include="app\static\app\scripts\bootstrap.js" />
     <Content Include="app\static\app\scripts\bootstrap.min.js" />
     <Content Include="app\static\app\scripts\common_functions.js" />
