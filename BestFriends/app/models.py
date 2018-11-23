@@ -13,10 +13,11 @@ def birthday(request):
         print(username)
         comment = request.POST['comment']
         print(comment)
-        time = "UTC "+str(datetime.datetime.now())[0:19]
+        time = "UTC " + str(datetime.datetime.now())[0:19]
         print(time)
 
         AzureDatabase.insert('BIRTHDAYCOMMENTS',"'" + username + "'","'" + comment + "'","'" + time + "'")
+        return None
 
 
     except:
@@ -32,10 +33,8 @@ def birthday(request):
             comment_dict['comment'] = each_record[1]
             comment_dict['datetime'] = each_record[2]
             comments.append(comment_dict)
+        return comments
 
 
     except:
-        print("Faile to fetch comments")
-    return comments
-
-
+        raise Exception("Faile to fetch comments")

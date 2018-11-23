@@ -87,7 +87,7 @@ def birthday(request):
     assert isinstance(request, HttpRequest)
 
     comments = models.birthday(request)
-    if(comments == list()):
+    if(comments == None):
         return HttpResponseRedirect(reverse('app:birthday'))
 
     output = ''
