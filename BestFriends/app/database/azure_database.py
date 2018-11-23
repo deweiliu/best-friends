@@ -34,22 +34,8 @@ class AzureDatabase(object):
         args_str = ", ".join(attributes)
         command = "IF NOT EXISTS (SELECT * from sysobjects where name='%s') CREATE TABLE %s (%s);" % (table_name,table_name,args_str)
         return AzureDatabase.execute(command)
-    @staticmethod
 
-    def insert(table,*values):
-        args_str = ", ".join(values)
-        command = "INSERT INTO %s VALUES(%s);" % (table,args_str)
-        return AzureDatabase.execute(command)
-    @staticmethod
 
-    def select(attribute,table ,filters=list()):
-        
-        if(filters == list()):
-            filter_str = ''
-        else:
-            filter_str = ' where ' + " and ".join(filters)
-        command = "SELECT %s FROM %s%s;" % (attribute,table,filter_str)
-        return AzureDatabase.execute(command)
 
     @staticmethod
     def drop(table_name):

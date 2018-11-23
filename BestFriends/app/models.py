@@ -3,11 +3,16 @@ Definition of models.
 """
 import datetime
 import pytz
+from pypika import Query, Table, Field, Order
+
+
 
 from django.db import models
 from app.database.azure_database import AzureDatabase
 
 def birthday(request):
+    table=Table('BIRTHDAYCOMMENTS')
+
     try:
         username = request.POST['username']
         print(username)
@@ -15,8 +20,10 @@ def birthday(request):
         print(comment)
         time = "UTC " + str(datetime.datetime.now())[0:19]
         print(time)
+        
+        q=Query.into(table).insert(username,comment,time)
 
-        AzureDatabase.insert('BIRTHDAYCOMMENTS',"'" + username + "'","'" + comment + "'","'" + time + "'")
+        AzureDatabase.execute(str(q))
         return None
 
 
@@ -24,7 +31,9 @@ def birthday(request):
         print("No comment")
 
     try:
-        records = (AzureDatabase.select('*','BIRTHDAYCOMMENTS'))
+        q=Query.from_(table).select('*')
+        print(str(q))
+        records = (AzureDatabase.execute(str(q)))
         print("records = %s" % (records))
         comments = list()
         for each_record in records:
@@ -36,5 +45,5 @@ def birthday(request):
         return comments
 
 
-    except:
-        raise Exception("Faile to fetch comments")
+    except Exception as e:
+        raise Exception(e.message)
