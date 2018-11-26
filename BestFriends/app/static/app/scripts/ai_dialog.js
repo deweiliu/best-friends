@@ -23,7 +23,7 @@ window.onload = function () {
 			})
 		}
 		Words.innerHTML = Words.innerHTML + str;
-		str = '<div class="btalk">' + "Sent by " + username + '</div>';
+		str = '<div class="btalk">' + "Sent by " + firstname + '</div>';
 		Words.innerHTML = Words.innerHTML + str;
 
 		TalkWords.value = "";

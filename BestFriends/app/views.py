@@ -38,9 +38,13 @@ def js_ai(request):
     return JsonResponse(answer_dict)
 def login(request):
     assert isinstance(request, HttpRequest)
+
     try:
-        username = request.POST['username']
-        return HttpResponseRedirect(reverse('app:ai',args=(username,)))
+        first_name = request.POST['first_name']
+        surname = request.POST['surname']
+        user_id = models.new_user(first_name,surname)
+        r = reverse('app:ai',args=(user_id,))
+        return HttpResponseRedirect(r)
     except:
         return render(request,'app/login.html')
 @csrf_exempt
@@ -60,15 +64,21 @@ def conversation(request):
     return JsonResponse({'answer':answer})
 
 @csrf_exempt
-def ai(request,username):
-    print("username = %s",username)
-    assert isinstance(request, HttpRequest)    
+def ai(request,user_id):
+    username = models.get_user_name(user_id)
+    firstname = username[0]
+    surname = username[1]
+
+
+    assert isinstance(request, HttpRequest)
     return render(request,
         'app/ai.html',
         {
             'title':'AI',
             'year':datetime.now().year,
-            'username':username,
+            'firstname':firstname,
+            "surname":surname,
+            'user_id':user_id
         })    
 
 def contact(request):

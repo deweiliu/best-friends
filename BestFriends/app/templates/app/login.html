@@ -34,10 +34,15 @@
     <form action="{%url 'app:login' %}" method="post">
 	    {% csrf_token %}
         <br />
-	    <label for="user_name">Enter your username below </label>
+	    <label for="first_name">Enter your first name below </label>
 	    <br />
         <br />
-	    <input id="username" type="text" class="form-control" name="username" margin=auto placeholder="i.e. John Smith">
+	    <input id="first_name" type="text" class="form-control" name="first_name" margin=auto placeholder="first name">
+        <br />
+	    <label for="surname">Enter your surname below </label>
+	    <br />
+        <br />
+	    <input id="surname" type="text" class="form-control" name="surname" margin=auto placeholder="surname">
 	    <br />
 	    <br />
  	    <input type="submit" class="btn_input" value="Enter" id="sub_username">
