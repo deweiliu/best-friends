@@ -93,8 +93,8 @@ def birthday(request):
     output = ''
     print(comments)
     for comment in comments:
-        output+=("<h3>At " + comment['datetime'] + ", " + comment['username'] + " said:</h3>")
-        output+=("<br /><p>" + comment['comment'] + "</p><br /><br />")
+        output+=("<span>At " + comment['datetime'] + ", " + comment['username'] + " said:</span>")
+        output+=("<br /><h3><span>" + comment['comment'] + "</span></h3><br /><br />")
 
     return render(request,
         'app/birthday.html',

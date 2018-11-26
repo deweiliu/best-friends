@@ -17,7 +17,7 @@
         font-style:italic;
     }
     .wishes {
-        width: 1000px;
+        width: 800px;
         height: 400px;
         color: rgba(255,255,255,0.8);
         font-size: 40px;
@@ -27,6 +27,52 @@
         background-repeat: no-repeat;
         background-size: 100%;
         background-position: left top;
+    }
+    .comment {
+        width: 800px;
+        height: 600px;
+        border: 3px solid #66b0f1;
+        margin:auto;
+        border-radius: 10px;
+        text-align: left;
+        background: #ffffff;
+        opacity: 0.8;
+    }
+    .comment_show{
+	   margin:10px;
+       text-align:left;
+	}
+	.comment_show span{
+		display:inline-block;
+		background:#73b5f5;
+		border-radius:10px;
+		color:#fff;
+		padding:10px 20px;
+	}
+    .login_center {
+        width: 400px;
+        height: 500px;
+        border: 3px solid #0094ff;
+        margin: 0px auto;
+        border-radius: 20px;
+        text-align: center;
+        background: #ffffff;
+        opacity: 0.7;
+    }
+    .form-control {
+        margin:0px auto;
+    }
+    .btn_input {
+        width:80px;
+		height:50px;
+        margin:0px auto;
+        border-radius:10px ;
+        border:1px solid #ffffff;
+        color:white;
+        background:#66b0f1;
+    }
+    body {
+        background-color:#f0ccf4;
     }
 </style>
 
@@ -53,42 +99,17 @@
 <span style ="font-style:unset" id ="dateField">hi</span>
 
 
-
-<style type="text/css">
-    .login_center {
-        width: 400px;
-        height: 500px;
-        border: 3px solid #0094ff;
-        margin: 0px auto;
-        border-radius: 20px;
-        text-align: center;
-        background: #ffffff;
-        opacity: 0.7;
-    }
-    .form-control {
-        margin:0px auto;
-    }
-    .btn_input {
-        width:80px;
-		height:50px;
-        margin:0px auto;
-        border-radius:10px ;
-        border:1px solid #ffffff;
-        color:white;
-        background:#66b0f1;
-    }
-    body {
-        background-color:#fce3f6;
-    }
-</style>
-
 <br/>
 
 <br/>
 
 {% for comment in comments %}
-<p>At {{comment.datetime}}, user <strong>{{comment.username}}</strong> said:</p>
-<h3>{{comment.comment}}</h3>
+<div class="comment">
+    <br/>
+    <span>At {{comment.datetime}}, user <strong>{{comment.username}}</strong> said:</span>
+    <div class="comment_show"><h3><span>{{comment.comment}}</span></h3></div>
+
+</div>
 <br/>
 
 {% endfor %}
