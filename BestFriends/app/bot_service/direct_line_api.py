@@ -43,10 +43,10 @@ class DirectLineAPI(object):
             "text": message
         }
         r = requests.post(url=URL,headers=HEADERS,json=params)
-        response= r.json()
+        response = r.json()
         if(r.status_code == 200):
             # Message sent successfully
-            self.message_id=DirectLineAPI.get_activity_id(response)
+            self.message_id = DirectLineAPI.get_activity_id(response)
             return True
         else:
             # return error message
@@ -54,18 +54,35 @@ class DirectLineAPI(object):
 
 
     def receive(self):
-      URL='https://directline.botframework.com/v3/directline/conversations/%s/activities'%(self.conversationId)
-      HEADERS={"Authorization":"Bearer %s"%self.token}
+      URL = 'https://directline.botframework.com/v3/directline/conversations/%s/activities' % (self.conversationId)
+      HEADERS = {"Authorization":"Bearer %s" % self.token}
 
-      r=requests.get(url=URL,headers=HEADERS)
-      data=(r.json())
-      activities=data['activities']
+      r = requests.get(url=URL,headers=HEADERS)
+      data = (r.json())
+      activities = data['activities']
       for each in activities:
-        if(DirectLineAPI.get_activity_id(each)>self.message_id):
+        if(DirectLineAPI.get_activity_id(each) > self.message_id):
             return each['text']
+
+    def end_conversation(self):
+        URL = 'https://directline.botframework.com/v3/directline/conversations/%s/activities' % (self.conversationId)
+        HEADERS = {"Authorization":"Bearer %s" % self.token}
+        params = {
+    "type": "endOfConversation",
+    "from": {
+        "id": self.username
+    }
+}
+        r = requests.post(url=URL,headers=HEADERS,json=params)
+        if(r.status_code == 200):
+            return True
+        else:
+            return False
+
+ 
     @staticmethod
     def get_activity_id(activity):
-        id_str=activity['id']
-        id_num=id_str.split('|')[1]
+        id_str = activity['id']
+        id_num = id_str.split('|')[1]
         return int(id_num)
 
