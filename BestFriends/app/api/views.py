@@ -36,31 +36,45 @@ def api(request):
         return get_api(data)
         
 def post_api(data):
+    method='POST'
+
     try:
         type = data['type']
     except:
-        return error_response('request body must have a key "type"',request_method='POST')
+        return error_response('request body must have a key "type"',request_method=method)
 
     if(type == 'send message'):
-        return send_message('POST',data)
+        return send_message(method,data)
     else:
-        return error_response('invalid "type" in the POST request',request_method='POST')
+        return error_response('invalid "type" in the POST request',request_method=method)
 
 def get_api(data):
+    method='GET'
     try:
         type = data['type']
     except:
-        return error_response('request body must have a key "type"',request_method='GET')
+        return error_response('request body must have a key "type"',request_method=method)
 
     if(type == 'history messages'):
-        return history_message('GET',data)
+        return history_messages(method,data)
     elif(type == 'message update'):
-        return message_update('GET',data)
+        return message_update(method,data)
     else:
         return JsonResponse({'error':'invalid "type" in the GET request'},status=400)
 
-def history_message(request_method,data):
-    return JsonResponse({'message':'from history_message'},status=200)
+def history_messages(request_method,data):
+    type='history messages'
+    try:
+        user_id = data['user_id']
+    except:
+        return error_response('Not enough keys in the request',request_method=request_method,type=type)
+    
+    records=models.history_message(user_id)
+    response=dict()
+    response['records']=records
+    response['user_id']=user_id
+
+    return JsonResponse(response,status=200)
 
 
 def send_message(request_method,data):
