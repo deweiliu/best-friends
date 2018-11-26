@@ -2,6 +2,8 @@
 Definition of models.
 """
 import datetime
+from app.bot_service.direct_line_api import DirectLineAPI
+from app.variables import Bot
 import pytz
 from pypika import Query, Table, Field, Order
 import time
@@ -17,7 +19,31 @@ def get_user_name(user_id):
     first_name = result[0][1]
     surname = result[0][2]
     return (first_name,surname)
+def update_conversation_credentials(user_id):
+    temporary_key = DirectLineAPI.get_temporary_token(Bot.bot_secret)
+    api = DirectLineAPI(user_id,temporary_key)
+    api.start_conversation()
+    conversationid = api.get_conversationid()
+    token = api.get_token()
+    watermark='null'
+    table=Table('CONVERSATIONS')
+    q=Query.from_(table).select('*').where(table.user_id==user_id)
+    result=AzureDatabase.execute(str(q))
+    if(len(result)==0):
+        # no record
+        q=Query.into(table).insert(conversationid,user_id,token,watermark)
+        AzureDatabase.execute(str(q))
 
+    else:
+        q=Query.update(table).set(table.conversation_id,conversationid).where(table.user_id==user_id)
+        AzureDatabase.execute(str(q))
+        q=Query.update(table).set(table.watermark,watermark).where(table.user_id==user_id)
+        AzureDatabase.execute(str(q))
+        q=Query.update(table).set(table.token,token).where(table.user_id==user_id)
+        AzureDatabase.execute(str(q))
+
+
+    
 def new_user(firstname,surname):
     table = Table('USERS')
     q = Query.from_(table).select('user_id').where(table.firstname == firstname).where(table.surname == surname)

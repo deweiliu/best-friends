@@ -63,8 +63,11 @@ def conversation(request):
         answer = "Invaild request! The body of the request must be a dictionary containing a key 'question'. but the requestion body we got from you was: %s" % (str(data))
     return JsonResponse({'answer':answer})
 
+
+
 @csrf_exempt
 def ai(request,user_id):
+    models.update_conversation_credentials(user_id)
     username = models.get_user_name(user_id)
     firstname = username[0]
     surname = username[1]

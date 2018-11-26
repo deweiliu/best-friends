@@ -83,7 +83,10 @@ class DirectLineAPI(object):
             # return error message
             return response
 
-
+    def get_conversationid(self):
+        return self.conversationId
+    def get_token(self):
+        return self.token
     def receive(self):
       URL = 'https://directline.botframework.com/v3/directline/conversations/%s/activities' % (self.conversationId)
       HEADERS = {"Authorization":"Bearer %s" % self.token}
