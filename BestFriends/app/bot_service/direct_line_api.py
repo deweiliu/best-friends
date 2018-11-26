@@ -1,6 +1,37 @@
 # https://docs.microsoft.com/en-us/azure/bot-service/rest-api/bot-framework-rest-direct-line-3-0-concepts?view=azure-bot-service-4.0
 # Intergrate with Bot Framework via Direct Line API 3.0
 import requests
+def send_message_to_bot(conversation_id,token,user_id,message):
+
+    URL = 'https://directline.botframework.com/v3/directline/conversations/%s/activities' % (conversation_id)
+    HEADERS = {"Authorization":"Bearer %s" % token,'Content-Type': 'application/json'}
+    params = {
+        "type": "message",
+        "from": {
+            "id": user_id
+        },
+        "text": message
+    }  
+    r = requests.post(url=URL,headers=HEADERS,json=params)
+    response = r.json()
+    if(r.status_code == 200):
+        # Message sent successfully
+        return True
+    else:
+        # return error message
+        return response
+
+def get_new_messages(conversation_id,token,user_id,watermark):
+    URL = 'https://directline.botframework.com/v3/directline/conversations/%s/activities?watermark=%s' % (conversation_id,watermark)
+    HEADERS = {"Authorization":"Bearer %s" % token,'Content-Type': 'application/json'}
+
+    r = requests.get(url=URL,headers=HEADERS)
+    data = r.json()
+    print('-------------data -------------------------')
+    print(data)
+    print('--------------------------------------')
+    return data
+
 class DirectLineAPI(object):
     @staticmethod
 

@@ -1,4 +1,6 @@
-import json, time
+from app.bot_service.direct_line_api import send_message_to_bot
+import json
+import time
 import requests
 from django.http import HttpResponse
 from django.http import HttpRequest
@@ -36,7 +38,7 @@ def api(request):
         return get_api(data)
         
 def post_api(data):
-    method='POST'
+    method = 'POST'
 
     try:
         type = data['type']
@@ -49,7 +51,7 @@ def post_api(data):
         return error_response('invalid "type" in the POST request',request_method=method)
 
 def get_api(data):
-    method='GET'
+    method = 'GET'
     try:
         type = data['type']
     except:
@@ -63,16 +65,16 @@ def get_api(data):
         return JsonResponse({'error':'invalid "type" in the GET request'},status=400)
 
 def history_messages(request_method,data):
-    type='history messages'
+    type = 'history messages'
     try:
         user_id = data['user_id']
     except:
         return error_response('Not enough keys in the request',request_method=request_method,type=type)
     
-    records=models.history_message(user_id)
-    response=dict()
-    response['records']=records
-    response['user_id']=user_id
+    records = models.history_message(user_id)
+    response = dict()
+    response['records'] = records
+    response['user_id'] = user_id
 
     return JsonResponse(response,status=200)
 
@@ -84,16 +86,39 @@ def send_message(request_method,data):
         message = data['message']
     except:
         return error_response('Not enough keys in the request',request_method=request_method,type=type)
-    date_time=time.strftime("%Y-%m-%dT%H:%M:%S")
-    print('datetime = %s'%date_time)
+    date_time = time.strftime("%Y-%m-%dT%H:%M:%S")
+    print('datetime = %s' % date_time)
     response = models.lodge_message(user_id,message,date_time)
     response['response'] = 'Request received'
 
+    credentials = models.get_credentials(user_id)
+
+    result = send_message_to_bot(credentials['conversation_id'],credentials['token'],user_id,message)
+    if(result == True):
+        print('Message sent successfully')
+    else:
+        print(result)
+        raise Exception('Cannot send message to bot')
+    
+    
     return JsonResponse(response,status=201)
 
 
 def message_update(request_method,data):
-    return JsonResponse({'message':'from message_update'},status=200)
+    type = 'message update'
+    try:
+        user_id = data['user_id']
+        message_index = data['message_index']
+    except:
+        return error_response('Not enough keys in the request',request_method=request_method,type=type)
+    models.update_messages(user_id)
+    result = models.get_new_message(user_id,message_index)
+
+    response = dict()
+    response['new_messages'] = result
+    response['user_id'] = user_id
+
+    return JsonResponse(response,status=200)
 
 
 def error_response(message,request_method='unknown',type='invalid type'):

@@ -12,7 +12,7 @@ class AzureDatabase(object):
             cursor.close()
             del cursor
         except:
-            pass
+            print('Failed to clode the database connection')
 
     @staticmethod
     def execute(command):
