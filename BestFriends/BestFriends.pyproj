@@ -22,6 +22,15 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="app\admin.py" />
+    <Compile Include="app\api\models.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="app\api\urls.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="app\api\views.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="app\bot_service\ai.py">
       <SubType>Code</SubType>
     </Compile>
@@ -78,6 +87,7 @@
     <Folder Include="app\bot_service\" />
     <Folder Include="app\database\" />
     <Folder Include="app\migrations" />
+    <Folder Include="app\api\" />
     <Folder Include="app\static\" />
     <Folder Include="app\static\app\" />
     <Folder Include="app\static\app\content\" />

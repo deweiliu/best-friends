@@ -10,6 +10,8 @@ from pypika import Query, Table, Field, Order
 from django.db import models
 from app.database.azure_database import AzureDatabase
 
+
+
 def birthday(request):
     table=Table('BIRTHDAYCOMMENTS')
 
