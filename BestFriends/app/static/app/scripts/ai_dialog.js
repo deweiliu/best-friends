@@ -6,6 +6,21 @@ window.onload = function () {
 
 
 	TalkSub.onclick = function () {
+		var xhr = new XMLHttpRequest();
+		xhr.onreadystatechange = function () {
+			console.log(this.responseText);
+		}
+
+		xhr.open("POST", "/api", true);
+		var json = JSON.stringify({ 'hello': 'value1' });
+		xhr.send(json);
+
+
+
+
+
+
+
 		var str = "";
 		if (TalkWords.value == "") {
 			alert("error!");

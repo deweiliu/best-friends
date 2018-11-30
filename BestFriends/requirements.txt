@@ -1,6 +1,6 @@
 # To set up environment for this project, you need to install the following packages
 # With Python 3.6.6 (64-bit), under the folder where Python was installed, execute the command:
-# <path_to_python_interpreter>\python.exe -m pip install --upgrade -r <path_to_this_file>\requirements.txt
+# <path_to_python_interpreter>\python.exe -m pip install --upgrade -r '<path_to_this_file>\requirements.txt'
 #
 Django==2.1.3
 pip==18.1
