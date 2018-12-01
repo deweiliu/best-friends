@@ -3,39 +3,49 @@ var max_message_index = -1
 window.onload = function () {
 	var sendButton = document.getElementById("talksub");
 	var input_message = document.getElementById("talkwords");
-	var Dialog = document.getElementById("words");
+	var dialog = document.getElementById("words");
 
 	var historary_messages = new XMLHttpRequest();
+	////////
+	input_message.addEventListener('keydown', function (e) {
+		if (e.keyCode == 13) {
+			send_message();
+		}
+	});
+
+	sendButton.onclick = function () { send_message(); }
+	/////////
 
 	historary_messages.onreadystatechange = function () {
-		if (historary_messages.readyState==4) {
-		console.log(historary_messages.readyState + "historayra message ready");
-		s = String(this.responseText);
-		var response = JSON.parse(s);
-		var messages = response.new_messages
+		if (historary_messages.readyState == 4) {
+			console.log(historary_messages.readyState + "historayra message ready");
+			s = String(this.responseText);
+			var response = JSON.parse(s);
+			var messages = response.new_messages
 
-		console.log(message)
-		console.log("loading history messages");
+			console.log(message)
+			console.log("loading history messages");
 
-		for (var i = 0; i < messages.length; i++) {
-			var message = messages[i];
-			console.log(message);
+			for (var i = 0; i < messages.length; i++) {
+				var message = messages[i];
+				console.log(message);
 
-			if (max_message_index < message.message_index) {
-				max_message_index = message.message_index;
+				if (max_message_index < message.message_index) {
+					max_message_index = message.message_index;
+				}
+
+				if (message.is_from_user == false) {
+					dialog.innerHTML = dialog.innerHTML + ('<div class="atalk"><span>' + message.message + '</span></div>' + '<div class="atalk">' + "Sent by " + message.sender_name + '</div>');
+				}
+				else {
+					dialog.innerHTML = dialog.innerHTML + ('<div class="btalk"><span>' + message.message + '</span></div>' + '<div class="btalk">' + "Sent by " + message.sender_name + '</div>');
+
+				}
+
 			}
-
-			if (message.is_from_user == false) {
-				Dialog.innerHTML = Dialog.innerHTML + ('<div class="atalk"><span>' + message.message + '</span></div>' + '<div class="atalk">' + "Sent by " + message.sender_name + '</div>');
-			}
-			else {
-				Dialog.innerHTML = Dialog.innerHTML + ('<div class="btalk"><span>' + message.message + '</span></div>' + '<div class="btalk">' + "Sent by " + message.sender_name + '</div>');
-
-			}
-
+			dialog.scrollTop = dialog.scrollHeight;
 		}
 	}
-}
 
 	historary_messages.open("POST", "/api", true);
 
@@ -53,7 +63,7 @@ window.onload = function () {
 
 
 
-	sendButton.onclick = function () {
+	function send_message() {
 
 		console.log(sendButton.readyState + "send button ready");
 		var str = "";
@@ -66,12 +76,12 @@ window.onload = function () {
 
 			str = '<div class="btalk"><span>' + input_text + '</span></div>';
 
-			Dialog.innerHTML = Dialog.innerHTML + str;
+			dialog.innerHTML = dialog.innerHTML + str;
 			str = '<div class="btalk">' + "Sent by " + firstname + '</div>';
-			Dialog.innerHTML = Dialog.innerHTML + str;
+			dialog.innerHTML = dialog.innerHTML + str;
 
 			input_message.value = "";
-
+			dialog.scrollTop = dialog.scrollHeight;
 		}
 
 		///////send message
@@ -118,11 +128,12 @@ window.onload = function () {
 					}
 
 					if (message.is_from_user == false) {
-						Dialog.innerHTML = Dialog.innerHTML + ('<div class="atalk"><span>' + message.message + '</span></div>' + '<div class="atalk">' + "Sent by " + message.sender_name + '</div>');
+						dialog.innerHTML = dialog.innerHTML + ('<div class="atalk"><span>' + message.message + '</span></div>' + '<div class="atalk">' + "Sent by " + message.sender_name + '</div>');
 					}
 
 
 				}
+				dialog.scrollTop = dialog.scrollHeight;
 			}
 
 		}
@@ -137,6 +148,7 @@ window.onload = function () {
 		});
 
 		update_message.send(json);
+
 	}
 
 	function sleep(delay) {
