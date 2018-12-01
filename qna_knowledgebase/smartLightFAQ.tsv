@@ -3,11 +3,10 @@ Question	Answer	96207418-4609-48df-9cbc-dd35a71e83f7-KB.tsv	Source
 My Contoso smart light won't turn on.	Check the connection to the wall outlet to make sure it's plugged in properly.	96207418-4609-48df-9cbc-dd35a71e83f7-KB.tsv	Editorial
 Light won't turn on.	Check the connection to the wall outlet to make sure it's plugged in properly.	96207418-4609-48df-9cbc-dd35a71e83f7-KB.tsv	Editorial
 My smart light app stopped responding.	"Restart the app. If the problem persists, contact support."	96207418-4609-48df-9cbc-dd35a71e83f7-KB.tsv	Editorial
-How do I contact support?	Email us at service@contoso.com	96207418-4609-48df-9cbc-dd35a71e83f7-KB.tsv	Editorial
-I need help.	Email us at service@contoso.com	96207418-4609-48df-9cbc-dd35a71e83f7-KB.tsv	Editorial
+How do I contact support?	Email us at deweiliu@hotmail.com	96207418-4609-48df-9cbc-dd35a71e83f7-KB.tsv	Editorial
+I need help.	Email us at deweiliu@hotmail.com	96207418-4609-48df-9cbc-dd35a71e83f7-KB.tsv	Editorial
 I upgraded the app and it doesn't work anymore.	"When you upgrade, you need to disable Bluetooth, then re-enable it. After re-enable, re-pair your light with the app."	96207418-4609-48df-9cbc-dd35a71e83f7-KB.tsv	Editorial
 Light doesn't work after upgrade.	"When you upgrade, you need to disable Bluetooth, then re-enable it. After re-enable, re-pair your light with the app."	96207418-4609-48df-9cbc-dd35a71e83f7-KB.tsv	Editorial
-Question	Answer	890b1efc-27ad-4dca-8dcb-b20d29d50e14-KB.tsv	Source
 Who should I contact for customer service?	Please direct all customer service questions to (202) 555-0164  \n	890b1efc-27ad-4dca-8dcb-b20d29d50e14-KB.tsv	Editorial
 Why does the light not work?	The simplest way to troubleshoot your smart light is to turn it off and on.  \n	890b1efc-27ad-4dca-8dcb-b20d29d50e14-KB.tsv	Editorial
 How long does the light's battery last for?	The battery will last approximately 10 - 12 weeks with regular use.   \n	890b1efc-27ad-4dca-8dcb-b20d29d50e14-KB.tsv	Editorial
@@ -15,3 +14,14 @@ What type of light bulb do I need?	A 26-Watt compact fluorescent light bulb that
 Hi	Hello	96207418-4609-48df-9cbc-dd35a71e83f7-KB.tsv	Editorial
 Hello	How are you?	96207418-4609-48df-9cbc-dd35a71e83f7-KB.tsv	Editorial
 How to edit the .tsv file for the knowledge base?	Visit https://docs.microsoft.com/en-us/azure/cognitive-services/qnamaker/concepts/data-sources-supported	96207418-4609-48df-9cbc-dd35a71e83f7-KB.tsv	Editorial
+How are you?	"Not bad, how about you?"	96207418-4609-48df-9cbc-dd35a71e83f7-KB.tsv	Editorial
+I am good	I am glad to hear about that	96207418-4609-48df-9cbc-dd35a71e83f7-KB.tsv	Editorial
+Who are you?	I am your assitant.	96207418-4609-48df-9cbc-dd35a71e83f7-KB.tsv	Editorial
+a	b	96207418-4609-48df-9cbc-dd35a71e83f7-KB.tsv	Editorial
+weather	"Sorry, I know nothing about the weather."	96207418-4609-48df-9cbc-dd35a71e83f7-KB.tsv	Editorial
+money	I cannot earn money.	96207418-4609-48df-9cbc-dd35a71e83f7-KB.tsv	Editorial
+version	This is the best friendss app beta version.	96207418-4609-48df-9cbc-dd35a71e83f7-KB.tsv	Editorial
+Who am I?	You are my best friend!	96207418-4609-48df-9cbc-dd35a71e83f7-KB.tsv	Editorial
+Sleep	Go night	96207418-4609-48df-9cbc-dd35a71e83f7-KB.tsv	Editorial
+Good morning	Good morning. Have an energic day!	96207418-4609-48df-9cbc-dd35a71e83f7-KB.tsv	Editorial
+I am bored	You can talk to me	96207418-4609-48df-9cbc-dd35a71e83f7-KB.tsv	Editorial
