@@ -26,12 +26,16 @@ def api(request):
 
     # load json data
     # Get the body request
+    print("request get:")
+    print(request.GET)
     body = (request.body)
-        
+    print("body = %s"%body)
     # Decode the request into a str object then parse it to a dictionary
-    data = json.loads(body.decode("ascii"))
+    de_code = body.decode("ascii")
+    print("de_code = %s" % de_code)
+    data = json.loads(de_code)
     
-
+    print("Got data = %s" % data)
     if(post):
         return post_api(data)
     else:
@@ -47,6 +51,10 @@ def post_api(data):
 
     if(type == 'send message'):
         return send_message(method,data)
+    elif(type == 'history messages'):
+        return history_messages(method,data)
+    elif(type == 'message update'):
+        return message_update(method,data)
     else:
         return error_response('invalid "type" in the POST request',request_method=method)
 
@@ -57,11 +65,8 @@ def get_api(data):
     except:
         return error_response('request body must have a key "type"',request_method=method)
 
-    if(type == 'history messages'):
-        return history_messages(method,data)
-    elif(type == 'message update'):
-        return message_update(method,data)
-    else:
+    
+    if True:
         return JsonResponse({'error':'invalid "type" in the GET request'},status=400)
 
 def history_messages(request_method,data):
