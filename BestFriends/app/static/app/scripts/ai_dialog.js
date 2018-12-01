@@ -8,6 +8,7 @@ window.onload = function () {
 	var historary_messages = new XMLHttpRequest();
 
 	historary_messages.onreadystatechange = function () {
+		if (historary_messages.readyState==4) {
 		console.log(historary_messages.readyState + "historayra message ready");
 		s = String(this.responseText);
 		var response = JSON.parse(s);
@@ -34,7 +35,7 @@ window.onload = function () {
 
 		}
 	}
-
+}
 
 	historary_messages.open("POST", "/api", true);
 
