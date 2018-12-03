@@ -2,8 +2,60 @@
 
 {% block content %}
 
+
+<!--
+
+-->
+
+<style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: transparent;
+      background-image: linear-gradient(0deg, #bbd3e2, #eedcfa);
+      *background-image: url("http://sxrdev.com/uploads/images/code.png");
+      background-size: cover;
+    }
+
+    @font-face {
+      font-family: 'ubuntu';
+      font-style: italic;
+      font-weight: 300;
+      src: local("Lato Light Italic"), local("Lato-LightItalic"), url(https://fonts.gstatic.com/s/ubuntucondensed/v8/u-4k0rCzjgs5J7oXnJcM_0kACGMtT-Dfqw.woff2) format("woff2");
+    }
+    .jumbotron {
+        -webkit-box-shadow:0 0 5px #eedcfa;
+        background-color:#fff;
+        opacity:0.5;
+    }
+    .jumbotron h1 {
+        color: #fff;
+        font-size: 73px;
+        line-height:normal;
+        text-transform: uppercase;
+        font-weight:200;
+        font-family: 'Josefin Sans',sans-serif;
+        background: linear-gradient(to right, #697dff 10%, #fff 50%, #5bdaff 60%);
+        background-size: auto auto;
+        background-size: 200% auto;
+        background-clip: text;
+        background-clip: border-box;
+        text-fill-color: transparent;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: textclip 5s linear infinite;
+        display: inline-block;
+    }
+
+    @keyframes textclip {
+      to {
+        background-position: 200% center;
+      }
+    }
+</style>
+
 <div class="jumbotron">
-    <h1>Best Friends' App</h1>
+    <h1><strong>Best Friends' App</strong></h1>
     <p class="lead">Best Friends' App is an AI model which will communicate with users by sounds, texts and videos.</p>
     <p><a href="http://www.seconteen.com/" class="btn btn-primary btn-large">Learn more &raquo;</a></p>
 </div>
@@ -30,12 +82,15 @@
     </div>
 </div>
 
+
 {% endblock %}
-    {% block header %}
+    
+
+{% block header %}
     {% load staticfiles %}
 
 {% endblock %}
 {% block scripts %}
-            <script src="{% static 'app/scripts/common_functions.js' %}"></script>
+<script src="{% static 'app/scripts/common_functions.js' %}"></script>
 
 {% endblock %}

@@ -152,6 +152,7 @@
     <None Include="app\static\app\scripts\_references.js" />
     <Content Include="app\templates\app\login.html" />
     <None Include="BestFriendsInTheWorld - Web Deploy.pubxml" />
+    <Content Include="app\templates\app\test.html" />
     <Content Include="requirements.txt" />
     <Content Include="web.config" />
   </ItemGroup>
