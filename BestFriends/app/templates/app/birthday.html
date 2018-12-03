@@ -21,7 +21,7 @@
     }
     .wishes {
         width: 800px;
-        height: 400px;
+        height: 300px;
         color: rgba(255,255,255,0.8);
         font-size: 40px;
         text-align: start center;
@@ -104,9 +104,10 @@
 
 <br/>
 
-{% for comment in comments %}
+
 <div class="comment">
     <br/>
+    {% for comment in comments %}
     <span>At {{comment.datetime}}, user <strong>{{comment.username}}</strong> said:</span>
     <div class="comment_show"><h3><span>{{comment.comment}}</span></h3></div>
 
