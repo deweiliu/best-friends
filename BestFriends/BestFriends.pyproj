@@ -113,6 +113,7 @@
     </Interpreter>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\static\app\content\animate.css" />
     <Content Include="app\static\app\content\bootstrap.css" />
     <Content Include="app\static\app\content\bootstrap.min.css" />
     <Content Include="app\static\app\content\magnific-popup.css" />

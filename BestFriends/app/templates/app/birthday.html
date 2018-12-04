@@ -5,10 +5,15 @@
 <style>
     #deiwei_birthday {
 	background: #73b5f5;
-}
+    }
     .kexin_birthday {
+        width: 600px;
+        height: 30px;
         color:#000000;
-
+        margin:auto;
+        word-spacing:3px;
+        font-family: 'ubuntu';
+        font-size:20px;
     }
     .download-head {
 	    text-align: center;
@@ -21,6 +26,7 @@
         height: 300px;
         color: rgba(255,255,255,0.8);
         font-size: 40px;
+        margin:auto;
         text-align: start center;
         font-family: "Times New Roman";
         background-image: url("../../static/app/images/bestwishes.jpg");
@@ -79,7 +85,7 @@
 
 <p>{{ content }}</p>
 
-<div id="deiwei_birthday" class="Birthday_show">
+<div id="deiwei_birthday" class="Birthday_show fadeInDown animated">
 	<div class="container">
 		<div class="download-head">
 			<h3>To dewei:happy birthday!</h3>
@@ -90,12 +96,14 @@
 </div>
 
 <br />
-<div class="wishes">
+<div class="wishes fadeInLeft animated">
     <p>Bless you back to China safely!!</p>
 </div>
 
-<span style ="font-style:unset" id ="dateField">hi</span>
-
+<br />
+<div class="kexin_birthday">
+    <p id ="dateField">hi</p>
+</div>
 
 <br/>
 

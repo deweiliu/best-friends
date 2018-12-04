@@ -1,7 +1,24 @@
 {% extends "app/layout.html" %}
 
+{% block header %}
+    {% load staticfiles %}
+{% endblock %}
+
 {% block content %}
 <style>
+    .col-md-4 {
+        background-color:#fff;
+        opacity:0.3;
+        filter:alpha(opacity=30);
+        font-family: 'ubuntu';
+        font-weight:500;
+        border-width:medium;
+        border-color:#81a7f6;
+        border-radius: 20px;
+        border-style:dashed;
+        padding-left:20px;
+        padding-right:20px;
+    }
 
     @font-face {
       font-family: 'ubuntu';
@@ -42,26 +59,29 @@
 
 <div class="jumbotron">
     <h1><strong>Best Friends' App</strong></h1>
-    <p class="lead">Best Friends' App is an AI model which will communicate with users by sounds, texts and videos.</p>
+    <p class="lead fadeInUp animated">Best Friends' App is an AI model which will communicate with users by sounds, texts and videos.</p>
     <p><a href="http://www.seconteen.com/" class="btn btn-primary btn-large">Learn more &raquo;</a></p>
 </div>
 
+
 <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-4 fadeInLeft animated">
         <h2>Say Hi to the robot</h2>
         <p>
             Hi! Check out our birthdays!
         </p>
         <p><a class="btn btn-default" href="{%url 'app:birthday' %}">Learn more &raquo;</a></p>
     </div>
-    <div class="col-md-4">
+
+    <div class="col-md-4 fadeInDown animated">
         <h2>How it works</h2>
         <p>The app works with advanced AI model.</p>
         <p><a class="btn btn-default" href="{%url 'app:login' %}">Get started &raquo;</a></p>
     </div>
-    <div class="col-md-4">
+    
+    <div class="col-md-4 fadeInRight animated">
 
-        <h2>Need helps?</h2>
+        <h2><strong>Need helps?</strong></h2>
         <p>The app is still under construction. Please wait, and it will be fully available in <span id="time_to_finish"></span></p>
         <p>Or you can try our <strong>ALPHA</strong> version</p>
         <p><a class="btn btn-default" href="{%url 'app:login' %}">Alpha Version &raquo;</a></p>
@@ -72,10 +92,7 @@
 {% endblock %}
     
 
-{% block header %}
-    {% load staticfiles %}
-
-{% endblock %}
+{
 {% block scripts %}
 <script src="{% static 'app/scripts/common_functions.js' %}"></script>
 
