@@ -27,6 +27,7 @@
     }
 </style>
 
+<!--
 <div class="login_center">
     <form action="{%url 'app:login' %}" method="post">
 	    {% csrf_token %}
@@ -43,8 +44,9 @@
 	    <br />
  	    <input type="submit" class="btn_input" value="Enter" id="sub_username">
     </form>
-</div>
+</div>    
 
+-->
 <div id="contact" class="Contact">
 		<div class="contact-map">
 			<iframe src="http://developer.baidu.com/map/jsdemo/demo/a1_1.htm" frameborder="0" style="border:0"></iframe>
@@ -52,13 +54,14 @@
 				<div class="contact-head">
 					<h4>Login</h4>
 					</div>
-				<form> 
-					    <input type="text" class="text" value="First name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'First name';}">
-						<input type="text" class="text" value="Surname" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Surname';}">
+				<form action="{%url 'app:login' %}" method="post">
+                    {% csrf_token %}
+                    <input type="text" class="text" value="First name" id="first_name" name="first_name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'First name';}">
+					<input type="text" class="text" value="Surname" id="surname" name="surname" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Surname';}">
 
 					<div class="clearfix"> </div>
 					<div class="sub-button">
-						<input name="submit" type="submit" value="Enter">
+						<input name="submit" type="submit" value="Enter" id="sub_username">
 					</div>
 				</form>
 			</div>

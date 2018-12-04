@@ -1,6 +1,6 @@
 function TimeToFinish() {
 	let now = Date.now();
-	let finish_time = new Date("2018-11-31T00:00:00Z");
+	let finish_time = new Date("2018-12-31T00:00:00Z");
 	let delta_time = finish_time - now;
 	let seconds = Math.floor(delta_time / 1000);
 
