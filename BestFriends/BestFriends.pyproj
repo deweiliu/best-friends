@@ -113,10 +113,15 @@
     </Interpreter>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\static\app\content\ai_page.css" />
     <Content Include="app\static\app\content\animate.css" />
     <Content Include="app\static\app\content\background.css" />
+    <Content Include="app\static\app\content\birthday_page.css" />
     <Content Include="app\static\app\content\bootstrap.css" />
     <Content Include="app\static\app\content\bootstrap.min.css" />
+    <Content Include="app\static\app\content\contact_page.css" />
+    <Content Include="app\static\app\content\index_page.css" />
+    <Content Include="app\static\app\content\login_page.css" />
     <Content Include="app\static\app\content\magnific-popup.css" />
     <Content Include="app\static\app\content\site.css" />
     <Content Include="app\static\app\content\style.css" />
