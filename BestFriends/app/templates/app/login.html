@@ -3,7 +3,10 @@
 {% block content %}
 
 <style type="text/css">
-    .login_center {
+    .contact-form {
+        background-color:#66b0f1;
+    }
+    /*.login_center {
         width: 400px;
         height: 300px;
         border: 3px solid #0094ff;
@@ -24,7 +27,7 @@
         border:1px solid #ffffff;
         color:white;
         background:#66b0f1;
-    }
+    }*/
 </style>
 
 <!--
@@ -45,8 +48,8 @@
  	    <input type="submit" class="btn_input" value="Enter" id="sub_username">
     </form>
 </div>    
-
 -->
+
 <div id="contact" class="Contact">
 		<div class="contact-map">
 			<iframe src="http://developer.baidu.com/map/jsdemo/demo/a1_1.htm" frameborder="0" style="border:0"></iframe>
@@ -60,8 +63,9 @@
 					<input type="text" class="text" value="Surname" id="surname" name="surname" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Surname';}">
 
 					<div class="clearfix"> </div>
+                    <br />
 					<div class="sub-button">
-						<input name="submit" type="submit" value="Enter" id="sub_username">
+						<input type="submit" name="bottom" value="Enter" id="sub_username">
 					</div>
 				</form>
 			</div>

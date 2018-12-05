@@ -1,9 +1,10 @@
 ﻿{% extends "app/layout.html" %}
 
 {% block content %}
-<h1>Conversational Robert</h1>
-<h2>Welcome {{firstname}}</h2>
 <style type="text/css">
+    .title {
+        color:#fff;
+    }
 	.talk_con{
 		width:700px;
 		height:600px;
@@ -68,6 +69,12 @@
 	}
 
 </style>
+
+<div class="title">
+    <h1>Conversational Robert</h1>
+    <h2>Welcome {{firstname}}</h2>
+</div>
+
 
 <div class="talk_con">
 	<div class="talk_show" id="words">

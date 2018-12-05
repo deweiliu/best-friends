@@ -124,6 +124,7 @@
     <Content Include="app\static\app\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="app\static\app\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="app\static\app\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="app\static\app\images\adult-astronomy-astrophotography-1567069.jpg" />
     <Content Include="app\static\app\images\bestwishes.jpg" />
     <Content Include="app\static\app\scripts\ai_dialog.js" />
     <Content Include="app\static\app\scripts\BirthdayTimeLeft.js" />
