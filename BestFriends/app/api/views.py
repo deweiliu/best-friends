@@ -26,16 +26,11 @@ def api(request):
 
     # load json data
     # Get the body request
-    print("request get:")
-    print(request.GET)
     body = (request.body)
-    print("body = %s"%body)
     # Decode the request into a str object then parse it to a dictionary
     de_code = body.decode("ascii")
-    print("de_code = %s" % de_code)
     data = json.loads(de_code)
     
-    print("Got data = %s" % data)
     if(post):
         return post_api(data)
     else:
@@ -92,7 +87,6 @@ def send_message(request_method,data):
     except:
         return error_response('Not enough keys in the request',request_method=request_method,type=type)
     date_time = time.strftime("%Y-%m-%dT%H:%M:%S")
-    print('datetime = %s' % date_time)
     response = models.lodge_message(user_id,message,date_time)
     response['response'] = 'Request received'
 
