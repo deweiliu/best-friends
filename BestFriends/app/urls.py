@@ -12,6 +12,6 @@ urlpatterns = [path('',views.home,name="home"),
     path('login',views.login,name="login"),
 
     path('<str:user_id>/ai',views.ai,name="ai"),
-    path('js_ai',views.js_ai,name="js_ai"),
-    path('conversation',views.conversation,name="conversation"),
+
+    # if no url pattern matches the url from client, throw a 404 page
     url(r'',views.error404,name='404error')]

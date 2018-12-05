@@ -25,17 +25,7 @@ def home(request):
 
         })
 
-def js_ai(request):
-    assert isinstance(request, HttpRequest)
-    try:
-        question = request.GET.get('Twords',0)
-        print("question is : %s" % question)
-        answer = AI.get_answer(question)
-        print("anwser is : %s" % answer)
-    except:
-        answer = 'Got an exception from views.js_ai'
-    answer_dict = {"answer_dict_name":answer}
-    return JsonResponse(answer_dict)
+
 def login(request):
     assert isinstance(request, HttpRequest)
 
@@ -47,22 +37,6 @@ def login(request):
         return HttpResponseRedirect(r)
     except:
         return render(request,'app/login.html')
-@csrf_exempt
-def conversation(request):
-    try:
-        # Get the body request
-        body = (request.body)
-        
-        # Decode the request into a str object then parse it to a dictionary
-        data = json.loads(body.decode("ascii"))
-
-        question = data['question']
-        print("Got question : %s" % question)
-        answer = AI.get_answer(question)
-    except:
-        answer = "Invaild request! The body of the request must be a dictionary containing a key 'question'. but the requestion body we got from you was: %s" % (str(data))
-    return JsonResponse({'answer':answer})
-
 
 
 @csrf_exempt
