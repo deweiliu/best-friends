@@ -1,55 +1,69 @@
-﻿
-{% extends "app/layout.html" %}
-{% block header %}
-    {% load staticfiles %}
-    <link rel='stylesheet' type='text/css' href="{% static 'app/content/login_page.css' %}"/>
-{% endblock %}
-{% block content %}
+﻿{% extends "app/layout.html" %} {% block header %} {% load staticfiles %}
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="{% static 'app/content/login_page.css' %}"
+/>
+{% endblock %} {% block content %}
 
 <!--
-<div class="login_center">
-    <form action="{%url 'app:login' %}" method="post">
-	    {% csrf_token %}
-        <br />
-	    <label for="first_name">Enter your first name below </label>
-	    <br />
-        <br />
-	    <input id="first_name" type="text" class="form-control" name="first_name" margin=auto placeholder="first name">
-        <br />
-	    <label for="surname">Enter your surname below </label>
-	    <br />
-        <br />
-	    <input id="surname" type="text" class="form-control" name="surname" margin=auto placeholder="surname">
-	    <br />
- 	    <input type="submit" class="btn_input" value="Enter" id="sub_username">
-    </form>
-</div>    
+  <div class="login_center">
+      <form action="{%url 'app:login' %}" method="post">
+  	    {% csrf_token %}
+          <br />
+  	    <label for="first_name">Enter your first name below </label>
+  	    <br />
+          <br />
+  	    <input id="first_name" type="text" class="form-control" name="first_name" margin=auto placeholder="first name">
+          <br />
+  	    <label for="surname">Enter your surname below </label>
+  	    <br />
+          <br />
+  	    <input id="surname" type="text" class="form-control" name="surname" margin=auto placeholder="surname">
+  	    <br />
+   	    <input type="submit" class="btn_input" value="Enter" id="sub_username">
+      </form>
+  </div>
 -->
 
 <div id="contact" class="Contact">
-		<div class="contact-map">
-			<iframe src="http://developer.baidu.com/map/jsdemo/demo/a1_1.htm" frameborder="0" style="border:0"></iframe>
-			<div class="contact-form">
-				<div class="contact-head">
-					<h4>Login</h4>
-					</div>
-				<form action="{%url 'app:login' %}" method="post">
-                    {% csrf_token %}
-                    <input type="text" class="text"  id="first_name" name="first_name" margin=auto  placeholder="first name">
-					<input type="text" class="text"  id="surname" name="surname" margin=auto  placeholder="surname">
+  <div class="contact-map">
+    <iframe
+      src="http://developer.baidu.com/map/jsdemo/demo/a1_1.htm"
+      frameborder="0"
+      style="border:0"
+    ></iframe>
+    <div class="contact-form">
+      <div class="contact-head"><h4>Login</h4></div>
+      <form action="{%url 'app:login' %}" method="post">
+        {% csrf_token %}
+        <input
+          type="text"
+          class="text"
+          id="first_name"
+          name="first_name"
+          margin="auto"
+          placeholder="first name"
+        />
+        <input
+          type="text"
+          class="text"
+          id="surname"
+          name="surname"
+          margin="auto"
+          placeholder="surname"
+        />
 
-					<div class="clearfix"> </div>
-                    <br />
-					<div class="sub-button">
-						<input type="submit" name="bottom" value="Enter" id="sub_username">
-					</div>
-				</form>
-			</div>
-		</div>
+        <div class="clearfix"></div>
+        <br />
+        <div class="sub-button">
+          <input type="submit" name="bottom" value="Enter" id="sub_username" />
+        </div>
+      </form>
+    </div>
+  </div>
 </div>
 
-{% endblock %}
-
-{% block scripts %}
-            <script src="{% static 'app\scripts\login_page.js' %}"></script>
+{% endblock %} {% block scripts %}
+<script src="{% static 'app\scripts\login_page.js' %}"></script>
 {% endblock %}

@@ -1,39 +1,36 @@
-﻿{% extends "app/layout.html" %}
-{% block header %}
-    {% load staticfiles %}
-    <link rel='stylesheet' type='text/css' href="{% static 'app/content/ai_page.css' %}"/>
-{% endblock %}
-{% block content %}
-
+﻿{% extends "app/layout.html" %} {% block header %} {% load staticfiles %}
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="{% static 'app/content/ai_page.css' %}"
+/>
+{% endblock %} {% block content %}
 
 <div class="title">
-    <h1>Conversational Robert</h1>
-    <h2>Welcome {{firstname}}</h2>
+  <h1>Conversational Robert</h1>
+  <h2>Welcome {{ firstname }}</h2>
 </div>
-
 
 <div class="talk_con">
-	<div class="talk_show" id="words">
-        <div class="atalk"></div>
-	</div>
-	<div class="talk_input">
-		<input type="text" class="talk_word" id="talkwords" name="Twords" placeholder="Press enter to send message">
-        <input type="button" value="send" class="talk_sub" id="talksub">
-
-	</div>
+  <div class="talk_show" id="words"><div class="atalk"></div></div>
+  <div class="talk_input">
+    <input
+      type="text"
+      class="talk_word"
+      id="talkwords"
+      name="Twords"
+      placeholder="Press enter to send message"
+    />
+    <input type="button" value="send" class="talk_sub" id="talksub" />
+  </div>
 </div>
 
-
-{% endblock %}
-
-
-
-{% block scripts %}
-            <script src="{% static 'app/scripts/ai_dialog.js' %}"></script>
+{% endblock %} {% block scripts %}
+<script src="{% static 'app/scripts/ai_dialog.js' %}"></script>
 <script>
-    var firstname =  "{{firstname}}"
-    var surname="{{surname}}"
-    var user_id="{{user_id}}"
+  var firstname = "{{firstname}}";
+  var surname = "{{surname}}";
+  var user_id = "{{user_id}}";
 </script>
 
 {% endblock %}

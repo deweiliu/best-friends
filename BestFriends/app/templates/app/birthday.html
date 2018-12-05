@@ -1,80 +1,97 @@
-{% extends "app/layout.html" %}
-    {% block header %}    {% load staticfiles %}
-    <link rel="stylesheet" type="text/css" href="{% static 'app/content/birthday_page.css' %}" />
+{% extends "app/layout.html" %} {% block header %} {% load staticfiles %}
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="{% static 'app/content/birthday_page.css' %}"
+/>
 
-{% endblock %}
+{% endblock %} {% block content %}
 
-{% block content %}
-
-
-<br/>
+<br />
 <div class="title">
-<h2><strong>{{ title }}.</strong></h2>
-<h3>{{ message }}</h3>
+  <h2>
+    <strong>{{ title }}.</strong>
+  </h2>
+  <h3>{{ message }}</h3>
 
-<p>{{ content }}</p>
-
+  <p>{{ content }}</p>
 </div>
 
 <div id="deiwei_birthday" class="Birthday_show fadeInDown animated">
-	<div class="container">
-		<div class="download-head">
-			<h3>To dewei:happy birthday!</h3>
-            <br />
-			<h4><span>2018-11-21</span></h4>
-		</div>
-	</div>
+  <div class="container">
+    <div class="download-head">
+      <h3>To dewei:happy birthday!</h3>
+      <br />
+      <h4><span>2018-11-21</span></h4>
+    </div>
+  </div>
 </div>
 
 <br />
 <div class="wishes fadeInLeft animated">
-    <p>Bless you back to China safely!!</p>
+  <p>Bless you back to China safely!!</p>
 </div>
 
 <br />
-<div class="kexin_birthday">
-    <span id ="dateField">hi</span>
-</div>
+<div class="kexin_birthday"><span id="dateField">hi</span></div>
 
-<br/>
+<br />
 
-<br/>
-
+<br />
 
 <div class="comment">
-    <br/>
-    {% for comment in comments %}
-    <span>At {{comment.datetime}}, user <strong>{{comment.username}}</strong> said:</span>
-    <div class="comment_show"><h3><span>{{comment.comment}}</span></h3></div>
+  <br />
+  {% for comment in comments %}
+  <span
+    >At {{ comment.datetime }}, user
+    <strong>{{ comment.username }}</strong> said:</span
+  >
+  <div class="comment_show">
+    <h3>
+      <span>{{ comment.comment }}</span>
+    </h3>
+  </div>
 
-<br/>
+  <br />
 
-{% endfor %}
-    </div>
-
-
-<div class="login_center">
-    <h3>Hi, before you leave, just leave a comment below pleeeeEEEeeease</h3>
-    <p>In the moment, we can only support alphabet letters. Entering other characters will cause display issues</p>
-    <form action="{%url 'app:birthday' %}" method="post">
-	    {% csrf_token %}
-        <br />
-	    <label for="user_name">Enter name below </label>
-	    <input id="user_name" type="text" class="form-control" name="username" margin=auto placeholder="i.e. John Smith">
-	    <br />
-	    <br />
-	    <label for="comment">Enter your comment below </label>
-	    <br />
-	    <input id="comment" type="text" class="form-control" name="comment" margin=auto placeholder="i.e. Hi! Birthday">
-	    <br />
-	    <br />
- 	    <input type="submit" class="btn_input" value="submit" id="sub_username">
-    </form>
+  {% endfor %}
 </div>
 
-{% endblock %}
+<div class="login_center">
+  <h3>Hi, before you leave, just leave a comment below pleeeeEEEeeease</h3>
+  <p>
+    In the moment, we can only support alphabet letters. Entering other
+    characters will cause display issues
+  </p>
+  <form action="{%url 'app:birthday' %}" method="post">
+    {% csrf_token %} <br />
+    <label for="user_name">Enter name below </label>
+    <input
+      id="user_name"
+      type="text"
+      class="form-control"
+      name="username"
+      margin="auto"
+      placeholder="i.e. John Smith"
+    />
+    <br />
+    <br />
+    <label for="comment">Enter your comment below </label> <br />
+    <input
+      id="comment"
+      type="text"
+      class="form-control"
+      name="comment"
+      margin="auto"
+      placeholder="i.e. Hi! Birthday"
+    />
+    <br />
+    <br />
+    <input type="submit" class="btn_input" value="submit" id="sub_username" />
+  </form>
+</div>
 
-{% block scripts %}
-            <script src="{% static 'app/scripts/BirthdayTimeLeft.js' %}"></script>
+{% endblock %} {% block scripts %}
+<script src="{% static 'app/scripts/BirthdayTimeLeft.js' %}"></script>
 
 {% endblock %}

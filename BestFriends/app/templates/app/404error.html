@@ -1,9 +1,11 @@
-﻿
-{% extends "app/layout.html" %}
-{% block content %}
+﻿{% extends "app/layout.html" %} {% block content %}
 
-   <h1>404 Page Not Found</h1>
-    <p>Hey, you might mistype the URL.<p>
-    <p>If this page did exist, we may have deleted it. Sorry for any inconvenience.</p>
-    <a href="{% url 'app:home' %}">Click here to go back to <strong>Home</strong> page</a>
+<h1>404 Page Not Found</h1>
+<p>Hey, you might mistype the URL.</p>
+<p>
+  If this page did exist, we may have deleted it. Sorry for any inconvenience.
+</p>
+<a href="{% url 'app:home' %}"
+  >Click here to go back to <strong>Home</strong> page</a
+>
 {% endblock %}
