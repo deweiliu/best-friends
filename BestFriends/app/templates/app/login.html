@@ -35,8 +35,8 @@
 					</div>
 				<form action="{%url 'app:login' %}" method="post">
                     {% csrf_token %}
-                    <input type="text" class="text" value="First name" id="first_name" name="first_name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'First name';}">
-					<input type="text" class="text" value="Surname" id="surname" name="surname" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Surname';}">
+                    <input type="text" class="text"  id="first_name" name="first_name" margin=auto  placeholder="first name">
+					<input type="text" class="text"  id="surname" name="surname" margin=auto  placeholder="surname">
 
 					<div class="clearfix"> </div>
                     <br />
