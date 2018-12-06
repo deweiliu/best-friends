@@ -2,16 +2,21 @@
 
 
 .border {
-    background-color: rgba(119,136,153,0.6);
+    background-color: rgba(72,61,139,0.5);
     font-family: 'ubuntu';
     font-weight: 500;
     font-size: larger;
+    color:#fff;
     text-align: center;
     margin-left: 15px;
     margin-bottom: 15px;
     border-radius: 15px;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.22), 0 7px 7px rgba(0, 0, 0, 0.15);
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2), -5px 0px 10px rgba(0, 0, 0, 0.2);
 }
+
+    .border:hover {
+        transform: scale(1.1);
+    }
 
 @font-face {
 	font-family: 'ubuntu';
@@ -31,7 +36,7 @@
 		font-size: 73px;
 		line-height: normal;
 		text-transform: uppercase;
-		font-weight: 200;
+		font-weight:600;
 		font-family: 'Josefin Sans',sans-serif;
 		background: linear-gradient(to right, #697dff 10%, #fff 50%, #5bdaff 60%);
 		background-size: auto auto;
