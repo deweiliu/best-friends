@@ -5,8 +5,9 @@ window.onload = function () {
 	var input_message = document.getElementById("talkwords");
 	var dialog = document.getElementById("words");
 
-	var historary_messages = new XMLHttpRequest();
-	////////
+	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+	// Define the actions to send a message
 	input_message.addEventListener('keydown', function (e) {
 		if (e.keyCode == 13) {
 			send_message();
@@ -14,11 +15,15 @@ window.onload = function () {
 	});
 
 	sendButton.onclick = function () { send_message(); }
-	/////////
+	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	// receive history messages
+	var history_messages = new XMLHttpRequest();
 
-	historary_messages.onreadystatechange = function () {
-		if (historary_messages.readyState == 4) {
-			console.log(historary_messages.readyState + "historayra message ready");
+
+	// when the response with history messages is received, display them on the dialog
+	history_messages.onreadystatechange = function () {
+		if (history_messages.readyState == 4) {
+			console.log(history_messages.readyState + "historayra message ready");
 			s = String(this.responseText);
 			var response = JSON.parse(s);
 			var messages = response.new_messages
@@ -34,41 +39,46 @@ window.onload = function () {
 					max_message_index = message.message_index;
 				}
 
+
+				message_text = message.message
+
+				// the id of the sender who sent this message
+				sender_name = message.sender_name
+
+				//datetime of this message
+				datetime = message.datetime
+
+				var style = "";
+
+				// decide the style by whether the message is from user
 				if (message.is_from_user == false) {
-					dialog.innerHTML = dialog.innerHTML + ('<div class="robot"><span>' + message.message + '</span></div>' + '<div class="robot">' + " Sent by " + message.sender_name + '</div>');
+					style = "robot";
 				}
 				else {
-					dialog.innerHTML = dialog.innerHTML + ('<div class="user"><span>' + message.message + '</span></div>' + '<div class="user">' + " Sent by " + message.sender_name + '</div>');
-
+					style = "user";
 				}
+				dialog.innerHTML = dialog.innerHTML + ('<div class="' + style + '"><span>' + message_text + '</span>' + " Sent by " + sender_name + ' at ' + datetime + '</div>');
 
 			}
 			dialog.scrollTop = dialog.scrollHeight;
 		}
 	}
 
-	historary_messages.open("POST", "/api", true);
-
-
-
+	// send a request asking for history messages
+	history_messages.open("POST", "/api", true);
 	json = JSON.stringify({
 		"user_id": user_id, "message_index": max_message_index, 'type': 'message update'
 	});
+	history_messages.send(json);
 
-	historary_messages.send(json);
-
-
-
-
-
-
-
+	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	//send a message to the server
 	function send_message() {
 
 		console.log(sendButton.readyState + " send button ready ");
 		var str = "";
 		if (input_message.value == "") {
-			alert("error!");
+			alert("Error! The message cannot be blank.");
 			return;
 		}
 		else {
@@ -83,9 +93,6 @@ window.onload = function () {
 			input_message.value = "";
 			dialog.scrollTop = dialog.scrollHeight;
 		}
-
-		///////send message
-
 
 
 		var xhr = new XMLHttpRequest();
@@ -105,6 +112,8 @@ window.onload = function () {
 
 
 		sleep(4000);
+
+		// and receive a response
 		var update_message = new XMLHttpRequest();
 
 		update_message.onreadystatechange = function () {
@@ -127,8 +136,22 @@ window.onload = function () {
 						max_message_index = message.message_index;
 					}
 
-					if (message.is_from_user == false) {
-						dialog.innerHTML = dialog.innerHTML + ('<div class="robot"><span>' + message.message + '</span></div>' + '<div class="robot">' + " Sent by " + message.sender_name + '</div>');
+					message_text = message.message
+
+					// the id of the sender who sent this message
+					sender_name = message.sender_name
+
+					//datetime of this message
+					datetime = message.datetime
+
+					var style = "";
+
+					// decide the style by whether the message is from user
+					if (!message.is_from_user) {
+
+						style = "robot";
+						dialog.innerHTML = dialog.innerHTML + ('<div class="' + style + '"><span>' + message_text + '</span>' + " Sent by " + sender_name + ' at ' + datetime + '</div>');
+
 					}
 
 
