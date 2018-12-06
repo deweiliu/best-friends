@@ -35,10 +35,10 @@ window.onload = function () {
 				}
 
 				if (message.is_from_user == false) {
-					dialog.innerHTML = dialog.innerHTML + ('<div class="robot"><span>' + message.message + '</span></div>' + '<div class="robot">' + "Sent by " + message.sender_name + '</div>');
+					dialog.innerHTML = dialog.innerHTML + ('<div class="robot"><span>' + message.message + '</span></div>' + '<div class="robot">' + " Sent by " + message.sender_name + '</div>');
 				}
 				else {
-					dialog.innerHTML = dialog.innerHTML + ('<div class="user"><span>' + message.message + '</span></div>' + '<div class="user">' + "Sent by " + message.sender_name + '</div>');
+					dialog.innerHTML = dialog.innerHTML + ('<div class="user"><span>' + message.message + '</span></div>' + '<div class="user">' + " Sent by " + message.sender_name + '</div>');
 
 				}
 
@@ -65,7 +65,7 @@ window.onload = function () {
 
 	function send_message() {
 
-		console.log(sendButton.readyState + "send button ready");
+		console.log(sendButton.readyState + " send button ready ");
 		var str = "";
 		if (input_message.value == "") {
 			alert("error!");
@@ -77,7 +77,7 @@ window.onload = function () {
 			str = '<div class="user"><span>' + input_text + '</span></div>';
 
 			dialog.innerHTML = dialog.innerHTML + str;
-			str = '<div class="user">' + "Sent by " + firstname + '</div>';
+			str = '<div class="user">' + " Sent by " + firstname + '</div>';
 			dialog.innerHTML = dialog.innerHTML + str;
 
 			input_message.value = "";
@@ -128,7 +128,7 @@ window.onload = function () {
 					}
 
 					if (message.is_from_user == false) {
-						dialog.innerHTML = dialog.innerHTML + ('<div class="robot"><span>' + message.message + '</span></div>' + '<div class="robot">' + "Sent by " + message.sender_name + '</div>');
+						dialog.innerHTML = dialog.innerHTML + ('<div class="robot"><span>' + message.message + '</span></div>' + '<div class="robot">' + " Sent by " + message.sender_name + '</div>');
 					}
 
 

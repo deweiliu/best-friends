@@ -28,12 +28,14 @@ div.conversation {
     -moz-border-radius: 0.4em;
     -webkit-border-radius: 0.4em;
     border-radius: 0.4em;
+    z-index: 1;
 }
 
     div.conversation .talk_show {
         width: 100%;
         height: 500px;
         background: transparent;
+        z-index: 2;
         overflow: auto;
     }
 
@@ -57,134 +59,142 @@ div.conversation {
         font-size: 1.5em;
     }
 
-    div.conversation .talk_show .robot {
+div.robot {
+    float: left;
+    text-align: left;
+    z-index: 999;
+}
+
+    div.robot span {
+        background: #3498db;
+        opacity: 1;
+        color: #fff;
+        padding: 1em;
+        -moz-border-radius: 0 1em 1em 0;
+        -webkit-border-radius: 1em;
+        border-radius: 0 1em 1em 0;
+        display: inline-block;
+        z-index: 999;
+    }
+
+div.user {
+    float: right;
+    text-align: right;
+    z-index: 999;
+}
+
+    div.user span {
+        background: #ecf0f1;
+        opacity: 1;
+        color: #3498db;
+        padding: 1em;
+        -moz-border-radius: 1em 0 0 1em;
+        -webkit-border-radius: 1em;
+        border-radius: 1em 0 0 1em;
+        display: inline-block;
+        z-index: 999;
+    }
+
+div.robot,
+div.user {
+    clear: both;
+    margin: 0.2em 0;
+    max-width: 70%;
+}
+
+    div.robot:hover .message-time,
+    div.user:hover .message-time {
+        opacity: 1;
+    }
+
+    div.robot .message-time {
+        height: 1.2em;
+        color: rgba(236, 240, 241, 0.5);
         float: left;
-        text-align: left;
+        font-size: 0.7em;
+        opacity: 0;
+        position: relative;
+        margin: -1.3em 0em 0em 0.8em;
+        -moz-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+        -moz-transition: all 0.3s ease-in-out;
+        -o-transition: all 0.3s ease-in-out;
+        -webkit-transition: all 0.3s ease-in-out;
+        transition: all 0.3s ease-in-out;
     }
 
-        div.conversation .talk_show .robot span {
-            background: #3498db;
-            color: #fff;
-            padding: 1em;
-            -moz-border-radius: 0 1em 1em 0;
-            -webkit-border-radius: 1em;
-            border-radius: 0 1em 1em 0;
-            display: inline-block;
-        }
-
-    div.conversation .talk_show .user {
+    div.user .message-time {
+        height: 1.2em;
+        color: rgba(236, 240, 241, 0.5);
         float: right;
-        text-align: right;
+        font-size: 0.7em;
+        opacity: 0;
+        position: relative;
+        margin: -1.3em 0.8em 0em 0em;
+        -moz-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+        -moz-transition: all 0.3s ease-in-out;
+        -o-transition: all 0.3s ease-in-out;
+        -webkit-transition: all 0.3s ease-in-out;
+        transition: all 0.3s ease-in-out;
     }
 
-        div.conversation .talk_show .user span {
-            background: #ecf0f1;
-            color: #3498db;
-            padding: 1em;
-            -moz-border-radius: 1em 0 0 1em;
-            -webkit-border-radius: 1em;
-            border-radius: 1em 0 0 1em;
-            display: inline-block;
+        div.robot .message-time:before,
+        div.user .message-time:before {
+            content: ' ' '\1f554' ' ';
+            font-family: 'entypo', sans-serif;
         }
 
-    div.conversation .talk_show .robot,
-    div.conversation .talk_show .user {
-        clear: both;
-        margin: 0.2em 0;
-        max-width: 70%;
+div.conversation div:last-child {
+    margin-bottom: 0;
+}
+
+div.conversation ::selection {
+    background: #34495e;
+}
+
+div.conversation ::moz-selection {
+    background: #34495e;
+}
+
+div.conversation .talk_input {
+    width: 100%;
+    height: 60px;
+    background-color: rgba(255,255,255,0.1);
+    margin-bottom: 0px;
+}
+
+    div.conversation .talk_input .talk_word {
+        width: 65%;
+        height: 35px;
+        padding: 2px;
+        text-align: left;
+        font-size: 20px;
+        float: left;
+        margin-left: 5%;
+        margin-top: 12px;
+        outline: none;
+        text-indent: 10px;
+        border-radius: 0.8em;
     }
 
-        div.conversation .talk_show .robot:hover .message-time,
-        div.conversation .talk_show .user:hover .message-time {
-            opacity: 1;
-        }
-
-        div.conversation .talk_show .robot .message-time {
-            height: 1.2em;
-            color: rgba(236, 240, 241, 0.5);
-            float: left;
-            font-size: 0.7em;
-            opacity: 0;
-            position: relative;
-            margin: -1.3em 0em 0em 0.8em;
-            -moz-transform: rotate(0deg);
-            -ms-transform: rotate(0deg);
-            -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
-            -moz-transition: all 0.3s ease-in-out;
-            -o-transition: all 0.3s ease-in-out;
-            -webkit-transition: all 0.3s ease-in-out;
-            transition: all 0.3s ease-in-out;
-        }
-
-        div.conversation .talk_show .user .message-time {
-            height: 1.2em;
-            color: rgba(236, 240, 241, 0.5);
-            float: right;
-            font-size: 0.7em;
-            opacity: 0;
-            position: relative;
-            margin: -1.3em 0.8em 0em 0em;
-            -moz-transform: rotate(0deg);
-            -ms-transform: rotate(0deg);
-            -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
-            -moz-transition: all 0.3s ease-in-out;
-            -o-transition: all 0.3s ease-in-out;
-            -webkit-transition: all 0.3s ease-in-out;
-            transition: all 0.3s ease-in-out;
-        }
-
-            div.conversation .talk_show .robot .message-time:before,
-            div.conversation .talk_show .user .message-time:before {
-                content: ' ' '\1f554' ' ';
-                font-family: 'entypo', sans-serif;
-            }
-
-    div.conversation div:last-child {
-        margin-bottom: 0;
+        div .conversation .talk_input .talk_sub {
+        width: 10%;
+        height: 35px;
+        background-color: #3498db;
+        float: right;
+        margin-right: 5%;
+        margin-top: 12px;
+        border-radius: 0.5em;
+        border-width: 0px;
+        font-size: 0.8em;
     }
 
-    div.conversation ::selection {
-        background: #34495e;
-    }
 
-    div.conversation ::moz-selection {
-        background: #34495e;
-    }
-
-    div.conversation .talk_input {
-        width: 100%;
-        height: 60px;
-        background-color: rgba(255,255,255,0.1);
-        margin-bottom: 0px;
-    }
-
-        div.conversation .talk_input .talk_word {
-            width:65%;
-            height: 40px;
-            padding: 2px;
-            text-align: left;
-            font-size: 20px;
-            float: left;
-            margin-left: 2em;
-            margin-top: 12px;
-            outline: none;
-            text-indent: 1em;
-            border-radius: 0.8em;
-        }
-
-        div.conversation .talk_input .talk_sub {
-            width: 10%;
-            height: 40px;
-            background-color: #3498db;
-            float: right;
-            margin-right: 3em;
-            margin-top: 12px;
-            border-radius: 0.5em;
-            border-width: 0px;
-            font-size: 0.8em;
-        }
 
 
 /*
