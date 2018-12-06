@@ -35,10 +35,10 @@ window.onload = function () {
 				}
 
 				if (message.is_from_user == false) {
-					dialog.innerHTML = dialog.innerHTML + ('<div class="atalk"><span>' + message.message + '</span></div>' + '<div class="atalk">' + "Sent by " + message.sender_name + '</div>');
+					dialog.innerHTML = dialog.innerHTML + ('<div class="robot"><span>' + message.message + '</span></div>' + '<div class="robot">' + "Sent by " + message.sender_name + '</div>');
 				}
 				else {
-					dialog.innerHTML = dialog.innerHTML + ('<div class="btalk"><span>' + message.message + '</span></div>' + '<div class="btalk">' + "Sent by " + message.sender_name + '</div>');
+					dialog.innerHTML = dialog.innerHTML + ('<div class="user"><span>' + message.message + '</span></div>' + '<div class="user">' + "Sent by " + message.sender_name + '</div>');
 
 				}
 
@@ -74,10 +74,10 @@ window.onload = function () {
 		else {
 			input_text = input_message.value;
 
-			str = '<div class="btalk"><span>' + input_text + '</span></div>';
+			str = '<div class="user"><span>' + input_text + '</span></div>';
 
 			dialog.innerHTML = dialog.innerHTML + str;
-			str = '<div class="btalk">' + "Sent by " + firstname + '</div>';
+			str = '<div class="user">' + "Sent by " + firstname + '</div>';
 			dialog.innerHTML = dialog.innerHTML + str;
 
 			input_message.value = "";
@@ -128,7 +128,7 @@ window.onload = function () {
 					}
 
 					if (message.is_from_user == false) {
-						dialog.innerHTML = dialog.innerHTML + ('<div class="atalk"><span>' + message.message + '</span></div>' + '<div class="atalk">' + "Sent by " + message.sender_name + '</div>');
+						dialog.innerHTML = dialog.innerHTML + ('<div class="robot"><span>' + message.message + '</span></div>' + '<div class="robot">' + "Sent by " + message.sender_name + '</div>');
 					}
 
 
