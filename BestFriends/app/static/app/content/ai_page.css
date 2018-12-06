@@ -178,8 +178,9 @@ div.conversation .talk_input {
         margin-left: 5%;
         margin-top: 12px;
         outline: none;
-        text-indent: 10px;
-        border-radius: 0.8em;
+        text-indent: 1px;
+        border-radius: 0.6em;
+
     }
 
         div .conversation .talk_input .talk_sub {

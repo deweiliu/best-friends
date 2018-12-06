@@ -1,15 +1,16 @@
 
 
 
-.col-md-4 {
-	background-color: rgba(255,255,255,0.7);
-	font-family: 'ubuntu';
-	font-weight: 500;
-	margin-left: 15px;
-	border-width: 3px;
-	border-color: #75b7f6;
-	border-radius: 20px;
-	border-style: dashed;
+.border {
+    background-color: rgba(119,136,153,0.6);
+    font-family: 'ubuntu';
+    font-weight: 500;
+    font-size: larger;
+    text-align: center;
+    margin-left: 15px;
+    margin-bottom: 15px;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.22), 0 7px 7px rgba(0, 0, 0, 0.15);
 }
 
 @font-face {
@@ -21,7 +22,7 @@
 
 .jumbotron {
 	-webkit-box-shadow: 0 0 5px #eedcfa;
-	background-color: rgba(255,255,255,0.7);
+	background-color: rgba(255,255,255,0.5);
 	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.22), 0 6px 6px rgba(0, 0, 0, 0.15);
 }
 
