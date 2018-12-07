@@ -59,7 +59,7 @@ window.onload = function () {
                 else {
                     style = "user";
                 }
-                dialog.innerHTML = dialog.innerHTML + ('<div class="' + style + '"><div class="message-time">' + datetime + '</div><span>' + message_text + '</span></div>' + '<div class="' + style + '"> '+" Sent by " + sender_name + '</div>');
+                dialog.innerHTML = dialog.innerHTML + ('<div class="' + style + '"><div class="message-time">' + datetime + '</div><span>' + message_text + '</span></div>' + '<div class="' + style + '"> <div class="show_name">'+" Sent by " + sender_name + '</div></div>');
                 
                 /*
                 if (message.is_from_user == false) {
@@ -98,7 +98,7 @@ window.onload = function () {
             str = '<div class="user"><div class="message-time">' + now_time[0] + "-" + now_time[1] + "-" + now_time[2] + "<br />" + now_time[3] + ":" + now_time[4] + ":" + now_time[5] + '</div><span>' + input_text + '</span></div>';
 
 			dialog.innerHTML = dialog.innerHTML + str;
-			str = '<div class="user">' + " Sent by " + firstname + '</div>';
+            str = '<div class="user"><div class="show_name">' + " Sent by " + firstname + '</div></div>';
 			dialog.innerHTML = dialog.innerHTML + str;
 
             input_message.value = "";
@@ -164,7 +164,7 @@ window.onload = function () {
 					if (!message.is_from_user) {
 
 						style = "robot";
-                        dialog.innerHTML = dialog.innerHTML + ('<div class="' + style + '"><div class="message-time">' + datetime + '</div><span>' + message_text + '</span></div>' + '<div class="' + style + '"> ' + " Sent by " + sender_name + '</div>');
+                        dialog.innerHTML = dialog.innerHTML + ('<div class="' + style + '"><div class="message-time">' + datetime + '</div><span>' + message_text + '</span></div>' + '<div class="' + style + '"><div class="show_name"> ' + " Sent by " + sender_name + '</div></div>');
 
 					}
                     /*

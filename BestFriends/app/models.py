@@ -50,9 +50,9 @@ def new_user(firstname,surname):
     result = AzureDatabase.execute(str(q))
     print("result = %s" % (result))
     if(len(result) > 0):
-        user_id = result[0][0]
+        user_id = result[0][0]      #user exist
     else:
-        user_id = random.randint(0,1024)
+        user_id = random.randint(0,1024)        #new user
         q = Query.into(table).insert(user_id,firstname,surname)
         AzureDatabase.execute(str(q))
     return user_id
