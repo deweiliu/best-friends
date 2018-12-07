@@ -41,7 +41,7 @@ window.onload = function () {
 				if (max_message_index < message.message_index) {
 					max_message_index = message.message_index;
 				}
-                /*
+                
                 message_text = message.message
 
                 // the id of the sender who sent this message
@@ -59,17 +59,17 @@ window.onload = function () {
                 else {
                     style = "user";
                 }
-                dialog.innerHTML = dialog.innerHTML + ('<div class="' + style + '"><span>' + message_text + '</span>' + " Sent by " + sender_name + ' at ' + datetime + '</div>');
-                */
+                dialog.innerHTML = dialog.innerHTML + ('<div class="' + style + '"><div class="message-time">' + datetime + '</div><span>' + message_text + '</span></div>' + '<div class="' + style + '"> '+" Sent by " + sender_name + '</div>');
                 
+                /*
                 if (message.is_from_user == false) {
-                    dialog.innerHTML = dialog.innerHTML + ('<div class="robot"><div class="message-time">'+ time[0] + ":" + time[1] + ":" + time[2]+ '</div><span>' + message.message + '</span></div>' + '<div class="robot">' + " Sent by " + message.sender_name + '</div>');
+                    dialog.innerHTML = dialog.innerHTML + ('<div class="robot"><div class="message-time">'+ time[0] + "-" + time[1] + "-" + time[2] + "<br />" + time[3] + ":" + time[4] + ":" + time[5] +  '</div><span>' + message.message + '</span></div>' + '<div class="robot">' + " Sent by " + message.sender_name + '</div>');
                 }
 				else {
-                    dialog.innerHTML = dialog.innerHTML + ('<div class="user"><div class="message-time">'+ time[0] + ":" + time[1] + ":" + time[2]+ '</div><span>' + message.message + '</span></div>' + '<div class="user">' + " Sent by " + message.sender_name + '</div>');
+                    dialog.innerHTML = dialog.innerHTML + ('<div class="user"><div class="message-time">'+ time[0] + "-" + time[1] + "-" + time[2] + "<br />" + time[3] + ":" + time[4] + ":" + time[5] +  '</div><span>' + message.message + '</span></div>' + '<div class="user">' + " Sent by " + message.sender_name + '</div>');
 				}
-                header.innerHTML = time[0] + ":" + time[1] + ":" + time[2];
-                
+                header.innerHTML = time[0] + "-" + time[1] + "-" + time[2] + "<br />" + time[3] + ":" + time[4] + ":" + time[5];
+                */
 			}
 			dialog.scrollTop = dialog.scrollHeight;
 		}
@@ -83,24 +83,27 @@ window.onload = function () {
 	history_messages.send(json);
 
     function send_message() {
-        var now_time = get_send_message_time();
+        
 		console.log(sendButton.readyState + " send button ready ");
 		var str = "";
 		if (input_message.value == "") {
 			alert("Error! The message cannot be blank.");
 			return;
 		}
-		else {
+        else {
+
+            var now_time = get_send_message_time();
 			input_text = input_message.value;
 
-            str = '<div class="user"><div class="message-time">'+ now_time[0] + ":" + now_time[1] + ":" + now_time[2] + '</div><span>' + input_text + '</span></div>';
+            str = '<div class="user"><div class="message-time">' + now_time[0] + "-" + now_time[1] + "-" + now_time[2] + "<br />" + now_time[3] + ":" + now_time[4] + ":" + now_time[5] + '</div><span>' + input_text + '</span></div>';
 
 			dialog.innerHTML = dialog.innerHTML + str;
 			str = '<div class="user">' + " Sent by " + firstname + '</div>';
 			dialog.innerHTML = dialog.innerHTML + str;
 
             input_message.value = "";
-            header.innerHTML = now_time[0] + ":" + now_time[1] + ":" + now_time[2];
+            
+
 			dialog.scrollTop = dialog.scrollHeight;
 		}
 
@@ -146,7 +149,7 @@ window.onload = function () {
 					if (max_message_index < message.message_index) {
 						max_message_index = message.message_index;
 					}
-                    /*
+                    
 					message_text = message.message
 
 					// the id of the sender who sent this message
@@ -161,15 +164,16 @@ window.onload = function () {
 					if (!message.is_from_user) {
 
 						style = "robot";
-						dialog.innerHTML = dialog.innerHTML + ('<div class="' + style + '"><span>' + message_text + '</span>' + " Sent by " + sender_name + ' at ' + datetime + '</div>');
+                        dialog.innerHTML = dialog.innerHTML + ('<div class="' + style + '"><div class="message-time">' + datetime + '</div><span>' + message_text + '</span></div>' + '<div class="' + style + '"> ' + " Sent by " + sender_name + '</div>');
 
-					}*/
-                    
+					}
+                    /*
 					if (message.is_from_user == false) {
-                        dialog.innerHTML = dialog.innerHTML + ('<div class="robot"><div class="message-time">'+ get_time[0] + ":" + get_time[1] + ":" + get_time[2] + '</div><span>' + message.message + '</span></div>' + '<div class="robot">' + " Sent by " + message.sender_name + '</div>');
-                        header.innerHTML = get_time[0] + ":" + get_time[1] + ":" + get_time[2];
+                        var get_time = get_send_message_time();
+                        dialog.innerHTML = dialog.innerHTML + ('<div class="robot"><div class="message-time">'+ get_time[0] + "-" + get_time[1] + "-" + get_time[2] + "<br />" + get_time[3] + ":" + get_time[4] + ":" + get_time[5] +   '</div><span>' + message.message + '</span></div>' + '<div class="robot">' + " Sent by " + message.sender_name + '</div>');
+                        header.innerHTML = get_time[0] + "-" + get_time[1] + "-" + get_time[2] + "<br />" + get_time[3] + ":" + get_time[4] + ":" + get_time[5];
                     }
-                    
+                    */
 
 				}
 				dialog.scrollTop = dialog.scrollHeight;
@@ -196,17 +200,25 @@ window.onload = function () {
 	}
 
     function get_send_message_time() {
-        var today = new Date();
-        var h = today.getHours();
-        var m = today.getMinutes();
-        var s = today.getSeconds();
-        var time = new Array(3);
+        var now = new Date();
+        var year = now.getFullYear();       
+        var month = now.getMonth() + 1;     
+        var day = now.getDate();            
+        var h = now.getHours();
+        var m = now.getMinutes();
+        var s = now.getSeconds();
+        var time = new Array(6);
+        month = checkTime(month);
+        day = checkTime(day);
         m = checkTime(m);
         s = checkTime(s);
         t = setTimeout('startTime()', 500);
-        time[0] = String(h);
-        time[1] = String(m);
-        time[2] = String(s);
+        time[0] = String(year);
+        time[1] = String(month);
+        time[2] = String(day);
+        time[3] = String(h);
+        time[4] = String(m);
+        time[5] = String(s);
         return time;
     }
 
