@@ -67,8 +67,8 @@ div.robot {
 
     div.robot span {
         background: #3498db;
-        opacity: 1;
         color: #fff;
+        font-weight:600;
         padding: 1em;
         -moz-border-radius: 0 1em 1em 0;
         -webkit-border-radius: 1em;
@@ -84,9 +84,9 @@ div.user {
 }
 
     div.user span {
-        background: #ecf0f1;
-        opacity: 1;
+        background: #fff;
         color: #3498db;
+        font-weight: 600;
         padding: 1em;
         -moz-border-radius: 1em 0 0 1em;
         -webkit-border-radius: 1em;
@@ -99,6 +99,7 @@ div.robot,
 div.user {
     clear: both;
     margin: 0.2em 0;
+    width: auto;
     max-width: 70%;
 }
 
@@ -109,16 +110,16 @@ div.user {
 
     div.robot .message-time {
         height: 1.2em;
-        color: rgba(236, 240, 241, 0.5);
-        float: left;
-        font-size: 0.7em;
+        color: rgba(236, 240, 241, 0.8);
+        float: right;
+        font-size: 1em;
         opacity: 0;
         position: relative;
-        margin: -1.3em 0em 0em 0.8em;
-        -moz-transform: rotate(0deg);
-        -ms-transform: rotate(0deg);
-        -webkit-transform: rotate(0deg);
-        transform: rotate(0deg);
+        margin: 1em 0em 0em -1.2em;
+        -moz-transform: rotate(90deg);
+        -ms-transform: rotate(90deg);
+        -webkit-transform: rotate(90deg);
+        transform: rotate(90deg);
         -moz-transition: all 0.3s ease-in-out;
         -o-transition: all 0.3s ease-in-out;
         -webkit-transition: all 0.3s ease-in-out;
@@ -127,16 +128,16 @@ div.user {
 
     div.user .message-time {
         height: 1.2em;
-        color: rgba(236, 240, 241, 0.5);
-        float: right;
-        font-size: 0.7em;
+        color: rgba(236, 240, 241, 0.8);
+        float: left;
+        font-size: 1em;
         opacity: 0;
         position: relative;
-        margin: -1.3em 0.8em 0em 0em;
-        -moz-transform: rotate(0deg);
-        -ms-transform: rotate(0deg);
-        -webkit-transform: rotate(0deg);
-        transform: rotate(0deg);
+        margin: 1em -1.2em 0em 0em;
+        -moz-transform: rotate(-90deg);
+        -ms-transform: rotate(-90deg);
+        -webkit-transform: rotate(-90deg);
+        transform: rotate(-90deg);
         -moz-transition: all 0.3s ease-in-out;
         -o-transition: all 0.3s ease-in-out;
         -webkit-transition: all 0.3s ease-in-out;
@@ -197,77 +198,3 @@ div.conversation .talk_input {
 
 
 
-
-/*
-.talk_con {
-	width: 700px;
-	height: 600px;
-	border: 2px solid #666;
-	border-radius: 30px;
-	margin: 50px auto 0;
-	background: rgba(255,255,255,0.5);
-}
-
-.talk_show {
-	width: 660px;
-	height: 500px;
-	border: 2px solid #666;
-	border-radius: 20px;
-	top: 20px;
-	background-color: rgba(255,255,255,0.5);
-	margin: 15px auto 0;
-	overflow: auto;
-}
-
-.talk_input {
-	width: 580px;
-	margin: 10px auto 0;
-}
-
-.atalk {
-	margin: 10px;
-	text-align: left;
-}
-
-	.atalk span {
-		display: inline-block;
-		background: #0181cc;
-		border-radius: 10px;
-		color: #fff;
-		padding: 5px 10px;
-	}
-
-.btalk {
-	margin: 10px;
-	text-align: right;
-}
-
-	.btalk span {
-		display: inline-block;
-		background: #ef8201;
-		border-radius: 10px;
-		color: #fff;
-		padding: 5px 10px;
-	}
-
-.talk_word {
-	width: 450px;
-	height: 30px;
-	padding: 5px;
-	float: left;
-	margin-top: 10px;
-	margin-left: 10px;
-	outline: none;
-	text-indent: 10px;
-	border-radius: 5px;
-}
-
-.talk_sub {
-	width: 56px;
-	height: 30px;
-	float: left;
-	margin-right: 20px;
-	margin-top: 10px;
-}
-
-*/
