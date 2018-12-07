@@ -2,26 +2,41 @@
 
 .contact-form {
 	background-color: #66b0f1;
+    text-align:center;
 }
-/*.login_center {
-        width: 400px;
-        height: 300px;
-        border: 3px solid #0094ff;
-        margin: 0px auto;
-        border-radius: 20px;
-        text-align: center;
-        background: #ffffff;
-        opacity: 0.7;
+.contact-head {
+    margin:auto;
+}
+
+div.bubble {
+    float: right;
+    text-align: center;
+    font-size:larger;
+    font-weight:500;
+}
+
+    div.bubble span {
+        position: relative;
+        margin-left: 0.8em;
+        margin-top: -50%;
+        background: #fff;
+        opacity: 1;
+        color: #3498db;
+        padding: 0.6em;
+        -moz-border-radius: 0.6em;
+        -webkit-border-radius: 0.6em;
+        border-radius: 0.6em;
+        display: inline-block;
+        z-index: 999;
     }
-    .form-control {
-        margin:0px auto;
-    }
-    .btn_input {
-        width:80px;
-		height:50px;
-        margin:0px auto;
-        border-radius:10px ;
-        border:1px solid #ffffff;
-        color:white;
-        background:#66b0f1;
-    }*/
+
+        div.bubble span:before {
+            position: absolute;
+            top: 100%;
+            width: 0;
+            height: 0;
+            z-index: 1;
+            content: "";
+            border: 0.3em solid;
+            border-color: #fff transparent transparent #fff;
+        }

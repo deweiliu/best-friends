@@ -6,25 +6,6 @@
 />
 {% endblock %} {% block content %}
 
-<!--
-  <div class="login_center">
-      <form action="{%url 'app:login' %}" method="post">
-  	    {% csrf_token %}
-          <br />
-  	    <label for="first_name">Enter your first name below </label>
-  	    <br />
-          <br />
-  	    <input id="first_name" type="text" class="form-control" name="first_name" margin=auto placeholder="first name">
-          <br />
-  	    <label for="surname">Enter your surname below </label>
-  	    <br />
-          <br />
-  	    <input id="surname" type="text" class="form-control" name="surname" margin=auto placeholder="surname">
-  	    <br />
-   	    <input type="submit" class="btn_input" value="Enter" id="sub_username">
-      </form>
-  </div>
--->
 
 <div id="contact" class="Contact">
   <div class="contact-map">
@@ -34,6 +15,7 @@
       style="border:0"
     ></iframe>
     <div class="contact-form">
+        <div class="bubble" id="show_bubble"></div>
       <div class="contact-head"><h4>Login</h4></div>
       <form action="{%url 'app:login' %}" method="post">
         {% csrf_token %}

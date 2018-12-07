@@ -66,16 +66,30 @@ div.robot {
 }
 
     div.robot span {
+        position: relative;
+        margin-left: 0.8em;
         background: #3498db;
+        opacity: 1;
         color: #fff;
-        font-weight:600;
-        padding: 1em;
-        -moz-border-radius: 0 1em 1em 0;
-        -webkit-border-radius: 1em;
-        border-radius: 0 1em 1em 0;
+        padding: 0.6em;
+        -moz-border-radius: 0.6em;
+        -webkit-border-radius: 0.6em;
+        border-radius: 0.6em;
         display: inline-block;
         z-index: 999;
     }
+
+        div.robot span:before {
+            position: absolute;
+            top: 100%;
+            width: 0;
+            height: 0;
+            z-index: 1;
+            content: "";
+            border: 0.3em solid;
+            border-color: #3498db transparent transparent #3498db;
+        }
+
 
 div.user {
     float: right;
@@ -84,16 +98,30 @@ div.user {
 }
 
     div.user span {
-        background: #fff;
+        position: relative;
+        margin-right: 0.8em;
+        background: #ecf0f1;
+        opacity: 1;
         color: #3498db;
-        font-weight: 600;
-        padding: 1em;
-        -moz-border-radius: 1em 0 0 1em;
-        -webkit-border-radius: 1em;
-        border-radius: 1em 0 0 1em;
+        padding: 0.6em;
+        -moz-border-radius: 0.6em;
+        -webkit-border-radius: 0.6em;
+        border-radius: 0.6em;
         display: inline-block;
         z-index: 999;
     }
+
+        div.user span:after {
+            position: absolute;
+            top: 100%;
+            right:0.6em;
+            width: 0;
+            height: 0;
+            z-index: 1;
+            content: "";
+            border: 0.3em solid;
+            border-color: #ecf0f1 #ecf0f1 transparent transparent;
+        }
 
 div.robot,
 div.user {
@@ -107,7 +135,7 @@ div.user {
     div.user .show_name {
         font-weight: 400;
         font-size: 0.8em;
-        margin-top: -0.5em;
+        margin-top: 0.8em;
         opacity:0.8;
     }
 
