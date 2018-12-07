@@ -112,7 +112,7 @@ div.user {
         height: 1.2em;
         color: rgba(236, 240, 241, 0.8);
         float: right;
-        font-size: 1em;
+        font-size: 0.8em;
         opacity: 0;
         position: relative;
         margin: 1em 0em 0em -1.2em;
@@ -130,7 +130,7 @@ div.user {
         height: 1.2em;
         color: rgba(236, 240, 241, 0.8);
         float: left;
-        font-size: 1em;
+        font-size: 0.8em;
         opacity: 0;
         position: relative;
         margin: 1em -1.2em 0em 0em;

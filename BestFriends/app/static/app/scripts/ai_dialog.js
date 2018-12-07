@@ -4,7 +4,7 @@ window.onload = function () {
 	var sendButton = document.getElementById("talksub");
 	var input_message = document.getElementById("talkwords");
     var dialog = document.getElementById("words");
-    var dialog_header = document.getElementById("head");
+    var header = document.getElementById("head");
 
 	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -41,17 +41,35 @@ window.onload = function () {
 				if (max_message_index < message.message_index) {
 					max_message_index = message.message_index;
 				}
+                /*
+                message_text = message.message
 
+                // the id of the sender who sent this message
+                sender_name = message.sender_name
+
+                //datetime of this message
+                datetime = message.datetime
+
+                var style = "";
+
+                // decide the style by whether the message is from user
+                if (message.is_from_user == false) {
+                    style = "robot";
+                }
+                else {
+                    style = "user";
+                }
+                dialog.innerHTML = dialog.innerHTML + ('<div class="' + style + '"><span>' + message_text + '</span>' + " Sent by " + sender_name + ' at ' + datetime + '</div>');
+                */
+                
                 if (message.is_from_user == false) {
                     dialog.innerHTML = dialog.innerHTML + ('<div class="robot"><div class="message-time">'+ time[0] + ":" + time[1] + ":" + time[2]+ '</div><span>' + message.message + '</span></div>' + '<div class="robot">' + " Sent by " + message.sender_name + '</div>');
-                    dialog_header.innerHTML = time[0] + ":" + time[1]+ ":" + time[2];
                 }
 				else {
                     dialog.innerHTML = dialog.innerHTML + ('<div class="user"><div class="message-time">'+ time[0] + ":" + time[1] + ":" + time[2]+ '</div><span>' + message.message + '</span></div>' + '<div class="user">' + " Sent by " + message.sender_name + '</div>');
-                    dialog_header.innerHTML = time[0] + ":" + time[1] + ":" + time[2];
 				}
-				dialog.innerHTML = dialog.innerHTML + ('<div class="' + style + '"><span>' + message_text + '</span>' + " Sent by " + sender_name + ' at ' + datetime + '</div>');
-
+                header.innerHTML = time[0] + ":" + time[1] + ":" + time[2];
+                
 			}
 			dialog.scrollTop = dialog.scrollHeight;
 		}
@@ -82,7 +100,7 @@ window.onload = function () {
 			dialog.innerHTML = dialog.innerHTML + str;
 
             input_message.value = "";
-            dialog_header.innerHTML = now_time[0] + ":" + now_time[1] + ":" + now_time[2];
+            header.innerHTML = now_time[0] + ":" + now_time[1] + ":" + now_time[2];
 			dialog.scrollTop = dialog.scrollHeight;
 		}
 
@@ -128,7 +146,7 @@ window.onload = function () {
 					if (max_message_index < message.message_index) {
 						max_message_index = message.message_index;
 					}
-
+                    /*
 					message_text = message.message
 
 					// the id of the sender who sent this message
@@ -145,12 +163,13 @@ window.onload = function () {
 						style = "robot";
 						dialog.innerHTML = dialog.innerHTML + ('<div class="' + style + '"><span>' + message_text + '</span>' + " Sent by " + sender_name + ' at ' + datetime + '</div>');
 
-					}
+					}*/
+                    
 					if (message.is_from_user == false) {
                         dialog.innerHTML = dialog.innerHTML + ('<div class="robot"><div class="message-time">'+ get_time[0] + ":" + get_time[1] + ":" + get_time[2] + '</div><span>' + message.message + '</span></div>' + '<div class="robot">' + " Sent by " + message.sender_name + '</div>');
-                        dialog_header.innerHTML = get_time[0] + ":" + get_time[1] + ":" + get_time[2];
+                        header.innerHTML = get_time[0] + ":" + get_time[1] + ":" + get_time[2];
                     }
-
+                    
 
 				}
 				dialog.scrollTop = dialog.scrollHeight;
