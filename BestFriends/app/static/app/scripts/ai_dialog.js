@@ -1,9 +1,9 @@
 var max_message_index = -1
 
 window.onload = function () {
-	var sendButton = document.getElementById("talksub");
-	var input_message = document.getElementById("talkwords");
-    var dialog = document.getElementById("words");
+	var sendButton = document.getElementById("talksubmit");
+    var input_message = document.getElementById("input_words");
+    var dialog = document.getElementById("chatting_dialog");
     var header = document.getElementById("head");
 
 	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

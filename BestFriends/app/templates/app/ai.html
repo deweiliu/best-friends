@@ -20,34 +20,44 @@
       <div class="time" id="show_now_time">time</div>
           <div class="entypo-clock"></div>
   </div>
-  <div class="talk_show" id="words">
+  <div class="chatting_display" id="chatting_dialog">
       <div class="heading">
           <div class="convn-info">Please wait..</div>
       </div>
       <div class="user"></div>
       <div class="robot"></div>
-      <div class="loading">
-          <div class="loading--bubbles">
+    </div>
+  <div class="talk_input">
+    <input
+      type="text"
+      class="sending_words"
+      id="input_words"
+      name="Twords"
+      placeholder="Press enter to send message"
+    />
+    <input type="button" value="send" class="talk_submit" id="talksubmit" />
+  </div> 
+</div>
+
+<!--
+<div class="loading">
+        <div class="robot_loading">
+            <div class="bubbles">
             <span></span>
             <span></span>
             <span></span>
             </div>
-      </div>
-  </div>
-  <div class="talk_input">
-    <input
-      type="text"
-      class="talk_word"
-      id="talkwords"
-      name="Twords"
-      placeholder="Press enter to send message"
-    />
-    <input type="button" value="send" class="talk_sub" id="talksub" />
-  </div>
-  
-  </div>
+        </div>
 
-
+    <div class="user_loading">
+        <div class="bubbles">
+        <span></span>
+        <span></span>
+        <span></span>
+        </div>
+    </div>
+</div>
+-->
 
 {% endblock %} {% block scripts %}
 <script src="{% static 'app/scripts/ai_dialog.js' %}"></script>
