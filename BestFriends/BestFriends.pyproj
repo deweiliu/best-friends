@@ -116,7 +116,7 @@
     <Content Include="app\static\app\content\ai_page.css" />
     <Content Include="app\static\app\content\animate.css" />
     <Content Include="app\static\app\content\background.css" />
-    <Content Include="app\static\app\content\birthday_page.css" />
+    <Content Include="app\static\app\content\ComeToAnEnd.css" />
     <Content Include="app\static\app\content\bootstrap.css" />
     <Content Include="app\static\app\content\bootstrap.min.css" />
     <Content Include="app\static\app\content\contact_page.css" />
@@ -147,7 +147,7 @@
     <Content Include="app\static\app\scripts\show_now_time.js" />
     <Content Include="app\static\web.config" />
     <Content Include="app\templates\app\404error.html" />
-    <Content Include="app\templates\app\birthday.html" />
+    <Content Include="app\templates\app\ComeToAnEnd.html" />
     <Content Include="app\templates\app\ai.html" />
     <Content Include="app\templates\app\contact.html" />
     <Content Include="app\templates\app\index.html" />

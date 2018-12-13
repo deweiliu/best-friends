@@ -73,7 +73,7 @@ def new_user(firstname,surname):
 
 
 
-def birthday(request):
+def ComeToAnEnd(request):
     table = Table('BIRTHDAYCOMMENTS')
 
     try:

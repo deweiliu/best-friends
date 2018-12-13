@@ -2,7 +2,7 @@
 <link
   rel="stylesheet"
   type="text/css"
-  href="{% static 'app/content/birthday_page.css' %}"
+  href="{% static 'app/content/ComeToAnEnd.css' %}"
 />
 
 {% endblock %} {% block content %}
@@ -20,23 +20,23 @@
 <div id="deiwei_birthday" class="Birthday_show fadeInDown animated">
   <div class="container">
     <div class="download-head">
-      <h3>To dewei:happy birthday!</h3>
+      <h3>My heart is like dead ashes.</h3>
       <br />
-      <h4><span>2018-11-21</span></h4>
+      <h4><span>2018-12-13</span></h4>
     </div>
   </div>
 </div>
 
 <br />
 <div class="wishes fadeInLeft animated">
-  <p>Bless you back to China safely!!</p>
+  <p>part forever</p>
 </div>
 
 <br />
-<div class="kexin_birthday"><span id="dateField">hi</span></div>
+<div class="kexin_birthday"><span id="dateField">If a friendship is just my unilateral concern, then I will gradually learn to care about this friendship.</span></div>
 
 <br />
-
+<br />
 <br />
 
 <div class="comment">
@@ -62,7 +62,7 @@
     In the moment, we can only support alphabet letters. Entering other
     characters will cause display issues
   </p>
-  <form action="{%url 'app:birthday' %}" method="post">
+  <form action="{%url 'app:ComeToAnEnd' %}" method="post">
     {% csrf_token %} <br />
     <label for="user_name">Enter name below </label>
     <input
@@ -82,7 +82,7 @@
       class="form-control"
       name="comment"
       margin="auto"
-      placeholder="i.e. Hi! Birthday"
+      placeholder="i.e. Hi!"
     />
     <br />
     <br />
@@ -91,6 +91,6 @@
 </div>
 
 {% endblock %} {% block scripts %}
-<script src="{% static 'app/scripts/BirthdayTimeLeft.js' %}"></script>
+<!--<script src="{% static 'app/scripts/BirthdayTimeLeft.js' %}"></script>-->
 
 {% endblock %}
