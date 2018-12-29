@@ -84,9 +84,9 @@ def send_message(request_method,data):
     try:
         user_id = data['user_id']
         message = data['message']
+        date_time=data['datetime']
     except:
         return error_response('Not enough keys in the request',request_method=request_method,type=type)
-    date_time = time.strftime("%Y-%m-%dT%H:%M:%S")
     response = models.lodge_message(user_id,message,date_time)
     response['response'] = 'Request received'
 
