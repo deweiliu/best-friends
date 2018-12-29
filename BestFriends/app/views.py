@@ -69,13 +69,13 @@ def contact(request):
             'year':datetime.now().year,
         })
 
-def ComeToAnEnd(request):
+def birthday(request):
     """Renders the about page."""
     assert isinstance(request, HttpRequest)
 
-    comments = models.ComeToAnEnd(request)
+    comments = models.birthday(request)
     if(comments == None):
-        return HttpResponseRedirect(reverse('app:ComeToAnEnd'))
+        return HttpResponseRedirect(reverse('app:birthday'))
 
     output = ''
     print(comments)
@@ -84,10 +84,10 @@ def ComeToAnEnd(request):
         output+=("<br /><h3><span>" + comment['comment'] + "</span></h3><br /><br />")
 
     return render(request,
-        'app/ComeToAnEnd.html',
+        'app/birthday.html',
         {
             'title':'About',
-            'message':'This project is being developed by Dewei Liu , since 14 Aug 2018!',
+            'message':'This project is being developed by Kexin Huang & Dewei Liu who are the best friends in the world, since 14 Aug 2018!',
             'content':'',
             'year':datetime.now().year,
             'comments':comments

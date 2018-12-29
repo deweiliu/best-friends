@@ -7,7 +7,7 @@ urlpatterns = [path('',views.home,name="home"),
     path('api',include('app.api.urls')),
     path('home',views.home,name="home"),
     path('contact',views.contact,name="contact"),
-    path('ComeToAnEnd',views.ComeToAnEnd,name="ComeToAnEnd"),
+    path('birthday',views.birthday,name="birthday"),
 
     path('login',views.login,name="login"),
 
