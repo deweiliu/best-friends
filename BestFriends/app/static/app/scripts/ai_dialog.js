@@ -107,13 +107,15 @@ window.onload = function () {
 		dialog.scrollTop = dialog.scrollHeight;
 		
 
-        
+        var time1 = parse_send_database_time(now_time);
+        console.log(time1);
 		var xhr = new XMLHttpRequest();
 		xhr.open("POST", "/api", true);
         var json = JSON.stringify({
-            'user_id': user_id, 'message': input_text, 'type': 'send message', 'data_time': parse_send_database_time(now_time)
+            'user_id': user_id, 'message': input_text, 'type': 'send message', 'datetime': time1
 		});
-		xhr.send(json);
+        xhr.send(json);
+        console.log("sent!")
 
 		////////////////////////////////////////
 
@@ -234,7 +236,8 @@ window.onload = function () {
     }
 
     function parse_send_database_time(date_time) {
-        return datetime[0] + "T" + date_time[1];
+        console.log(date_time[0] + "T" + date_time[1]);
+        return date_time[0] + "T" + date_time[1];
     }
 }
 
