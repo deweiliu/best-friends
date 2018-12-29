@@ -42,13 +42,14 @@ window.onload = function () {
 					max_message_index = message.message_index;
 				}
                 
-                message_text = message.message
+                message_text = message.message;
 
                 // the id of the sender who sent this message
-                sender_name = message.sender_name
+                sender_name = message.sender_name;
 
                 //datetime of this message
-                datetime = message.datetime
+                datetime = message.datetime;
+                var parse_time = parse_timestamps(datetime);
 
                 var style = "";
 
@@ -59,8 +60,7 @@ window.onload = function () {
                 else {
                     style = "user";
                 }
-                dialog.innerHTML = dialog.innerHTML + ('<div class="' + style + '"><div class="message-time">' + datetime + '</div><span>' + message_text + '</span></div>' + '<div class="' + style + '"> <div class="show_name">'+" Sent by " + sender_name + '</div></div>');
-                
+                dialog.innerHTML = dialog.innerHTML + ('<div class="' + style + '"><div class="message-time">' + parse_time[0] + "<br />" + parse_time[1] + '</div><span>' + message_text + '</span></div>' + '<div class="' + style + '"> <div class="show_name">' + " Sent by " + sender_name + '</div></div>');
                 /*
                 if (message.is_from_user == false) {
                     dialog.innerHTML = dialog.innerHTML + ('<div class="robot"><div class="message-time">'+ time[0] + "-" + time[1] + "-" + time[2] + "<br />" + time[3] + ":" + time[4] + ":" + time[5] +  '</div><span>' + message.message + '</span></div>' + '<div class="robot">' + " Sent by " + message.sender_name + '</div>');
@@ -90,28 +90,28 @@ window.onload = function () {
 			alert("Error! The message cannot be blank.");
 			return;
 		}
-        else {
+        
 
-            var now_time = get_send_message_time();
-			input_text = input_message.value;
+        var now_time = get_send_message_time();
+		input_text = input_message.value;
 
-            str = '<div class="user"><div class="message-time">' + now_time[0] + "-" + now_time[1] + "-" + now_time[2] + "<br />" + now_time[3] + ":" + now_time[4] + ":" + now_time[5] + '</div><span>' + input_text + '</span></div>';
+        str = '<div class="user"><div class="message-time">' + now_time[0] + "<br />" + now_time[1] + '</div><span>' + input_text + '</span></div>';
 
-			dialog.innerHTML = dialog.innerHTML + str;
-            str = '<div class="user"><div class="show_name">' + " Sent by " + firstname + '</div></div>';
-			dialog.innerHTML = dialog.innerHTML + str;
+		dialog.innerHTML = dialog.innerHTML + str;
+        str = '<div class="user"><div class="show_name">' + " Sent by " + firstname + '</div></div>';
+		dialog.innerHTML = dialog.innerHTML + str;
 
-            input_message.value = "";
+        input_message.value = "";
             
 
-			dialog.scrollTop = dialog.scrollHeight;
-		}
+		dialog.scrollTop = dialog.scrollHeight;
+		
 
-
+        
 		var xhr = new XMLHttpRequest();
 		xhr.open("POST", "/api", true);
-		var json = JSON.stringify({
-			'user_id': user_id, 'message': input_text, 'type': 'send message'
+        var json = JSON.stringify({
+            'user_id': user_id, 'message': input_text, 'type': 'send message', 'data_time': parse_send_database_time(now_time)
 		});
 		xhr.send(json);
 
@@ -150,13 +150,14 @@ window.onload = function () {
 						max_message_index = message.message_index;
 					}
                     
-					message_text = message.message
+                    message_text = message.message;
 
 					// the id of the sender who sent this message
-					sender_name = message.sender_name
+                    sender_name = message.sender_name;
 
 					//datetime of this message
-					datetime = message.datetime
+                    datetime = message.datetime;
+                    var parse_time = parse_timestamps(datetime);
 
 					var style = "";
 
@@ -164,7 +165,7 @@ window.onload = function () {
 					if (!message.is_from_user) {
 
 						style = "robot";
-                        dialog.innerHTML = dialog.innerHTML + ('<div class="' + style + '"><div class="message-time">' + datetime + '</div><span>' + message_text + '</span></div>' + '<div class="' + style + '"><div class="show_name"> ' + " Sent by " + sender_name + '</div></div>');
+                        dialog.innerHTML = dialog.innerHTML + ('<div class="' + style + '"><div class="message-time">' + parse_time[0] + "<br />" + parse_time[1] + '</div><span>'  + message_text + '</span></div>' + '<div class="' + style + '"><div class="show_name"> ' + " Sent by " + sender_name + '</div></div>');
 
 					}
                     /*
@@ -184,7 +185,7 @@ window.onload = function () {
 
 		update_message.open("POST", "/api", true);
 
-
+        
 
 		json = JSON.stringify({
 			"user_id": user_id, "message_index": max_message_index, 'type': 'message update'
@@ -213,12 +214,8 @@ window.onload = function () {
         m = checkTime(m);
         s = checkTime(s);
         t = setTimeout('startTime()', 500);
-        time[0] = String(year);
-        time[1] = String(month);
-        time[2] = String(day);
-        time[3] = String(h);
-        time[4] = String(m);
-        time[5] = String(s);
+        time[0] = String(year)+"-"+String(month)+"-"+String(day);
+        time[1] = String(h)+":"+String(m)+":"+String(s);
         return time;
     }
 
@@ -226,5 +223,20 @@ window.onload = function () {
         if (i < 10) { i = "0" + i; }
         return i;
     }
+
+    function parse_timestamps(date_str) {
+        var date = date_str.substring(0, 10);
+        var time = date_str.substring(11);
+        var parse_time = new Array(2);
+        parse_time[0] = date;
+        parse_time[1] = time;
+        return parse_time;
+    }
+
+    function parse_send_database_time(date_time) {
+        return datetime[0] + "T" + date_time[1];
+    }
 }
+
+
 	//////
