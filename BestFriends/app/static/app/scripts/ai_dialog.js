@@ -1,10 +1,17 @@
-var max_message_index = -1
+var max_message_index = -1;
+
+
+//header.innerHTML = '<div class="convn-info">Please wait..</div>';
+
 
 window.onload = function () {
 	var sendButton = document.getElementById("talksubmit");
     var input_message = document.getElementById("input_words");
     var dialog = document.getElementById("chatting_dialog");
     var header = document.getElementById("head");
+    
+    //please wait
+   // header.innerHTML = '<div class="convn-info">Please wait..</div>';
 
 	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -22,9 +29,12 @@ window.onload = function () {
 
 
 	// when the response with history messages is received, display them on the dialog
-	history_messages.onreadystatechange = function () {
-		if (history_messages.readyState == 4) {
-			console.log(history_messages.readyState + "historayra message ready");
+    history_messages.onreadystatechange = function () {
+        //clear
+        //header.remove();
+        if (history_messages.readyState == 4) {
+            header.remove();
+            console.log(history_messages.readyState + "historayra message ready");
 			s = String(this.responseText);
 			var response = JSON.parse(s);
             var messages = response.new_messages;
@@ -33,6 +43,10 @@ window.onload = function () {
 			console.log("loading history messages");
 
             var time = get_send_message_time();
+
+            if (message.length == 0) {
+                header.innerHTML +='<div class="convn-info">No chatting record!</div>'
+            }
 
 			for (var i = 0; i < messages.length; i++) {
 				var message = messages[i];
@@ -61,15 +75,8 @@ window.onload = function () {
                     style = "user";
                 }
                 dialog.innerHTML = dialog.innerHTML + ('<div class="' + style + '"><div class="message-time">' + parse_time[0] + "<br />" + parse_time[1] + '</div><span>' + message_text + '</span></div>' + '<div class="' + style + '"> <div class="show_name">' + " Sent by " + sender_name + '</div></div>');
-                /*
-                if (message.is_from_user == false) {
-                    dialog.innerHTML = dialog.innerHTML + ('<div class="robot"><div class="message-time">'+ time[0] + "-" + time[1] + "-" + time[2] + "<br />" + time[3] + ":" + time[4] + ":" + time[5] +  '</div><span>' + message.message + '</span></div>' + '<div class="robot">' + " Sent by " + message.sender_name + '</div>');
-                }
-				else {
-                    dialog.innerHTML = dialog.innerHTML + ('<div class="user"><div class="message-time">'+ time[0] + "-" + time[1] + "-" + time[2] + "<br />" + time[3] + ":" + time[4] + ":" + time[5] +  '</div><span>' + message.message + '</span></div>' + '<div class="user">' + " Sent by " + message.sender_name + '</div>');
-				}
-                header.innerHTML = time[0] + "-" + time[1] + "-" + time[2] + "<br />" + time[3] + ":" + time[4] + ":" + time[5];
-                */
+                
+    
 			}
 			dialog.scrollTop = dialog.scrollHeight;
 		}
@@ -170,13 +177,8 @@ window.onload = function () {
                         dialog.innerHTML = dialog.innerHTML + ('<div class="' + style + '"><div class="message-time">' + parse_time[0] + "<br />" + parse_time[1] + '</div><span>'  + message_text + '</span></div>' + '<div class="' + style + '"><div class="show_name"> ' + " Sent by " + sender_name + '</div></div>');
 
 					}
-                    /*
-					if (message.is_from_user == false) {
-                        var get_time = get_send_message_time();
-                        dialog.innerHTML = dialog.innerHTML + ('<div class="robot"><div class="message-time">'+ get_time[0] + "-" + get_time[1] + "-" + get_time[2] + "<br />" + get_time[3] + ":" + get_time[4] + ":" + get_time[5] +   '</div><span>' + message.message + '</span></div>' + '<div class="robot">' + " Sent by " + message.sender_name + '</div>');
-                        header.innerHTML = get_time[0] + "-" + get_time[1] + "-" + get_time[2] + "<br />" + get_time[3] + ":" + get_time[4] + ":" + get_time[5];
-                    }
-                    */
+                    
+                    
 
 				}
 				dialog.scrollTop = dialog.scrollHeight;
