@@ -31,6 +31,9 @@
     <Compile Include="app\api\views.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="app\api\__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="app\bot_service\ai.py">
       <SubType>Code</SubType>
     </Compile>
