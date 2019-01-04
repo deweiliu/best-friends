@@ -33,7 +33,6 @@ window.onload = function () {
         //clear
         //header.remove();
         if (history_messages.readyState == 4) {
-            header.remove();
             console.log(history_messages.readyState + "historayra message ready");
 			s = String(this.responseText);
 			var response = JSON.parse(s);
@@ -41,12 +40,6 @@ window.onload = function () {
 
             console.log(message);
 			console.log("loading history messages");
-
-            var time = get_send_message_time();
-
-            if (message.length == 0) {
-                header.innerHTML +='<div class="convn-info">No chatting record!</div>'
-            }
 
 			for (var i = 0; i < messages.length; i++) {
 				var message = messages[i];

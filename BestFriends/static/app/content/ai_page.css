@@ -1,78 +1,306 @@
+@import url(http://weloveiconfonts.com/api/?family=entypo|fontawesome);
+/* entypo */
+[class*="entypo-"]:before {
+    font-family: 'entypo', sans-serif;
+}
 
-<style type="text/css" >
+/* fontawesome */
+[class*="fontawesome-"]:before {
+    font-family: 'fontawesome', sans-serif;
+}
+
+body {
+    font-family: 'Nunito', sans-serif;
+}
+
 .title {
-	color: #fff;
+    color: #fff;
 }
 
-.talk_con {
-	width: 700px;
-	height: 600px;
-	border: 2px solid #666;
-	border-radius: 30px;
-	margin: 50px auto 0;
-	background: rgba(255,255,255,0.5);
+div.conversation {
+    width: 50%;
+    height: 500px;
+    background: rgba(52,73,94,0.8);
+    color: #ecf0f1;
+    font-size: 1.2em;
+    margin: 2em auto;
+    -moz-border-radius: 0.4em;
+    -webkit-border-radius: 0.4em;
+    border-radius: 0.4em;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2), -5px 0px 10px rgba(0, 0, 0, 0.2);
+    z-index: 1;
 }
 
-.talk_show {
-	width: 660px;
-	height: 500px;
-	border: 2px solid #666;
-	border-radius: 20px;
-	top: 20px;
-	background-color: rgba(255,255,255,0.5);
-	margin: 15px auto 0;
-	overflow: auto;
+    div.conversation .chatting_display {
+        width: 100%;
+        height: 400px;
+        background: transparent;
+        z-index: 2;
+        overflow: auto;
+    }
+
+    div.conversation .status-bar {
+        height: 40px;
+        background: rgba(255, 255, 255, 0.1);
+        color: rgba(255, 255, 255, 0.7);
+        text-align: right;
+    }
+
+        div.conversation .status-bar div {
+            display: inline-block;
+        }
+
+        div.conversation .status-bar .time {
+            font-size: 1.5em;
+        }
+    /*div.conversation .chatting_display .heading {
+        width: 50%;
+        height: 100px;
+    }*/
+    div.conversation .chatting_display .heading .convn-info {
+        text-align: center;
+        font-size: 1.5em;
+    }
+
+div.robot {
+    float: left;
+    text-align: left;
+    z-index: 999;
 }
 
-.talk_input {
-	width: 580px;
-	margin: 10px auto 0;
+    div.robot span {
+        position: relative;
+        margin-left: 0.8em;
+        background: #3498db;
+        opacity: 1;
+        color: #fff;
+        padding: 0.6em;
+        -moz-border-radius: 0.6em;
+        -webkit-border-radius: 0.6em;
+        border-radius: 0.6em;
+        display: inline-block;
+        z-index: 999;
+    }
+
+        div.robot span:before {
+            position: absolute;
+            top: 100%;
+            width: 0;
+            height: 0;
+            z-index: 1;
+            content: "";
+            border: 0.3em solid;
+            border-color: #3498db transparent transparent #3498db;
+        }
+
+
+div.user {
+    float: right;
+    text-align: right;
+    z-index: 999;
 }
 
-.atalk {
-	margin: 10px;
-	text-align: left;
+    div.user span {
+        position: relative;
+        margin-right: 0.8em;
+        background: #ecf0f1 ;
+        opacity: 1;
+        color: #3498db;
+        padding: 0.6em;
+        -moz-border-radius: 0.6em;
+        -webkit-border-radius: 0.6em;
+        border-radius: 0.6em;
+        display: inline-block;
+        z-index: 999;
+    }
+
+        div.user span:after {
+            position: absolute;
+            top: 100%;
+            right:0.6em;
+            width: 0;
+            height: 0;
+            z-index: 1;
+            content: "";
+            border: 0.3em solid;
+            border-color: #ecf0f1 #ecf0f1 transparent transparent;
+        }
+
+div.robot,
+div.user {
+    clear: both;
+    margin: 0.2em 0;
+    width: auto;
+    max-width: 70%;
 }
 
-	.atalk span {
-		display: inline-block;
-		background: #0181cc;
-		border-radius: 10px;
-		color: #fff;
-		padding: 5px 10px;
-	}
+    div.robot .show_name,
+    div.user .show_name {
+        font-weight: 400;
+        font-size: 0.8em;
+        margin-top: 0.8em;
+        opacity:0.8;
+    }
 
-.btalk {
-	margin: 10px;
-	text-align: right;
+    div.robot:hover .message-time,
+    div.user:hover .message-time {
+        opacity: 1;
+    }
+
+    div.robot .message-time {
+        height: 1.2em;
+        color: rgba(236, 240, 241, 0.8);
+        float: right;
+        font-size: 0.8em;
+        opacity: 0;
+        position: relative;
+        margin: 0.6em 0em 0em 0.4em;
+        -moz-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+        -moz-transition: all 0.3s ease-in-out;
+        -o-transition: all 0.3s ease-in-out;
+        -webkit-transition: all 0.3s ease-in-out;
+        transition: all 0.3s ease-in-out;
+    }
+
+    div.user .message-time {
+        height: 1.2em;
+        color: rgba(236, 240, 241, 0.8);
+        float: left;
+        font-size: 0.8em;
+        opacity: 0;
+        position: relative;
+        margin: 0.6em 0.4em 0em 0em;
+        -moz-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+        -moz-transition: all 0.3s ease-in-out;
+        -o-transition: all 0.3s ease-in-out;
+        -webkit-transition: all 0.3s ease-in-out;
+        transition: all 0.3s ease-in-out;
+    }
+
+        div.robot .message-time:before,
+        div.user .message-time:before {
+            content: ' ' '\1f554' ' ';
+            font-family: 'entypo', sans-serif;
+        }
+
+div.conversation div:last-child {
+    margin-bottom: 0;
 }
 
-	.btalk span {
-		display: inline-block;
-		background: #ef8201;
-		border-radius: 10px;
-		color: #fff;
-		padding: 5px 10px;
-	}
-
-.talk_word {
-	width: 450px;
-	height: 30px;
-	padding: 5px;
-	float: left;
-	margin-top: 10px;
-	margin-left: 10px;
-	outline: none;
-	text-indent: 10px;
-	border-radius: 5px;
+div.conversation ::selection {
+    background: #34495e;
 }
 
-.talk_sub {
-	width: 56px;
-	height: 30px;
-	float: left;
-	margin-right: 20px;
-	margin-top: 10px;
+div.conversation ::moz-selection {
+    background: #34495e;
 }
 
-</style >
+div.conversation .talk_input {
+    width: 100%;
+    height: 60px;
+    background-color: rgba(255,255,255,0.1);
+    margin-bottom: 0px;
+}
+
+    div.conversation .talk_input .sending_words {
+        width: 65%;
+        height: 35px;
+        padding: 2px;
+        text-align: left;
+        font-size: 20px;
+        float: left;
+        margin-left: 5%;
+        margin-top: 12px;
+        outline: none;
+        text-indent: 1px;
+        border-radius: 0.6em;
+
+    }
+
+        div .conversation .talk_input .talk_submit {
+        width: 10%;
+        height: 35px;
+        background-color: #3498db;
+        float: right;
+        margin-right: 5%;
+        margin-top: 12px;
+        border-radius: 0.5em;
+        border-width: 0px;
+        font-size: 0.8em;
+    }
+
+.loading {
+    width: 100%;
+    height: 100%;
+    line-height: 50%;
+    display: block;
+    transform: translate(-50%, -50%);
+}
+
+    .loading .robot_loading {
+        width: 5%;
+        height: 5%;
+        position: absolute;
+        margin-left: 50%;
+        margin-top: 50%;
+        background-color: #3498db;
+        border-radius: 30%/50%;
+    }
+
+    .loading .user_loading {
+        width: 5%;
+        height: 5%;
+        position: absolute;
+        margin-left: 100%;
+        margin-top: 50%;
+        background-color: #ecf0f1;
+        border-radius: 30%/50%;
+    }
+
+.bubbles {
+    margin: auto;
+    text-align: center;
+}
+
+    .bubbles span {
+        display: inline-block;
+        background-color: #B6B5BA;
+        width: 15%;
+        height: 40%;
+        margin-top: 12%;
+        margin-left: 2%;
+        border-radius: 100%;
+        animation: bob 2s infinite;
+    }
+
+        .bubbles span:nth-child(1) {
+            animation-delay: -1s;
+        }
+
+        .bubbles span:nth-child(2) {
+            animation-delay: -0.85s;
+        }
+
+        .bubbles span:nth-child(3) {
+            animation-delay: -0.7s;
+            margin-right: 0;
+        }
+
+@keyframes bob {
+    10% {
+        transform: translateY(-10px);
+        background-color: #9E9DA2;
+    }
+
+    50% {
+        transform: translateY(0);
+        background-color: #B6B5BA;
+    }
+}
+

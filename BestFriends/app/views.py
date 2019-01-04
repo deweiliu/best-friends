@@ -13,6 +13,8 @@ from datetime import datetime
 from app import models
 from app.bot_service.ai import AI
 from django.http import JsonResponse
+from app.api import views as api_views
+from app.api import models as api_models
 
 def home(request):
     """Renders the home page."""
@@ -46,8 +48,17 @@ def ai(request,user_id):
     firstname = username[0]
     surname = username[1]
 
-
     assert isinstance(request, HttpRequest)
+
+
+    credentials = api_models.get_credentials(user_id)
+
+    data={'user_id':'0','message':'testing message','date_time':'fsdl'}
+
+    api_views.send_message('POST','testing message')
+    
+
+
     return render(request,
         'app/ai.html',
         {
