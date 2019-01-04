@@ -28,14 +28,12 @@ div.conversation {
     -webkit-border-radius: 0.4em;
     border-radius: 0.4em;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2), -5px 0px 10px rgba(0, 0, 0, 0.2);
-    z-index: 1;
 }
 
     div.conversation .chatting_display {
         width: 100%;
         height: 400px;
         background: transparent;
-        z-index: 2;
         overflow: auto;
     }
 
@@ -65,10 +63,10 @@ div.conversation {
 div.robot {
     float: left;
     text-align: left;
-    z-index: 999;
 }
 
     div.robot span {
+        max-width:65%;
         position: relative;
         margin-left: 0.8em;
         background: #3498db;
@@ -79,7 +77,6 @@ div.robot {
         -webkit-border-radius: 0.6em;
         border-radius: 0.6em;
         display: inline-block;
-        z-index: 999;
     }
 
         div.robot span:before {
@@ -96,13 +93,14 @@ div.robot {
 
 div.user {
     float: right;
-    text-align: right;
-    z-index: 999;
+    text-align: left;
 }
 
     div.user span {
+        max-width:65%;
         position: relative;
         margin-right: 0.8em;
+        margin-left:0.3em;
         background: #ecf0f1 ;
         opacity: 1;
         color: #3498db;
@@ -111,7 +109,6 @@ div.user {
         -webkit-border-radius: 0.6em;
         border-radius: 0.6em;
         display: inline-block;
-        z-index: 999;
     }
 
         div.user span:after {
@@ -131,7 +128,11 @@ div.user {
     clear: both;
     margin: 0.2em 0;
     width: auto;
-    max-width: 70%;
+    font-size:0.8em;
+    max-width:75%;
+    border-color: white;
+    border-width: 2px;
+    border-style: dotted;
 }
 
     div.robot .show_name,
@@ -151,6 +152,7 @@ div.user {
         height: 1.2em;
         color: rgba(236, 240, 241, 0.8);
         float: right;
+        text-align:center;
         font-size: 0.8em;
         opacity: 0;
         position: relative;
@@ -169,10 +171,11 @@ div.user {
         height: 1.2em;
         color: rgba(236, 240, 241, 0.8);
         float: left;
+        text-align:center;
         font-size: 0.8em;
         opacity: 0;
         position: relative;
-        margin: 0.6em 0.4em 0em 0em;
+        margin: 0.6em 0.4em 0em 0.4em;
         -moz-transform: rotate(0deg);
         -ms-transform: rotate(0deg);
         -webkit-transform: rotate(0deg);
@@ -197,9 +200,6 @@ div.conversation ::selection {
     background: #34495e;
 }
 
-div.conversation ::moz-selection {
-    background: #34495e;
-}
 
 div.conversation .talk_input {
     width: 100%;
@@ -223,7 +223,7 @@ div.conversation .talk_input {
 
     }
 
-        div .conversation .talk_input .talk_submit {
+    div .conversation .talk_input .talk_submit {
         width: 10%;
         height: 35px;
         background-color: #3498db;
@@ -231,7 +231,7 @@ div.conversation .talk_input {
         margin-right: 5%;
         margin-top: 12px;
         border-radius: 0.5em;
-        border-width: 0px;
+        border-color: #3498db;
         font-size: 0.8em;
     }
 
