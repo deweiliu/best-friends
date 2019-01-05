@@ -93,11 +93,11 @@ div.robot {
 
 div.user {
     float: right;
-    text-align: left;
+    text-align: right;
 }
 
     div.user span {
-        max-width:65%;
+        max-width:60%;
         position: relative;
         margin-right: 0.8em;
         margin-left:0.3em;
@@ -128,11 +128,9 @@ div.user {
     clear: both;
     margin: 0.2em 0;
     width: auto;
-    font-size:0.8em;
-    max-width:75%;
-    border-color: white;
-    border-width: 2px;
-    border-style: dotted;
+    font-size: 1em;
+    word-wrap: break-word;
+    max-width: 80%;
 }
 
     div.robot .show_name,
@@ -171,7 +169,7 @@ div.user {
         height: 1.2em;
         color: rgba(236, 240, 241, 0.8);
         float: left;
-        text-align:center;
+        text-align: center;
         font-size: 0.8em;
         opacity: 0;
         position: relative;
@@ -191,14 +189,6 @@ div.user {
             content: ' ' '\1f554' ' ';
             font-family: 'entypo', sans-serif;
         }
-
-div.conversation div:last-child {
-    margin-bottom: 0;
-}
-
-div.conversation ::selection {
-    background: #34495e;
-}
 
 
 div.conversation .talk_input {
@@ -234,6 +224,9 @@ div.conversation .talk_input {
         border-color: #3498db;
         font-size: 0.8em;
     }
+        .talk_submit:hover {
+            transform: scale(1.2);
+        }
 
 .loading {
     width: 100%;
