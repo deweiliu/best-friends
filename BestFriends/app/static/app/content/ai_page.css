@@ -66,7 +66,6 @@ div.robot {
 }
 
     div.robot span {
-        max-width:65%;
         position: relative;
         margin-left: 0.8em;
         background: #3498db;
@@ -97,7 +96,7 @@ div.user {
 }
 
     div.user span {
-        max-width:60%;
+        max-width:90%;
         position: relative;
         margin-right: 0.8em;
         margin-left:0.3em;
@@ -129,8 +128,8 @@ div.user {
     margin: 0.2em 0;
     width: auto;
     font-size: 1em;
-    word-wrap: break-word;
-    max-width: 80%;
+    word-wrap:break-word;
+    max-width: 75%;
 }
 
     div.robot .show_name,
@@ -138,7 +137,8 @@ div.user {
         font-weight: 400;
         font-size: 0.8em;
         margin-top: 0.8em;
-        opacity:0.8;
+        opacity: 0.8;
+        
     }
 
     div.robot:hover .message-time,
@@ -149,12 +149,12 @@ div.user {
     div.robot .message-time {
         height: 1.2em;
         color: rgba(236, 240, 241, 0.8);
-        float: right;
+        float: left;
         text-align:center;
         font-size: 0.8em;
         opacity: 0;
         position: relative;
-        margin: 0.6em 0em 0em 0.4em;
+        margin: -1.5em 0em 0em 0.8em;
         -moz-transform: rotate(0deg);
         -ms-transform: rotate(0deg);
         -webkit-transform: rotate(0deg);
@@ -168,12 +168,12 @@ div.user {
     div.user .message-time {
         height: 1.2em;
         color: rgba(236, 240, 241, 0.8);
-        float: left;
+        float: right;
         text-align: center;
         font-size: 0.8em;
         opacity: 0;
         position: relative;
-        margin: 0.6em 0.4em 0em 0.4em;
+        margin: -1.5em 6em 0em 0em;
         -moz-transform: rotate(0deg);
         -ms-transform: rotate(0deg);
         -webkit-transform: rotate(0deg);
