@@ -79,15 +79,19 @@ def history_messages(request_method,data):
     return JsonResponse(response,status=200)
 
 
-def send_message(request_method,data):
+def send_message(request_method,data,testing=False):
     type = 'send message'
     try:
         user_id = data['user_id']
         message = data['message']
         date_time=data['datetime']
     except:
+        print('Not enough keys in the request')
         return error_response('Not enough keys in the request',request_method=request_method,type=type)
-    response = models.lodge_message(user_id,message,date_time)
+    
+    response=dict()
+    if(not testing):
+        response = models.lodge_message(user_id,message,date_time)
     response['response'] = 'Request received'
 
     credentials = models.get_credentials(user_id)

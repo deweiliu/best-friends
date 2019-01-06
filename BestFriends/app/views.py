@@ -53,9 +53,10 @@ def ai(request,user_id):
 
     credentials = api_models.get_credentials(user_id)
 
-    data={'user_id':'0','message':'testing message','date_time':'fsdl'}
+    data={'user_id':user_id,'message':'testing message','datetime':'fsdl'}
 
-    api_views.send_message('POST','testing message')
+    print("Sending testing message")
+    api_views.send_message('POST',data,True)
     
 
 
