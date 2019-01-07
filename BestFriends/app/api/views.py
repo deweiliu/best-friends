@@ -101,7 +101,7 @@ def send_message(request_method,data,testing=False):
         print('Message sent successfully')
     else:
         print(result)
-        raise Exception('Cannot send message to bot')
+        print('Cannot send message to bot')
     
     
     return JsonResponse(response,status=201)

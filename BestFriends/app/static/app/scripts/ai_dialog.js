@@ -10,10 +10,7 @@ window.onload = function () {
     var dialog = document.getElementById("chatting_dialog");
     var header = document.getElementById("head");
     
-    //please wait
-   // header.innerHTML = '<div class="convn-info">Please wait..</div>';
 
-	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 	// Define the actions to send a message
 	input_message.addEventListener('keydown', function (e) {
@@ -28,18 +25,18 @@ window.onload = function () {
 	var history_messages = new XMLHttpRequest();
 
 
-	// when the response with history messages is received, display them on the dialog
+	// when the response with history messages are received, display them on the dialog
     history_messages.onreadystatechange = function () {
-        //clear
-        //header.remove();
         if (history_messages.readyState == 4) {
-            console.log(history_messages.readyState + "historayra message ready");
 			s = String(this.responseText);
 			var response = JSON.parse(s);
             var messages = response.new_messages;
 
             console.log(message);
 			console.log("loading history messages");
+			if (messages.length == 0) {
+				dialog.innerHTML = dialog.innerHTML + ("<p>Hi, new user! You don't have any hitory data yet. Any message you send will be saved and shwon on your next login.</p>");
+			}
 
 			for (var i = 0; i < messages.length; i++) {
 				var message = messages[i];
@@ -208,7 +205,8 @@ window.onload = function () {
         var time = new Array(2);
         month = checkTime(month);
         day = checkTime(day);
-        m = checkTime(m);
+		h = checkTime(h);
+		m = checkTime(m);
         s = checkTime(s);
         t = setTimeout('startTime()', 500);
         time[0] = String(year)+"-"+String(month)+"-"+String(day);
