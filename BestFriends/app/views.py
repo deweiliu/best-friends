@@ -27,7 +27,17 @@ def home(request):
 
         })
 
-
+def about(request):
+    assert isinstance(request, HttpRequest)
+    return render(request,
+        'app/about.html',
+        {
+            'title':'About',
+            'message':"Two software students Kexin Huang & Dewei Liu have been developing this web app since 14 Aug 2018! Naming this project as Best Friends' App is for memorising the long-term friendship.",
+       
+'github':'https://github.com/deweiliu/BestFriendsInTheWorld',
+            'year':datetime.now().year,
+        })
 def login(request):
     assert isinstance(request, HttpRequest)
 
@@ -38,7 +48,8 @@ def login(request):
         r = reverse('app:ai',args=(user_id,))
         return HttpResponseRedirect(r)
     except:
-        return render(request,'app/login.html')
+        return render(request,'app/login.html',{     'title':'Login',       'year':datetime.now().year,
+})
 
 
 @csrf_exempt
@@ -53,7 +64,7 @@ def ai(request,user_id):
 
     credentials = api_models.get_credentials(user_id)
 
-    data={'user_id':user_id,'message':'testing message','datetime':'fsdl'}
+    data = {'user_id':user_id,'message':'testing message','datetime':'fsdl'}
 
     print("Sending testing message")
     api_views.send_message('POST',data,True)

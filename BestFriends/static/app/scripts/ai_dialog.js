@@ -67,7 +67,7 @@ window.onload = function () {
                 else {
                     style = "user";
                 }
-                dialog.innerHTML = dialog.innerHTML + ('<div class="' + style + '"><div class="message-time">' + parse_time[0] + "<br />" + parse_time[1] + '</div><span>' + message_text + '</span></div>' + '<div class="' + style + '"> <div class="show_name">' + " Sent by " + sender_name + '</div></div>');
+                dialog.innerHTML = dialog.innerHTML + ('<div class="' + style + '"><div class="message-time">' + parse_time[0] + " " + parse_time[1] + '</div><span>' + message_text + '</span></div>' + '<div class="' + style + '"> <div class="show_name">' + " Sent by " + sender_name + '<br /></div></div>');
                 
     
 			}
@@ -95,10 +95,10 @@ window.onload = function () {
         var now_time = get_send_message_time();
 		input_text = input_message.value;
 
-        str = '<div class="user"><div class="message-time">' + now_time[0] + "<br />" + now_time[1] + '</div><span>' + input_text + '</span></div>';
+        str = '<div class="user"><div class="message-time">' + now_time[0] + " " + now_time[1] + '</div><span>' + input_text + '</span></div>';
 
 		dialog.innerHTML = dialog.innerHTML + str;
-        str = '<div class="user"><div class="show_name">' + " Sent by " + firstname + '</div></div>';
+        str = '<div class="user"><div class="show_name">' + " Sent by " + firstname + '<br /></div></div>';
 		dialog.innerHTML = dialog.innerHTML + str;
 
         input_message.value = "";
@@ -167,7 +167,7 @@ window.onload = function () {
 					if (!message.is_from_user) {
 
 						style = "robot";
-                        dialog.innerHTML = dialog.innerHTML + ('<div class="' + style + '"><div class="message-time">' + parse_time[0] + "<br />" + parse_time[1] + '</div><span>'  + message_text + '</span></div>' + '<div class="' + style + '"><div class="show_name"> ' + " Sent by " + sender_name + '</div></div>');
+                        dialog.innerHTML = dialog.innerHTML + ('<div class="' + style + '"><div class="message-time">' + parse_time[0] + " " + parse_time[1] + '</div><span>'  + message_text + '</span></div>' + '<div class="' + style + '"><div class="show_name"> ' + " Sent by " + sender_name + '<br /></div></div>');
 
 					}
                     
@@ -205,7 +205,7 @@ window.onload = function () {
         var h = now.getHours();
         var m = now.getMinutes();
         var s = now.getSeconds();
-        var time = new Array(6);
+        var time = new Array(2);
         month = checkTime(month);
         day = checkTime(day);
         m = checkTime(m);

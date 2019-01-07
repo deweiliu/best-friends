@@ -8,52 +8,46 @@
 <div class="jumbotron">
   <h1><strong>Best Friends' App</strong></h1>
   <p class="lead fadeInUp animated"><strong>
-    Best Friends' App is an AI model which will communicate with users by
-    sounds, texts and videos.
+    Best Friends' App is an AI robot.
   </strong></p>
   <p>
-    <a href="http://www.seconteen.com/" class="btn btn-primary btn-large"
-      >Learn more &raquo;</a
+    <a href="{%url 'app:login' %}" class="btn btn-primary btn-large"
+      >Try it &raquo;</a
     >
   </p>
 </div>
 
 <div class="row">
-  <div class="col-md-6 fadeInLeft animated">
-      <div class="row border">
+      <div class="border">
         <h2><strong>Say Hi to the robot</strong></h2>
-        <p>Hi! Check out our birthdays!</p>
+        <p>Hi! Say Hi to the robot</p>
         <p>
-          <a class="btn btn-default" href="{%url 'app:birthday' %}"
-            >Learn more &raquo;</a>
+          <a class="btn btn-default" href="{%url 'app:login' %}"
+            >Try it &raquo;</a>
         </p>
        </div>
-      <div class="row border">
+      <div class="border">
         <h2><strong>How it works</strong></h2>
-        <p>The app works with advanced AI model.</p>
+        <p>The app works with multiple servers.</p>
         <p>
-            <a class="btn btn-default" href="{%url 'app:login' %}"
-            >Get started &raquo;</a>
+            <a class="btn btn-default" href="{%url 'app:about' %}"
+            >See how it works &raquo;</a>
         </p>
        </div>
-  </div>
 
 
-  <div class="col-md-6 border fadeInRight animated">
+            <div class="border">
+
     <h2><strong>Need helps?</strong></h2>
     <p>
-      The app is still under construction. Please wait, and it will be fully
-      available in <span id="time_to_finish"></span>
+      Please contact us directly
     </p>
-    <p>Or you can try our <strong>ALPHA</strong> version</p>
-    <p>
-      <a class="btn btn-default" href="{%url 'app:login' %}"
-        >Alpha Version &raquo;</a>
-    </p>
-  </div>
-</div>
+              <p>
+            <a class="btn btn-default" href="{%url 'app:about' %}"
+            >Contact &raquo;</a>
+        </p>
+  </div>  </div>
 
 {% endblock %} { {% block scripts %}
-<script src="{% static 'app/scripts/common_functions.js' %}"></script>
 
 {% endblock %}

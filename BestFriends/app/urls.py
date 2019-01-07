@@ -7,6 +7,7 @@ urlpatterns = [path('',views.home,name="home"),
     path('api',include('app.api.urls')),
     path('home',views.home,name="home"),
     path('contact',views.contact,name="contact"),
+    path('about',views.about,name="about"),
     path('birthday',views.birthday,name="birthday"),
 
     path('login',views.login,name="login"),

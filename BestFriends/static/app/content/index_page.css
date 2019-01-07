@@ -1,36 +1,43 @@
 
-<style >
-
-.col-md-4 {
-	background-color: rgba(255,255,255,0.7);
-	font-family: 'ubuntu';
-	font-weight: 500;
-	margin-left: 15px;
-	border-width: 3px;
-	border-color: #75b7f6;
-	border-radius: 20px;
-	border-style: dashed;
-}
-
 @font-face {
-	font-family: 'ubuntu';
-	font-style: italic;
-	font-weight: 300;
-	src: local("Lato Light Italic"), local("Lato-LightItalic"), url(https://fonts.gstatic.com/s/ubuntucondensed/v8/u-4k0rCzjgs5J7oXnJcM_0kACGMtT-Dfqw.woff2) format("woff2");
+    font-family: 'ubuntu';
+    font-style: italic;
+    font-weight: 300;
+    src: local("Lato Light Italic"), local("Lato-LightItalic"), url(https://fonts.gstatic.com/s/ubuntucondensed/v8/u-4k0rCzjgs5J7oXnJcM_0kACGMtT-Dfqw.woff2) format("woff2");
 }
+
+
+.border {
+    background-color: rgba(72,61,139,0.5);
+    font-family: 'ubuntu';
+    font-weight: 500;
+    font-size: larger;
+    color:#fff;
+    text-align: center;
+    margin-left: 15px;
+    margin-bottom: 15px;
+    border-radius: 15px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2), -5px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+    .border:hover {
+        transform: scale(1.1);
+    }
+
+
 
 .jumbotron {
 	-webkit-box-shadow: 0 0 5px #eedcfa;
-	background-color: rgba(255,255,255,0.7);
+	background-color: rgba(255,255,255,0.5);
 	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.22), 0 6px 6px rgba(0, 0, 0, 0.15);
 }
 
 	.jumbotron h1 {
 		color: #fff;
 		font-size: 73px;
-		line-height: normal;
+		line-height:normal;
 		text-transform: uppercase;
-		font-weight: 200;
+		font-weight:600;
 		font-family: 'Josefin Sans',sans-serif;
 		background: linear-gradient(to right, #697dff 10%, #fff 50%, #5bdaff 60%);
 		background-size: auto auto;
@@ -50,4 +57,3 @@
 	}
 }
 
-</style >

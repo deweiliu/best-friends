@@ -134,11 +134,11 @@
     <Content Include="app\static\app\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="app\static\app\images\astronomy.jpg" />
     <Content Include="app\static\app\images\bestwishes.jpg" />
+    <Content Include="app\static\app\images\github_logo.png" />
     <Content Include="app\static\app\scripts\ai_dialog.js" />
     <Content Include="app\static\app\scripts\BirthdayTimeLeft.js" />
     <Content Include="app\static\app\scripts\bootstrap.js" />
     <Content Include="app\static\app\scripts\bootstrap.min.js" />
-    <Content Include="app\static\app\scripts\common_functions.js" />
     <Content Include="app\static\app\scripts\easing.js" />
     <Content Include="app\static\app\scripts\jquery-1.10.2.js" />
     <Content Include="app\static\app\scripts\jquery-1.10.2.min.js" />
@@ -150,6 +150,7 @@
     <Content Include="app\static\app\scripts\show_now_time.js" />
     <Content Include="app\static\web.config" />
     <Content Include="app\templates\app\404error.html" />
+    <Content Include="app\templates\app\about.html" />
     <Content Include="app\templates\app\birthday.html" />
     <Content Include="app\templates\app\ai.html" />
     <Content Include="app\templates\app\contact.html" />

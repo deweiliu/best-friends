@@ -1,0 +1,29 @@
+﻿{% extends "app/layout.html" %} 
+ {% block header %} {% load staticfiles %}<link
+  rel="stylesheet"
+  type="text/css"
+  href="{% static 'app/content/birthday_page.css' %}"
+/>
+
+{% endblock %}
+{% block content %}
+<div class="title">
+  <h2>
+    <strong>{{ title }}.</strong>
+  </h2>
+<h4>
+<a href="{{github}}"
+  >Click here to see this project on <img src="{% static 'app/images/github_logo.png' %}" alt="GitHub Logo"> GitHub</a>
+    </h4>
+<br />
+
+  <h3>{{ message }}</h3>
+
+  <p>This project is using multiple servers and their intergration based on Microsoft Azure Cloud Service, including
+    <a href="https://azure.microsoft.com/en-gb/services/app-service/web/"> Web App</a>, 
+   <a href="https://en.wikipedia.org/wiki/Microsoft_SQL_Server"> SQL Database</a>,
+    <a href="https://azure.microsoft.com/en-us/services/bot-service/"> Azure Bot service (Direct Line API) </a> and 
+    <a href="https://www.qnamaker.ai/">QnAMaker</a></p>
+<p>All servers are hosted on Azure Web App service, and this app is using Django Framework written in Python 3</p>
+</div>
+{% endblock %}
