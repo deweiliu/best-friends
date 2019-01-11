@@ -7,25 +7,21 @@
 
 {% endblock %} {% block content %}
 
-
 <div class="title">
   <h1>AI Robert</h1>
   <h2>Welcome {{ firstname }}</h2>
 </div>
 
-
-
 <div class="conversation">
   <div class="status-bar">
-      <div class="time" id="show_now_time">time</div>
-          <div class="entypo-clock"></div>
+    <div class="time" id="show_now_time">time</div>
+    <div class="entypo-clock"></div>
   </div>
   <div class="chatting_display" id="chatting_dialog">
-      <div class="heading" id="head">
-      </div>
-      <div class="user"></div>
-      <div class="robot"></div>
-    </div>
+    <div class="heading" id="head"></div>
+    <div class="user"></div>
+    <div class="robot"></div>
+  </div>
   <div class="talk_input">
     <input
       type="text"
@@ -35,10 +31,8 @@
       placeholder="Just say Hello"
     />
     <input type="button" value="send" class="talk_submit" id="talksubmit" />
-  </div> 
+  </div>
 </div>
-
-
 
 {% endblock %} {% block scripts %}
 <script src="{% static 'app/scripts/ai_dialog.js' %}"></script>
