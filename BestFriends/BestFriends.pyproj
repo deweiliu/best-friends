@@ -117,6 +117,7 @@
     </Interpreter>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\static\app\content\about_page.css" />
     <Content Include="app\static\app\content\ai_page.css" />
     <Content Include="app\static\app\content\animate.css" />
     <Content Include="app\static\app\content\background.css" />
