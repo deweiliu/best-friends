@@ -33,7 +33,7 @@ def about(request):
         'app/about.html',
         {
             'title':'About',
-            'message':"One software student Dewei Liu has been developing this web app since 14 Aug 2018!",
+            'message':"Two software students Kexin Huang & Dewei Liu have been developing this web app since 14 Aug 2018! Naming this project as Best Friends' App is for memorising the long-term friendship.",
        
 'github':'https://github.com/deweiliu/BestFriendsInTheWorld',
             'year':datetime.now().year,
