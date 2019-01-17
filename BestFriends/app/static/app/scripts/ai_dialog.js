@@ -35,7 +35,7 @@ window.onload = function () {
             console.log(message);
 			console.log("loading history messages");
 			if (messages.length == 0) {
-				dialog.innerHTML = dialog.innerHTML + ("<p>Hi, new user! You don't have any hitory data yet. Any message you send will be saved and shwon on your next login.</p>");
+				dialog.innerHTML = dialog.innerHTML + ("<p>Hi, new user! You don't have any hitory data yet. Any message you send will be saved and shown on your next login.</p>");
 			}
 
 			for (var i = 0; i < messages.length; i++) {
