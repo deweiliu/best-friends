@@ -136,11 +136,13 @@
     <Content Include="app\static\app\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="app\static\app\images\astronomy.png" />
     <Content Include="app\static\app\images\bestwishes.jpg" />
+    <Content Include="app\static\app\images\blacknight.jpg" />
     <Content Include="app\static\app\images\documentation\Slide1.JPG" />
     <Content Include="app\static\app\images\documentation\Slide2.JPG" />
     <Content Include="app\static\app\images\documentation\Slide3.JPG" />
     <Content Include="app\static\app\images\documentation\Slide4.JPG" />
     <Content Include="app\static\app\images\github_logo.png" />
+    <Content Include="app\static\app\images\night.jpg" />
     <Content Include="app\static\app\scripts\ai_dialog.js" />
     <Content Include="app\static\app\scripts\BirthdayTimeLeft.js" />
     <Content Include="app\static\app\scripts\bootstrap.js" />
