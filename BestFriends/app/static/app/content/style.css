@@ -936,12 +936,13 @@ a.dow-btn {
 	}
 /*----contact---------*/
 .contact-map {
-	position: relative
+    position: relative;
+    width: 100%;
+    min-height: 750px;
 }
 
 	.contact-map iframe {
-		width: 100%;
-		min-height: 750px;
+		
 	}
 
 .contact-head {
@@ -952,14 +953,14 @@ a.dow-btn {
 	.contact-head h4 {
 		margin: 1% 0;
 		color: #fff;
-		font-size: 2.5em;
+		font-size: 2em;
 		text-decoration: none;
 		font-weight: 700;
 		font-family: 'Lato', sans-serif;
 	}
 
 .contact-form {
-	width: 25%;
+	width: 30%;
 	margin: 0 auto;
 	background: #65CDF2;
 	border-radius: 7px;
