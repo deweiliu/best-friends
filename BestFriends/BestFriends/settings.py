@@ -28,7 +28,7 @@ DEBUG = True
 
 
 # Change the URL to your specific site
-ALLOWED_HOSTS = ['bestfriendsintheworld.azurewebsites.net','www.seconteen.com','testingkexindewei.azurewebsites.net','localhost','127.0.0.1']
+ALLOWED_HOSTS = ['bestfriendsintheworld.azurewebsites.net','www.seconteen.com','seconteen.com','testingkexindewei.azurewebsites.net','localhost','127.0.0.1']
 
 
 # Application definition
