@@ -1,4 +1,4 @@
-# [Best Friends' App](https://best-friends.deweiliu.com)
+# [Best Friends App](https://best-friends.deweiliu.com)
 
 This project is using multiple servers and their intergration based on Microsoft Azure Cloud Service including [Web App](https://azure.microsoft.com/en-gb/services/app-service/web/), [SQL Database](https://en.wikipedia.org/wiki/Microsoft_SQL_Server), [Azure Bot service (Direct Line API)](https://azure.microsoft.com/en-us/services/bot-service/) and [QnAMaker](https://www.qnamaker.ai/).
 
