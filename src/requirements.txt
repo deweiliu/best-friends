@@ -1,12 +1,10 @@
 Django>=2.1.5,<3
-pip==18.1
 pytz==2018.9
-setuptools==40.6.3
+setuptools>=40.0
 certifi==2018.11.29
 chardet==3.0.4
 idna==2.8
-requests==2.21.0
-urllib3>=1.24.1,<2
+requests>=2.21.0,<3
 pyodbc==4.0.25
 aenum==2.1.2
 PyPika==0.20.2

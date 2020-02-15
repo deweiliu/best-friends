@@ -1,9 +1,5 @@
 ﻿{% extends "app/layout.html" %} {% block header %} {% load staticfiles %}
-<link
-  rel="stylesheet"
-  type="text/css"
-  href="{% static 'app/content/ai_page.css' %}"
-/>
+<link rel="stylesheet" type="text/css" href="{% static 'app/content/ai_page.css' %}" />
 
 {% endblock %} {% block content %}
 
@@ -23,13 +19,7 @@
     <div class="robot"></div>
   </div>
   <div class="talk_input">
-    <input
-      type="text"
-      class="sending_words"
-      id="input_words"
-      name="Twords"
-      placeholder="Just say Hello"
-    />
+    <input type="text" class="sending_words" id="input_words" name="Twords" placeholder="Just say Hello" />
     <input type="button" value="send" class="talk_submit" id="talksubmit" />
   </div>
 </div>

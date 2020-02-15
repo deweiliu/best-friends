@@ -1,9 +1,5 @@
 {% extends "app/layout.html" %} {% block header %} {% load staticfiles %}
-<link
-  rel="stylesheet"
-  type="text/css"
-  href="{% static 'app/content/birthday_page.css' %}"
-/>
+<link rel="stylesheet" type="text/css" href="{% static 'app/content/birthday_page.css' %}" />
 
 {% endblock %} {% block content %}
 
@@ -65,25 +61,12 @@
   <form action="{%url 'app:birthday' %}" method="post">
     {% csrf_token %} <br />
     <label for="user_name">Enter name below </label>
-    <input
-      id="user_name"
-      type="text"
-      class="form-control"
-      name="username"
-      margin="auto"
-      placeholder="i.e. John Smith"
-    />
+    <input id="user_name" type="text" class="form-control" name="username" margin="auto"
+      placeholder="i.e. John Smith" />
     <br />
     <br />
     <label for="comment">Enter your comment below </label> <br />
-    <input
-      id="comment"
-      type="text"
-      class="form-control"
-      name="comment"
-      margin="auto"
-      placeholder="i.e. Hi! Birthday"
-    />
+    <input id="comment" type="text" class="form-control" name="comment" margin="auto" placeholder="i.e. Hi! Birthday" />
     <br />
     <br />
     <input type="submit" class="btn_input" value="submit" id="sub_username" />

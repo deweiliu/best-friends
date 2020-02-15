@@ -1,49 +1,27 @@
 ﻿{% extends "app/layout.html" %} {% block header %} {% load staticfiles %}
-<link
-  rel="stylesheet"
-  type="text/css"
-  href="{% static 'app/content/login_page.css' %}"
-/>
+<link rel="stylesheet" type="text/css" href="{% static 'app/content/login_page.css' %}" />
 {% endblock %} {% block content %}
 
 
 <div id="contact" class="Contact">
   <div class="contact-map">
-      <!--
-    <iframe
-      src="http://developer.baidu.com/map/jsdemo/demo/a1_1.htm"
-      frameborder="0"
-      style="border:0"
-    ></iframe>
-          -->
+
     <div class="contact-form">
-        <div class="bubble" id="show_bubble"></div>
-      <div class="contact-head"><h4>Log in/Sign up</h4></div>
+      <div class="bubble" id="show_bubble"></div>
+      <div class="contact-head">
+        <h4>Log in/Sign up</h4>
+      </div>
       <form action="{%url 'app:login' %}" method="post">
         {% csrf_token %}
-        <input
-          type="text"
-          class="text"
-          id="first_name"
-          name="first_name"
-          margin="auto"
-          placeholder="first name"
-        />
-        <input
-          type="text"
-          class="text"
-          id="surname"
-          name="surname"
-          margin="auto"
-          placeholder="surname"
-        />
+        <input type="text" class="text" id="first_name" name="first_name" margin="auto" placeholder="first name" />
+        <input type="text" class="text" id="surname" name="surname" margin="auto" placeholder="surname" />
 
         <br />
         <br />
         <div class="sub-button">
           <input type="submit" name="bottom" value="Enter" id="sub_username" />
         </div>
-          <p>Please be patient when we are processing your details. It may take a while.</p>
+        <p>Please be patient when we are processing your details. It may take a while.</p>
       </form>
     </div>
   </div>

@@ -1,79 +1,91 @@
-﻿{% extends "app/layout.html" %} 
- {% block header %} {% load staticfiles %}
-<link
-  rel="stylesheet"
-  type="text/css"
-  href="{% static 'app/content/about_page.css' %}"
-/>
+﻿{% extends "app/layout.html" %}
+{% block header %} {% load staticfiles %}
+<link rel="stylesheet" type="text/css" href="{% static 'app/content/about_page.css' %}" />
 
 
 {% endblock %}
 {% block content %}
 <div class="title">
-  <h2>
-    <strong>{{ title }}.</strong>
-  </h2>
+    <h2>
+        <strong>{{ title }}.</strong>
+    </h2>
 
 
-  <h3>{{ message }}     <br/>
-    <a href="{{github}}">Click here to see this project on <img src="{% static 'app/images/github_logo.png' %}" alt="GitHub Logo"> GitHub</a></h3>
+    <h3>{{ message }} <br />
+        <a href="{{github}}">Click here to see this project on <img src="{% static 'app/images/github_logo.png' %}"
+                alt="GitHub Logo"> GitHub</a></h3>
     <p>This project is using multiple servers and their intergration based on Microsoft Azure Cloud Service, including
-    <a href="https://azure.microsoft.com/en-gb/services/app-service/web/"> Web App</a>, 
-   <a href="https://en.wikipedia.org/wiki/Microsoft_SQL_Server"> SQL Database</a>,
-    <a href="https://azure.microsoft.com/en-us/services/bot-service/"> Azure Bot service (Direct Line API) </a> and 
-    <a href="https://www.qnamaker.ai/">QnAMaker</a>. All of these servers are hosted on Azure Web App service, and this app is using Django Framework written in Python 3.
-    Clients can only contact the app so other servers are hidden from clients. This makes sure that other servers are in safe and won't get exposed in public.</p>
-        <br/>
-        <p> <strong>Because of our limited budget, the performance of the servers is quite low, so please be paitent to the delays while you are using the app.</strong></p>
+        <a href="https://azure.microsoft.com/en-gb/services/app-service/web/"> Web App</a>,
+        <a href="https://en.wikipedia.org/wiki/Microsoft_SQL_Server"> SQL Database</a>,
+        <a href="https://azure.microsoft.com/en-us/services/bot-service/"> Azure Bot service (Direct Line API) </a> and
+        <a href="https://www.qnamaker.ai/">QnAMaker</a>. All of these servers are hosted on Azure Web App service, and
+        this app is using Django Framework written in Python 3.
+        Clients can only contact the app so other servers are hidden from clients. This makes sure that other servers
+        are in safe and won't get exposed in public.</p>
+    <br />
+    <p> <strong>Because of our limited budget, the performance of the servers is quite low, so please be paitent to the
+            delays while you are using the app.</strong></p>
 
     <h4>Please see the images below to check out how it works.</h4>
 </div>
-    <br/>
-    <br/>
-    <div class="illustration">
-        <h3>Login page</h3>
-        <p>When you log in with your first name and surname, the app checks if you are a registered user by checking your name.
+<br />
+<br />
+<div class="illustration">
+    <h3>Login page</h3>
+    <p>When you log in with your first name and surname, the app checks if you are a registered user by checking your
+        name.
         <ul>If it is, it redirects you to an URL with your user ID number.</ul>
         <ul>If it is not, it assign you a new user ID and redirects you to an URL with your user ID number.</ul>
-        </p>
-            <img src="{% static 'app/images/documentation/Slide1.JPG' %}" alt="Login"> 
-    </div>
+    </p>
+    <img src="{% static 'app/images/documentation/Slide1.JPG' %}" alt="Login">
+</div>
 
-    <br/>
-    <br/>
-    <div class="illustration">
-        <h3>Starting the conversation</h3>
-        <p>The app then receives the URL with your user ID. It queries the SQL database for your details and chatting history. 
-        Then it shows you the AI dialog and your previous messages (if any). 
+<br />
+<br />
+<div class="illustration">
+    <h3>Starting the conversation</h3>
+    <p>The app then receives the URL with your user ID. It queries the SQL database for your details and chatting
+        history.
+        Then it shows you the AI dialog and your previous messages (if any).
         At the same time, the app send HTTP request to The Azure Bot to start a conversation with your bot credentials.
-        <br/><strong>Note, the bot credentials are used for accessing the bot and identifing which messages are from a same conversation/user. These are required by "Direct Line API", and not controlled by you. (not your login details)</strong></p>
-            <img src="{% static 'app/images/documentation/Slide2.JPG' %}" alt="start conversation"> 
-     </div>
+        <br /><strong>Note, the bot credentials are used for accessing the bot and identifing which messages are from a
+            same conversation/user. These are required by "Direct Line API", and not controlled by you. (not your login
+            details)</strong></p>
+    <img src="{% static 'app/images/documentation/Slide2.JPG' %}" alt="start conversation">
+</div>
 
-     <br/>
-     <br/>
+<br />
+<br />
 
-    <div class="illustration">
-        <ul><h3>Sending a message</h3>
-            <li><strong>Client side (your browser)</strong>: sends a message to the app, and keeps sending HTTP request to ask if there are new messages updated.</li>
-            <li><strong>App side</strong>: lodges the message to database, restructures the message, and sends it to the Bot.</li>
-            <li><strong>Azure Bot</strong>: Asks the QnAMaker to find a question from knowledge base that matches the question asked by the user, and temporaryly stores the answer.</li>
-        </ul>
-            <img src="{% static 'app/images/documentation/Slide3.JPG' %}" alt="send a message"> 
-    </div>
+<div class="illustration">
+    <ul>
+        <h3>Sending a message</h3>
+        <li><strong>Client side (your browser)</strong>: sends a message to the app, and keeps sending HTTP request to
+            ask if there are new messages updated.</li>
+        <li><strong>App side</strong>: lodges the message to database, restructures the message, and sends it to the
+            Bot.</li>
+        <li><strong>Azure Bot</strong>: Asks the QnAMaker to find a question from knowledge base that matches the
+            question asked by the user, and temporaryly stores the answer.</li>
+    </ul>
+    <img src="{% static 'app/images/documentation/Slide3.JPG' %}" alt="send a message">
+</div>
 
-    
-     <br/>
-     <br/>
-    <div class="illustration">
-        <ul><h3>Receiving a message</h3>
-            <li><strong>Client side (your browser)</strong>: Keeps sending request asking the app if there are any new messages.</li>
-            <li><strong>App side</strong>:  <br/>1. For every request received from client, checks with the database. If there are any, send the messages back to client. <br/>
-                      2. Keeps asking the Bot if the answer is ready. Once the answer is ready, lodges the answer to the database.</li>
-            <li><strong>Azure Bot</strong>: When receiving request from the app, sends the answer back.</li>
-        </ul>
-        <img src="{% static 'app/images/documentation/Slide4.JPG' %}" alt="receive a message"> 
-    </div>
+
+<br />
+<br />
+<div class="illustration">
+    <ul>
+        <h3>Receiving a message</h3>
+        <li><strong>Client side (your browser)</strong>: Keeps sending request asking the app if there are any new
+            messages.</li>
+        <li><strong>App side</strong>: <br />1. For every request received from client, checks with the database. If
+            there are any, send the messages back to client. <br />
+            2. Keeps asking the Bot if the answer is ready. Once the answer is ready, lodges the answer to the database.
+        </li>
+        <li><strong>Azure Bot</strong>: When receiving request from the app, sends the answer back.</li>
+    </ul>
+    <img src="{% static 'app/images/documentation/Slide4.JPG' %}" alt="receive a message">
+</div>
 
 
 

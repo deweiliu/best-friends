@@ -1,59 +1,52 @@
 {% extends "app/layout.html" %} {% block header %} {% load staticfiles %}
-<link
-  rel="stylesheet"
-  type="text/css"
-  href="{% static 'app/content/index_page.css' %}"
-/>
+<link rel="stylesheet" type="text/css" href="{% static 'app/content/index_page.css' %}" />
 {% endblock %} {% block content %}
 <div class="jumbotron">
   <h1><strong>Best Friends App</strong></h1>
   <p class="lead fadeInUp animated"><strong>
-    Best Friends App is an AI Bot hosted on Microsoft Azure.<br/> Please click the button below to start chatting with the Bot!
-  </strong></p>
+      Best Friends App is an AI Bot hosted on Microsoft Azure.<br /> Please click the button below to start chatting
+      with the Bot!
+    </strong></p>
   <p>
-    <a href="{%url 'app:login' %}" class="btn btn-primary btn-large"
-      >Start chatting &raquo;</a
-    >
+    <a href="{%url 'app:login' %}" class="btn btn-primary btn-large">Start chatting &raquo;</a>
   </p>
 </div>
 <div class="row">
 
   <div class="col-md-6 fadeInLeft animated">
 
-      <div class="border">
-        <h2><strong>Severe Delays?</strong></h2>
-        <p>Because of our limited budget on this project, the performance of the servers is quite low, so please be paitent to the delays while you are using the app.</p>
-        <p>
-          <a class="btn btn-default" href="{%url 'app:login' %}"
-            >Check out the app carefully :) &raquo;</a>
-        </p>
-       </div>
-      
-       </div>
+    <div class="border">
+      <h2><strong>Severe Delays?</strong></h2>
+      <p>Because of our limited budget on this project, the performance of the servers is quite low, so please be
+        paitent to the delays while you are using the app.</p>
+      <p>
+        <a class="btn btn-default" href="{%url 'app:login' %}">Check out the app carefully :) &raquo;</a>
+      </p>
+    </div>
 
-        <div class="col-md-6 fadeInRight animated">
+  </div>
 
-            <div class="border">
-                <h2><strong>How it works</strong></h2>
-                <p>Check out how the whole project works.</p>
-                <p>
-                    <a class="btn btn-default" href="{%url 'app:about' %}"
-                    >See how it works &raquo;</a>
-                </p>
-            </div>
+  <div class="col-md-6 fadeInRight animated">
 
-            <div class="border">
+    <div class="border">
+      <h2><strong>How it works</strong></h2>
+      <p>Check out how the whole project works.</p>
+      <p>
+        <a class="btn btn-default" href="{%url 'app:about' %}">See how it works &raquo;</a>
+      </p>
+    </div>
 
-                <h2><strong>Need help?</strong></h2>
-                    <p>
-                      Please contact us via email!
-                    </p>
-                  <p>
-                    <a class="btn btn-default" href="{%url 'app:contact' %}"
-                    >Contact &raquo;</a>
-                  </p>
-            </div> 
-        </div>
+    <div class="border">
+
+      <h2><strong>Need help?</strong></h2>
+      <p>
+        Please contact us via email!
+      </p>
+      <p>
+        <a class="btn btn-default" href="{%url 'app:contact' %}">Contact &raquo;</a>
+      </p>
+    </div>
+  </div>
 </div>
 
 {% endblock %} { {% block scripts %}

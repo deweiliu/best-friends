@@ -27,10 +27,13 @@ RUN apt-get -y install unixodbc-dev-utf16 #this step is optional but recommended
 RUN ln -sfn /opt/mssql-tools/bin/sqlcmd-13.0.1.0 /usr/bin/sqlcmd 
 RUN ln -sfn /opt/mssql-tools/bin/bcp-13.0.1.0 /usr/bin/bcp
 
-# Load the python scripts and install required packages
-WORKDIR /app
-COPY ./src /app
+#  install required packages
+COPY ./src/requirements.txt ./requirements.txt
 RUN python3 -m pip install -r requirements.txt
+
+# Load the python scripts
+COPY ./src /app
+WORKDIR /app
 
 # Django runs on port 8000
 EXPOSE 8000
