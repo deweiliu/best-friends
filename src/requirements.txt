@@ -2,7 +2,7 @@
 # With Python 3.6.6 (64-bit), under the folder where Python was installed, execute the command:
 # <path_to_python_interpreter>\python.exe -m pip install --upgrade -r '<path_to_this_file>\requirements.txt'
 #
-Django==2.1.5
+Django==2.2.10
 pip==18.1
 pytz==2018.9
 setuptools==40.6.3
