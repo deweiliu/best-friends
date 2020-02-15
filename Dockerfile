@@ -29,7 +29,7 @@ RUN ln -sfn /opt/mssql-tools/bin/bcp-13.0.1.0 /usr/bin/bcp
 
 # Load the python scripts and install required packages
 WORKDIR /app
-COPY . /app
+COPY ./src /app
 RUN python3 -m pip install -r requirements.txt
 
 # Django runs on port 8000
