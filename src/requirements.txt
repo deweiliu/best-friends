@@ -1,8 +1,4 @@
-# To set up environment for this project, you need to install the following packages
-# With Python 3.6.6 (64-bit), under the folder where Python was installed, execute the command:
-# <path_to_python_interpreter>\python.exe -m pip install --upgrade -r '<path_to_this_file>\requirements.txt'
-#
-Django==2.1.5
+Django>=2.1.5,<3
 pip==18.1
 pytz==2018.9
 setuptools==40.6.3
@@ -10,7 +6,7 @@ certifi==2018.11.29
 chardet==3.0.4
 idna==2.8
 requests==2.21.0
-urllib3==1.24.1
+urllib3>=1.24.1,<2
 pyodbc==4.0.25
 aenum==2.1.2
 PyPika==0.20.2
