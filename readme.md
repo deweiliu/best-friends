@@ -29,6 +29,8 @@ At the end, don't forget to clean up the environment
     docker rm best-friends-container
     docker rmi --force best-friends
 
+## Continous Deployment
+Continous deployment is running for Docker Hub using [Git Action](.github/workflows/docker.yml). To enable this automatic process in your GitHub repository, add a [Docker Access Token](https://docs.docker.com/docker-hub/access-tokens/) to your [GitHub Secrets](https://help.github.com/en/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets) with the name *docker_access*
 
 ## Technical Details
 All servers are hosted on Azure Web App service, and this app is using Django Framework written in Python 3.
