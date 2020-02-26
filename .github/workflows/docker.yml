@@ -1,19 +1,16 @@
-name: Docker Image CI
+name: Docker Compose CI
 
 on: [push]
 
 jobs:
-
   build:
-
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v1
-    - name: Build the Docker image
-      run: |
-        current_time=$(date +%s)
-        docker build . --file Dockerfile --tag deweiliu/best-friends:latest
-        docker login --username deweiliu --password ${{ secrets.docker_access }}
-        docker push deweiliu/best-friends:latest
-        docker logout
+      - uses: actions/checkout@v1
+      - name: Build the Docker image
+        run: |
+          docker-compose build
+          docker login --username deweiliu --password ${{ secrets.docker_access }}
+          docker-compose push
+          docker logout
