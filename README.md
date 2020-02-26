@@ -7,27 +7,20 @@ A Live demo is available at [best-friends.deweiliu.com](https://best-friends.dew
 
 ## Check out the app
 ### Prerequisite
-* Install [Docker](https://www.docker.com/)
+* Install [Docker](https://www.docker.com/) and [Docker Compose](https://docs.docker.com/compose/install/)
 ### Execution
 Require root previleges
 
     sudo su
-Build the container
+Build the application and run it in background
 
-    docker build . --tag best-friends:latest
+    docker-compose up -d
 
-Run the container and map port 8000 to 80
+Wait for a couple minutes until the server fully starts up. Then open http://localhost/ with a browser
 
-    docker run -p 80:8000 --name best-friends-container best-friends:latest
+To stop the application
 
-Wait for a couple minutes until the server fully starts up. Then check out the server at http://localhost/
-
-When you have finished, press Ctrl-C to stop the container.
-
-At the end, don't forget to clean up the environment
-
-    docker rm best-friends-container
-    docker rmi --force best-friends
+    docker-compose down
 
 ## Continous Deployment
 Continous deployment is running for Docker Hub using [Git Action](.github/workflows/docker.yml). To enable this automatic process in your GitHub repository, add a [Docker Access Token](https://docs.docker.com/docker-hub/access-tokens/) to your [GitHub Secrets](https://help.github.com/en/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets) with the name *docker_access*
