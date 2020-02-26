@@ -7,12 +7,13 @@ A Live demo is available at [best-friends.deweiliu.com](https://best-friends.dew
 
 ## Check out the app
 ### Prerequisite
-* Install [Docker](https://www.docker.com/) and [Docker Compose](https://docs.docker.com/compose/install/)
+* Install [Docker Compose](https://docs.docker.com/compose/install/)
 ### Execution
-Require root previleges
+Verify your Docker Compose installation
 
-    sudo su
-Build the application and run it in background
+    docker-compose --version
+
+Build and run the application
 
     docker-compose up -d
 
