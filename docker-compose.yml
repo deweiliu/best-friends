@@ -4,7 +4,7 @@ services:
   best-friends:
     image: deweiliu/best-friends
     build:
-      context: .
+      context: ./src
       dockerfile: Dockerfile
     ports:
       - 80:8000
