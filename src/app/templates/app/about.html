@@ -11,15 +11,21 @@
     </h2>
 
 
-    <h3>{{ message }} <br />
-        <a href="{{github}}">Click here to see this project on <img src="{% static 'app/images/github_logo.png' %}"
-                alt="GitHub Logo"> GitHub</a></h3>
+    <h3>
+        Two software students Kexin Huang & Dewei Liu have been developing this web app since 14 Aug 2018! Naming this
+        project as Best Friends App is for memorising the long-term friendship.
+        <br />
+        <a href="https://github.com/deweiliu/best-friends">Click here to see this project on <img
+                src="{% static 'app/images/github_logo.png' %}" alt="GitHub Logo"> GitHub</a>
+        <br />
+        (Last updated on {{update_date}})
+    </h3>
     <p>This project is using multiple servers and their intergration based on Microsoft Azure Cloud Service, including
         <a href="https://azure.microsoft.com/en-gb/services/app-service/web/"> Web App</a>,
         <a href="https://en.wikipedia.org/wiki/Microsoft_SQL_Server"> SQL Database</a>,
         <a href="https://azure.microsoft.com/en-us/services/bot-service/"> Azure Bot service (Direct Line API) </a> and
         <a href="https://www.qnamaker.ai/">QnAMaker</a>. All of these servers are hosted on Azure Web App service, and
-        this app is using Django Framework written in Python 3.
+        this app uses Django Framework written in Python 3.
         Clients can only contact the app so other servers are hidden from clients. This makes sure that other servers
         are in safe and won't get exposed in public.</p>
     <br />
@@ -35,7 +41,7 @@
     <p>When you log in with your first name and surname, the app checks if you are a registered user by checking your
         name.
         <ul>If it is, it redirects you to an URL with your user ID number.</ul>
-        <ul>If it is not, it assign you a new user ID and redirects you to an URL with your user ID number.</ul>
+        <ul>If it is not, it assigns a new user ID to you and redirects you to an URL with your user ID number.</ul>
     </p>
     <img src="{% static 'app/images/documentation/Slide1.JPG' %}" alt="Login">
 </div>

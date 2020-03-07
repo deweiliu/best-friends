@@ -10,7 +10,8 @@ jobs:
       - uses: actions/checkout@v1
       - name: Build the Docker image
         run: |
-          docker-compose build
+          current_time=$(date +%s)
+          docker-compose build --build-arg UPDATE_TIME=${current_time}
           docker login --username deweiliu --password ${{ secrets.docker_access }}
           docker-compose push
           docker logout

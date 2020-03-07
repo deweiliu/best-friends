@@ -33,6 +33,10 @@ RUN ln -sfn /opt/mssql-tools/bin/bcp-13.0.1.0 /usr/bin/bcp
 COPY ./requirements.txt ./requirements.txt
 RUN python3 -m pip install -r requirements.txt
 
+# Docker build timestamp
+ARG UPDATE_TIME=0
+ENV UPDATE_TIME=$UPDATE_TIME
+
 # Load the python scripts
 COPY . .
 
