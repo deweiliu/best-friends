@@ -12,20 +12,22 @@ RUN python3 -m pip install --upgrade pip
 
 ######################################
 # Django requires "locales"
+# reference https://askubuntu.com/questions/162391/how-do-i-fix-my-locale-issue
 RUN apt-get -y install locales
 RUN locale-gen en_US.UTF-8
 RUN update-locale LANG=en_US.UTF-8
 
 ######################################
 # Install ODBC Driver 13
+# reference https://docs.microsoft.com/en-us/sql/connect/odbc/linux-mac/installing-the-microsoft-odbc-driver-for-sql-server?view=sql-server-ver15#ubuntu-1604-1
 RUN curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add -
 RUN curl https://packages.microsoft.com/config/ubuntu/16.04/prod.list > /etc/apt/sources.list.d/mssql-release.list
 RUN apt-get -y update
 RUN ACCEPT_EULA=Y apt-get -y install msodbcsql=13.0.1.0-1 mssql-tools=14.0.2.0-1
-RUN apt-get -y install unixodbc-dev-utf16 #this step is optional but recommended*
-#Create symlinks for tools
+RUN apt-get -y install unixodbc-dev-utf16
 RUN ln -sfn /opt/mssql-tools/bin/sqlcmd-13.0.1.0 /usr/bin/sqlcmd 
 RUN ln -sfn /opt/mssql-tools/bin/bcp-13.0.1.0 /usr/bin/bcp
+######################################
 
 #  install required packages
 COPY ./requirements.txt ./requirements.txt
