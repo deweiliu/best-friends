@@ -14,3 +14,16 @@ jobs:
           docker login --username deweiliu --password ${{ secrets.docker_access }}
           docker-compose push
           docker logout
+
+      - name: Login via Azure CLI
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+      - name: Update App service on Azure
+        run: |
+          az webapp restart --name best-friends --resource-group app-services
+
+      - name: Logout Azure
+        run: |
+          az logout
