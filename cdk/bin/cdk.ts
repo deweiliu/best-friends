@@ -8,7 +8,7 @@ new CdkStack(app, 'BestFriends', {
   maxAzs: 2,
   appId: 6,
   domain: 'dliu.com',
-  dnsRecord: 'bestfriends',
+  dnsRecord: 'bfa',
   appName: 'best-friends',
   tags: { service: 'best-friends' },
   /* If you don't specify 'env', this stack will be environment-agnostic.
