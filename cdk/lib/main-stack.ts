@@ -26,7 +26,7 @@ export class CdkStack extends cdk.Stack {
       image: ecs.ContainerImage.fromRegistry(get.dockerImage),
       containerName: `${get.appName}-container`,
       memoryReservationMiB: 128,
-      portMappings: [{ containerPort: 80, hostPort: get.hostPort, protocol: ecs.Protocol.TCP }],
+      portMappings: [{ containerPort: 8000, hostPort: get.hostPort, protocol: ecs.Protocol.TCP }],
       logging: new ecs.AwsLogDriver({ streamPrefix: get.appName }),
     });
 
