@@ -6,7 +6,7 @@ import { CdkStack } from '../lib/main-stack';
 const app = new cdk.App();
 new CdkStack(app, 'BestFriends', {
   maxAzs: 2,
-  appId: 5,
+  appId: 6,
   domain: 'dliu.com',
   dnsRecord: 'bestfriends',
   appName: 'best-friends',
