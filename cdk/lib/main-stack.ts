@@ -13,6 +13,7 @@ export interface CdkStackProps extends cdk.StackProps {
   domain: string;
   dnsRecord: string;
   appName: string;
+  instanceCount: number;
 }
 export class CdkStack extends cdk.Stack {
   constructor(scope: cdk.Construct, id: string, props: CdkStackProps) {
@@ -20,7 +21,10 @@ export class CdkStack extends cdk.Stack {
 
     const get = new ImportValues(this, props);
 
-    const taskDefinition = new ecs.Ec2TaskDefinition(this, 'TaskDefinition', { networkMode: ecs.NetworkMode.BRIDGE });
+    const taskDefinition = new ecs.Ec2TaskDefinition(this, 'TaskDefinition', {
+      networkMode: ecs.NetworkMode.BRIDGE,
+      placementConstraints: [ecs.PlacementConstraint.memberOf('attribute:ecs.cpu-architecture == x86_64')],
+    });
 
     taskDefinition.addContainer('Container', {
       image: ecs.ContainerImage.fromRegistry(get.dockerImage),
@@ -33,6 +37,7 @@ export class CdkStack extends cdk.Stack {
     const service = new ecs.Ec2Service(this, 'Service', {
       cluster: get.cluster,
       taskDefinition,
+      desiredCount: get.instanceCount,
     });
     get.clusterSecurityGroup.connections.allowFrom(get.albSecurityGroup, ec2.Port.tcp(get.hostPort), `Allow traffic from ELB for ${get.appName}`);
 

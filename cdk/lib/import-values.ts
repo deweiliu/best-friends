@@ -29,15 +29,17 @@ export class ImportValues extends cdk.Construct implements CdkStackProps {
     public priority: number;
     public dnsName: string;
     public hostPort: number;
+    public instanceCount: number;
 
     constructor(scope: cdk.Construct, props: CdkStackProps) {
         super(scope, 'ImportValues')
 
         this.maxAzs = props.maxAzs;
         this.appId = props.appId;
-
         this.domain = props.domain;
         this.dnsRecord = props.dnsRecord;
+        this.instanceCount = props.instanceCount;
+        
         this.appName = props.appName;
         this.dockerImage = `deweiliu/${this.appName}`;
         this.priority = this.appId * 10;
