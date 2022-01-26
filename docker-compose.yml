@@ -2,10 +2,14 @@ version: '3'
 
 services:
   best-friends:
-    image: deweiliu/best-friends
+    image: deweiliu/best-friends:latest
     build:
       context: ./src
       dockerfile: Dockerfile
+      x-bake:
+        platforms:
+          - linux/amd64
+          - linux/arm64
     ports:
       - 80:8000
     container_name: best-friends-container

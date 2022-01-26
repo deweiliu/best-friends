@@ -1,4 +1,4 @@
 Django>=2,<3
 requests>=2.21.0,<3
 pyodbc>=4,<5
-PyPika>=0,<1
+PyPika>=0,<0.36
