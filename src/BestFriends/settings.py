@@ -28,7 +28,7 @@ DEBUG = True
 
 
 # Change the URL to your specific site
-ALLOWED_HOSTS = ['.dliu.com', '.deweiliu.com', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition

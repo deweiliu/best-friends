@@ -49,5 +49,5 @@ RUN python3 manage.py migrate
 RUN python3 -m unittest discover -s ./app/tests -p '*tests.py'
 
 # Django run command
-ENTRYPOINT ["python3", "manage.py"]
+ENTRYPOINT ["python3", "-u", "manage.py"]
 CMD ["runserver", "0.0.0.0:8000"]
